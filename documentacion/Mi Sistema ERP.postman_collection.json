@@ -1,0 +1,5725 @@
+{
+	"info": {
+		"_postman_id": "1c212102-72cf-4f70-a59c-ce4022bff66e",
+		"name": "Mi Sistema ERP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8989617",
+		"_collection_link": "https://red-astronaut-50824.postman.co/workspace/EsparzaGarza-MX~efd66c8d-6cab-4742-b06e-34003aef3c56/collection/8989617-1c212102-72cf-4f70-a59c-ce4022bff66e?action=share&source=collection_link&creator=8989617"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "home",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgot",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"email\": \"soporte.sistemasegmx\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/auth/forgot",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"auth",
+								"forgot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"soporte@sistemasegmx.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/auth/login",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refresh_token\": \"ZzFBODFIbGhRMXJZSlMwR2E2blRVeTRnMXdodlE3ekhCelFqTVNDOW0zSVFrMUtCM24xQVF3cEc0d3hDaXBzNFlhQ0lvN0Uwb0VETnJEeDA0bWR6Rks4NkNFcVFCSTNhZjZyVG1NajM3ems0VGJhVFJpQktrTWJKQXVCazIyWGNjbkx1S2hMMzdvMlVwU0VYdTZvbTJENFJpRC9pMThLQnpBMTFIRXZlM1RrPQ==\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/auth/refresh",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwibGFzdGxvZ2luIjoiMjAyNC0wMi0yNyAxNzo0NjozOCIsImV4cGlyZSI6MTcwOTE0MjM5OH0.Qp7tEnNC1YkFcS4ymZiAa4cgXiXj0Cz4J_rfBtZuoes\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/auth/logout",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Tests",
+			"item": [
+				{
+					"name": "tests/login",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/tests/login",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"tests",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tests/activate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/tests/activate",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"tests",
+								"activate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tests/register",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/tests/register",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"tests",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "wizard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/wizard",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"wizard"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Modules",
+			"item": [
+				{
+					"name": "Catalogos",
+					"item": [
+						{
+							"name": "ente",
+							"item": [
+								{
+									"name": "ente",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/ente",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"ente"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ente/filtered",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Cliente 2\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/ente/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"ente",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ente/paginated",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/ente/paginated?pageNumber=1&pageSize=11&status=&staffid=&fieldColumn=fiscalname&fieldValue=CRUZ ANTONIO IBARRA GONZALEZ&type=cliente",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"ente",
+												"paginated"
+											],
+											"query": [
+												{
+													"key": "pageNumber",
+													"value": "1"
+												},
+												{
+													"key": "pageSize",
+													"value": "11"
+												},
+												{
+													"key": "status",
+													"value": ""
+												},
+												{
+													"key": "staffid",
+													"value": ""
+												},
+												{
+													"key": "fieldColumn",
+													"value": "fiscalname"
+												},
+												{
+													"key": "fieldValue",
+													"value": "CRUZ ANTONIO IBARRA GONZALEZ"
+												},
+												{
+													"key": "type",
+													"value": "cliente"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ente/listByColumn",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"status\": true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/ente/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"ente",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ente/getone",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\" : 2\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/ente/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"ente",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ente/preByLike",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"fiscalname\": \"cruz ant\",\r\n    \"type\": \"cliente\",\r\n    \"limitqty\": 10,\r\n    \"ascending\": \"ASC\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/ente/preByLike",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"ente",
+												"preByLike"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ente",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1,\r\n    \"accountid\": 1,\r\n    \"code\": \"ASPENTEC\",\r\n    \"fullname\": \"ASPENTEC TECNOLOGIA INTEGRAL\",\r\n    \"nationality\": null,\r\n    \"rfc\": \"SAHS860424DUA\",\r\n    \"fiscalname\": \"ASPENTEC TECNOLOGIA INTEGRAL\",\r\n    \"fulladdress\": null,\r\n    \"email\": \"aspentec.tj@gmail.com\",\r\n    \"phone\": null,\r\n    \"level\": 1,\r\n    \"type\": \"cliente\",\r\n    \"image\": \"/assets/img/nofoto.png\",\r\n    \"status\": \"activo\",\r\n    \"created_by\": 1,\r\n    \"created_at\": \"2024-07-10 19:30:50\",\r\n    \"modified_by\": 23,\r\n    \"modified_at\": \"2024-07-10 19:30:50\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/ente",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"ente"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ente",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 3,\r\n    \"name\": \"Ente customer two cool updated !\",\r\n    \"gender\": null,\r\n    \"nationality\": null,\r\n    \"dob\": \"2002-01-01\",\r\n    \"dni\": \"a1b2c3d4e5f6g\",\r\n    \"fiscal_name\": null,\r\n    \"full_address\": null,\r\n    \"level\": 2,\r\n    \"type\": \"customer\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/ente",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"ente"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ente",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 3,\r\n    \"name\": \"Ente customer two cool again !\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/ente",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"ente"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ente",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 4\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/ente",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"ente"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "entecontacts",
+							"item": [
+								{
+									"name": "entecontacts",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/entecontacts",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"entecontacts"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "entecontacts/filtered",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Cliente 2\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/entecontacts/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"entecontacts",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "entecontacts/listByColumn",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"status\": true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/entecontacts/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"entecontacts",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "entecontacts/getone",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\" : 2\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/entecontacts/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"entecontacts",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "entecontacts",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1,\r\n    \"accountid\": 1,\r\n    \"code\": \"ASPENTEC\",\r\n    \"fullname\": \"ASPENTEC TECNOLOGIA INTEGRAL\",\r\n    \"nationality\": null,\r\n    \"rfc\": \"SAHS860424DUA\",\r\n    \"fiscalname\": \"ASPENTEC TECNOLOGIA INTEGRAL\",\r\n    \"fulladdress\": null,\r\n    \"email\": \"aspentec.tj@gmail.com\",\r\n    \"phone\": null,\r\n    \"level\": 1,\r\n    \"type\": \"cliente\",\r\n    \"image\": \"/assets/img/nofoto.png\",\r\n    \"status\": \"activo\",\r\n    \"created_by\": 1,\r\n    \"created_at\": \"2024-07-10 19:30:50\",\r\n    \"modified_by\": 23,\r\n    \"modified_at\": \"2024-07-10 19:30:50\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/entecontacts",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"entecontacts"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "entecontacts",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fullname\": \"asdas sdfsdf\",\r\n  \"position\": \"asdasd\",\r\n  \"email\": \"asda@asdas.com\",\r\n  \"phone\": \"321321\",\r\n  \"enteid\": 1,\r\n  \"created_by\": 23,\r\n  \"modified_by\": 23\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/entecontacts",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"entecontacts"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "entecontacts",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 3,\r\n    \"name\": \"Ente customer two cool again !\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/entecontacts",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"entecontacts"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "entecontacts",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 4\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/entecontacts",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"entecontacts"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "item",
+							"item": [
+								{
+									"name": "item",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/item",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"item"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "item/filtered",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"accountid\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/item/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"item",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "item/paginated",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/item/paginated?pageNumber=1&pageSize=11&status=&categoryid=&fieldColumn=code&fieldValue=vv",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"item",
+												"paginated"
+											],
+											"query": [
+												{
+													"key": "pageNumber",
+													"value": "1"
+												},
+												{
+													"key": "pageSize",
+													"value": "11"
+												},
+												{
+													"key": "status",
+													"value": ""
+												},
+												{
+													"key": "categoryid",
+													"value": ""
+												},
+												{
+													"key": "fieldColumn",
+													"value": "code"
+												},
+												{
+													"key": "fieldValue",
+													"value": "vv"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "item/listByColumn",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"created_by\":1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/item/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"item",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "item/oneByColumn",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/item/oneByColumn?code=iq2g6oyfbc",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"item",
+												"oneByColumn"
+											],
+											"query": [
+												{
+													"key": "code",
+													"value": "iq2g6oyfbc"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "item/listByLike",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"code\": \"m\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/item/listByLike",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"item",
+												"listByLike"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "item/getone",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/item/getone?id=11",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"item",
+												"getone"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "11"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "item/preByLike",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"code\": \"pint\",\r\n    \"ascending\": \"ASC\",\r\n    \"limitqty\": 10,\r\n    \"searchMode\": \"wildcard\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/item/preByLike",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"item",
+												"preByLike"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "item",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"\",\r\n    \"accountid\": \"1\",\r\n    \"code\": \"ABC123\",\r\n    \"fulladdress\": \"Av San Martin 123456\",\r\n    \"description\": \"nacar combinado un elemento decorativo\",\r\n    \"watermeter\": \"a1\",\r\n    \"lightmeter\": \"b2\",\r\n    \"floors\": \"2\",\r\n    \"beds\": \"3\",\r\n    \"baths\": \"1\",\r\n    \"landsize\": \"3214\",\r\n    \"constructionsize\": \"32121\",\r\n    \"color\": \"gris, amarillo y blanco\",\r\n    \"price\": \"600\",\r\n    \"type\": \"casa\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/item",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"item"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "item",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 10,\r\n    \"code\": \"ABC123\",\r\n    \"fulladdress\": \"Av San Martin 123456\",\r\n    \"description\": \"nacar combinado un elemento decorativo\",\r\n    \"floors\": \"2\",\r\n    \"beds\": \"3\",\r\n    \"baths\": \"1\",\r\n    \"landsize\": \"3214\",\r\n    \"constructionsize\": \"32121\",\r\n    \"color\": \"gris, amarillo y blanco\",\r\n    \"price\": 600,\r\n    \"type\": \"casa\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/item",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"item"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "item",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 10,\r\n    \"price\": 800\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/item",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"item"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "item",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/item?id=10",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"item"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "itempricelevels",
+							"item": [
+								{
+									"name": "itempricelevels",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/itempricelevels",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"itempricelevels"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "itempricelevels/filtered",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"accountid\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/itempricelevels/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"itempricelevels",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "itempricelevels/listByColumn",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"created_by\":1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/itempricelevels/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"itempricelevels",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "itempricelevels/getone",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/itempricelevels/getone?id=11",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"itempricelevels",
+												"getone"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "11"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "itempricelevels",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"\",\r\n    \"accountid\": \"1\",\r\n    \"code\": \"ABC123\",\r\n    \"fulladdress\": \"Av San Martin 123456\",\r\n    \"description\": \"nacar combinado un elemento decorativo\",\r\n    \"watermeter\": \"a1\",\r\n    \"lightmeter\": \"b2\",\r\n    \"floors\": \"2\",\r\n    \"beds\": \"3\",\r\n    \"baths\": \"1\",\r\n    \"landsize\": \"3214\",\r\n    \"constructionsize\": \"32121\",\r\n    \"color\": \"gris, amarillo y blanco\",\r\n    \"price\": \"600\",\r\n    \"type\": \"casa\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/itempricelevels",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"itempricelevels"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "itempricelevels",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 10,\r\n    \"code\": \"ABC123\",\r\n    \"fulladdress\": \"Av San Martin 123456\",\r\n    \"description\": \"nacar combinado un elemento decorativo\",\r\n    \"floors\": \"2\",\r\n    \"beds\": \"3\",\r\n    \"baths\": \"1\",\r\n    \"landsize\": \"3214\",\r\n    \"constructionsize\": \"32121\",\r\n    \"color\": \"gris, amarillo y blanco\",\r\n    \"price\": 600,\r\n    \"type\": \"casa\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/itempricelevels",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"itempricelevels"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "itempricelevels",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 10,\r\n    \"price\": 800\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/itempricelevels",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"itempricelevels"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "itempricelevels",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/itempricelevels?id=10",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"itempricelevels"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "staff",
+							"item": [
+								{
+									"name": "staff",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/staff",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"staff"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "staff/filtered",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n   \"email\": \"albertoe@comercializadora.mx\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/staff/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"staff",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "staff/paginated",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/staff/paginated?pageNumber=1&pageSize=11&status=&staffid=&fieldColumn=fullname&fieldValue=ARMANDO s",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"staff",
+												"paginated"
+											],
+											"query": [
+												{
+													"key": "pageNumber",
+													"value": "1"
+												},
+												{
+													"key": "pageSize",
+													"value": "11"
+												},
+												{
+													"key": "status",
+													"value": ""
+												},
+												{
+													"key": "staffid",
+													"value": ""
+												},
+												{
+													"key": "fieldColumn",
+													"value": "fullname"
+												},
+												{
+													"key": "fieldValue",
+													"value": "ARMANDO s"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "staff/listByColumn",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/staff/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"staff",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "staff/getone",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\" : 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/staff/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"staff",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "staff",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"accountid\": 1,\r\n    \"enteid\": \"3\",\r\n    \"email\": \"user1@egmx.mx\",\r\n    \"password\": \"123456\",\r\n    \"role\": \"user\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/staff",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"staff"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "staff",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 3,\r\n    \"accountid\": 1,\r\n    \"managerid\": 7,\r\n    \"departmentid\": 4,\r\n    \"jobid\": 6,\r\n    \"managername\": \"ANDRES HERRERA\",\r\n    \"departmentname\": \"marketing\",\r\n    \"jobname\": \"Gerente de Contabilidad\",\r\n    \"fullname\": \"ALEJANDRO SIERRAS\",\r\n    \"dob\": null,\r\n    \"email\": \"alejandrosierras.pit@gmail.com\",\r\n    \"phone\": \"\",\r\n    \"fulladdress\": null,\r\n    \"hire_date\": \"2024-07-10\",\r\n    \"salary\": null,\r\n    \"have_user\": 3,\r\n    \"image\": \"/assets/img/nofoto.png\",\r\n    \"status\": \"activo\",\r\n    \"created_by\": 1,\r\n    \"created_at\": \"2024-07-10 19:53:12\",\r\n    \"modified_by\": 1,\r\n    \"modified_at\": \"2024-07-20 00:16:16\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/staff",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"staff"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "staff",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1,\r\n    \"role\": \"demo\",\r\n    \"lastlogin\": \"2022-10-15 17:52:00\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/staff",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"staff"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "staff",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 2\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/staff",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"staff"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Sistema",
+					"item": [
+						{
+							"name": "account",
+							"item": [
+								{
+									"name": "account",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/account",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"account"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "account/filtered",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"status\": \"activo\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/account/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"account",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "account/listByColumn",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"status\": \"operacion\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/account/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"account",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "account/getone",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/account/getone?id=1",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"account",
+												"getone"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "account",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Account one cool !\",\r\n    \"description\": \"account premium plus\",\r\n    \"slug\": \"acccounttow.com\",\r\n    \"type\": \"premium+\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/account",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"account"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "account",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1,\r\n    \"image\": \"/assets/uploads/2022-11/account/1_1669521983.PNG\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/account",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"account"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "account",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 2\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/account",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"account"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "category",
+							"item": [
+								{
+									"name": "category",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/category",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"category"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "category/filtered",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Placa Marmol\"    \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/category/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"category",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "category/listByColumn",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"status\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/category/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"category",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "category/getone",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\" : 10\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/category/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"category",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "category",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"accountid\": 1,\r\n    \"categoryid\": 3,\r\n    \"name\": \"Created by POST without File\",\r\n    \"description\": \"\",\r\n    \"status\": true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/category",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"category"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "category",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 10,\r\n    \"categoryid\": 3,\r\n    \"name\": \"Category Edited by PUT and Model\",\r\n    \"description\": \" \",\r\n    \"status\": true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/category",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"category"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "category",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 10,\r\n    \"name\": \"Category Edited by PATCH, one column\",\r\n    \"description\" : \"Blue Moon\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/category",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"category"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "category",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 11\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/category",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"category"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "currency",
+							"item": [
+								{
+									"name": "currency",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/currency",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"currency"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "currency/filtered",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"US DOLLAR\"    \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/currency/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"currency",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "currency/listByColumn",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"symbol\": \"$\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/currency/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"currency",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "currency/getone",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 3\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/currency/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"currency",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "currency",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Peso Colombiano\",\r\n    \"symbol\": \"$\",\r\n    \"currency_precision\": \"4\",\r\n    \"thousand_separator\": \",\",\r\n    \"decimal_separator\": \".\",\r\n    \"currency_code\": \"COL\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/currency",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"currency"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "currency",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 4,\r\n    \"name\": \"Peso Colombias\",\r\n    \"symbol\": \"$\",\r\n    \"currency_precision\": \"4\",\r\n    \"thousand_separator\": \",\",\r\n    \"decimal_separator\": \".\",\r\n    \"currency_code\": \"COL\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/currency",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"currency"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "currency",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 4,\r\n    \"name\": \"Peso PATCH\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/currency",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"currency"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "currency",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 4\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/currency",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"currency"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "department",
+							"item": [
+								{
+									"name": "department",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/department",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"department"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "department/filtered",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"US DOLLAR\"    \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/department/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"department",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "department/listByColumn",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"symbol\": \"$\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/department/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"department",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "department/getone",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 3\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/department/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"department",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "department",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Peso Colombiano\",\r\n    \"symbol\": \"$\",\r\n    \"currency_precision\": \"4\",\r\n    \"thousand_separator\": \",\",\r\n    \"decimal_separator\": \".\",\r\n    \"currency_code\": \"COL\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/department",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"department"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "department",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 14,\r\n    \"accountid\": 1,\r\n    \"managerid\": \"16\",\r\n    \"managername\": \"\",\r\n    \"fullname\": \"estrategia y planificación\",\r\n    \"description\": \"Departamento encargado de la planificación estratégica y análisis de mercado\",\r\n    \"status\": \"activo\",\r\n    \"created_by\": 1,\r\n    \"created_at\": \"2024-07-10 19:23:35\",\r\n    \"modified_by\": 1,\r\n    \"modified_at\": \"2024-07-19 22:25:18\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/department",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"department"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "department",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 4,\r\n    \"name\": \"Peso PATCH\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/department",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"department"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "department",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 4\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/department",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"department"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "job",
+							"item": [
+								{
+									"name": "job",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/job",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"job"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "job/filtered",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n   \"name\": \"IVA 2020\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/job/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"job",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "job/listByColumn",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n   \"name\": \"IVA 2020\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/job/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"job",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "job/getone",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\" : 2\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/job/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"job",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "job",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"accountid\": 1,\r\n    \"name\": \"IVA 2010\",\r\n    \"amount\": 0.08,\r\n    \"status\": 1,\r\n    \"created_by\": 1,\r\n    \"modified_by\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/job",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"job"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "job",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 2,\r\n    \"name\": \"IVA 2024 demos ok\",\r\n    \"amount\": 0.08,\r\n    \"status\": 1,\r\n    \"modified_by\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/job",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"job"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "job",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 4,\r\n    \"accountid\": 1,\r\n    \"name\": \"OISR 2011\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/job",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"job"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "job",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 3\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/job",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"job"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "payment",
+							"item": [
+								{
+									"name": "payment",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/payment",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"payment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "payment/filtered",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"created_by\": 1,\r\n  \"pyear\": \"2024\",\r\n  \"pmonth\": \"enero\",\r\n  \"ascending\": \"desc\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/payment/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"payment",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "payment/listByColumn",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"saleid\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/payment/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"payment",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "payment/getone",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\" : 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/payment/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"payment",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "payment/getPayments",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\" : 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/payment/getPayments",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"payment",
+												"getPayments"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "payment/getPSummary",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\" : 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/payment/getPSummary?pyear=2022&pmonth=marzo",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"payment",
+												"getPSummary"
+											],
+											"query": [
+												{
+													"key": "pyear",
+													"value": "2022"
+												},
+												{
+													"key": "pmonth",
+													"value": "marzo"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "payment",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"accountid\": 1,\r\n    \"saleid\": 1,\r\n    \"amount\": 123,\r\n    \"currency\": \"USD\",\r\n    \"parity\": 19.50,\r\n    \"method\": \"efectivo\",\r\n    \"reference\": \"una sola exhibición\",\r\n    \"type\": \"abono\",\r\n    \"startdate\": \"2022-10-10\",\r\n    \"enddate\": \"2022-11-10\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/payment",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"payment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "payment",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 3,\r\n    \"reference\": \"una sola exhibición put\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/payment",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"payment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "payment",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 3,\r\n    \"reference\": \"una sola exhibición patch\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/payment",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"payment"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "payment",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 3\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/payment",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"payment"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "tax",
+							"item": [
+								{
+									"name": "tax",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/tax",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"tax"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "tax/filtered",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n   \"name\": \"IVA 2020\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/tax/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"tax",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "tax/listByColumn",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n   \"name\": \"IVA 2020\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/tax/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"tax",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "tax/getone",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\" : 2\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/tax/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"tax",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "tax",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"accountid\": 1,\r\n    \"name\": \"IVA 2010\",\r\n    \"amount\": 0.08,\r\n    \"status\": 1,\r\n    \"created_by\": 1,\r\n    \"modified_by\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/tax",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"tax"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "tax",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 2,\r\n    \"name\": \"IVA 2024 demos ok\",\r\n    \"amount\": 0.08,\r\n    \"status\": 1,\r\n    \"modified_by\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/tax",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"tax"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "tax",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 4,\r\n    \"accountid\": 1,\r\n    \"name\": \"OISR 2011\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/tax",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"tax"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "tax",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 3\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/tax",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"tax"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "user",
+							"item": [
+								{
+									"name": "user",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/user",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "user/bytoken",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/user/bytoken",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"user",
+												"bytoken"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "user/filtered",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/user/filtered?type=afiliado",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"user",
+												"filtered"
+											],
+											"query": [
+												{
+													"key": "type",
+													"value": "afiliado"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "user/listByColumn",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"hola@esparzagarza.mx\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/user/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"user",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "user/getone",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/user/getone?id=1",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"user",
+												"getone"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "user",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"\",\r\n    \"accountid\": 1,\r\n    \"employee_id\": \"\",\r\n    \"email\": \"soporte5@sistemasegmx.com\",\r\n    \"username\": \"\",\r\n    \"password\": \"123456\",\r\n    \"fullname\": \"asda\",\r\n    \"phone\": \"\",\r\n    \"description\": \"\",\r\n    \"lastlogin\": \"\",\r\n    \"type\": \"admin\",\r\n    \"slug\": \"\",\r\n    \"image\": \"/assets/img/nofoto.png\",\r\n    \"status\": \"activo\",\r\n    \"created_by\": 23,\r\n    \"modified_by\": 23\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/user",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "user",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1,\r\n    \"accountid\": 1,\r\n    \"employee_id\": null,\r\n    \"email\": \"pitind37@gmail.com\",\r\n    \"username\": \"pitind37.pitsystem\",\r\n    \"password\": \"\",\r\n    \"fullname\": \"ABEL SANCHEZ\",\r\n    \"phone\": \"\",\r\n    \"description\": \"LOGÍSTICA\",\r\n    \"lastlogin\": \"2024-07-10 13:16:18\",\r\n    \"type\": \"admin\",\r\n    \"image\": \"/assets/uploads/2024-07/user/0_1721321116.jpg\",\r\n    \"status\": \"activo\",\r\n    \"created_by\": 1,\r\n    \"created_at\": \"2024-07-10 13:14:25\",\r\n    \"modified_by\": 1,\r\n    \"modified_at\": \"2024-07-18 19:00:00\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/user",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "user",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1,\r\n    \"type\": \"rootest\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/user",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "user",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 5\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/user",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"user"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Movimientos",
+					"item": [
+						{
+							"name": "import",
+							"item": [
+								{
+									"name": "import",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/import",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"import"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "import/filtered",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/import/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"import",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "import/listByColumn",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"ticket\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/import/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"import",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "import/getone",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/import/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"import",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "import",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"restaurantid\": 101,\r\n    \"affiliateid\": 1001,\r\n    \"ticket\": \"A1B2C3D4E4\",\r\n    \"startdate\": \"01-01-2024\",\r\n    \"total\": 250.00,\r\n    \"rfc\": \"XAXX010101000\",\r\n    \"paymethod\": \"efectivo\",\r\n    \"comments\": \"todo cool\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/import",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"import"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "import",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1,\r\n    \"rfc\": \"XAXX010101000\",\r\n    \"paymethod\": \"tranferencia\",\r\n    \"comments\": \"todo cool trns\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/import",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"import"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "import",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1,\r\n    \"comments\": \"todo cool patch\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/import",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"import"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "import",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/import",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"import"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "packingslip",
+							"item": [
+								{
+									"name": "packingslip",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/packingslip",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"packingslip"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "packingslip/filtered",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/packingslip/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"packingslip",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "packingslip/listByColumn",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"ticket\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/packingslip/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"packingslip",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "packingslip/getone",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/packingslip/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"packingslip",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "packingslip",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"restaurantid\": 101,\r\n    \"affiliateid\": 1001,\r\n    \"ticket\": \"A1B2C3D4E4\",\r\n    \"startdate\": \"01-01-2024\",\r\n    \"total\": 250.00,\r\n    \"rfc\": \"XAXX010101000\",\r\n    \"paymethod\": \"efectivo\",\r\n    \"comments\": \"todo cool\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/packingslip",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"packingslip"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "packingslip",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1,\r\n    \"rfc\": \"XAXX010101000\",\r\n    \"paymethod\": \"tranferencia\",\r\n    \"comments\": \"todo cool trns\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/packingslip",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"packingslip"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "packingslip",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1,\r\n    \"comments\": \"todo cool patch\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/packingslip",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"packingslip"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "packingslip",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/packingslip",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"packingslip"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "sale",
+							"item": [
+								{
+									"name": "sale",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/sale",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"sale"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "sale/filtered",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/sale/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"sale",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "sale/filteredByRange",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/sale/filteredByRange?status=&ascending=desc&type=cotizacion&startDate=2024-09-01&endDate=2024-09-30",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"sale",
+												"filteredByRange"
+											],
+											"query": [
+												{
+													"key": "status",
+													"value": ""
+												},
+												{
+													"key": "ascending",
+													"value": "desc"
+												},
+												{
+													"key": "type",
+													"value": "cotizacion"
+												},
+												{
+													"key": "startDate",
+													"value": "2024-09-01"
+												},
+												{
+													"key": "endDate",
+													"value": "2024-09-30"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "sale/paginated",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/sale/paginated?pageNumber=1&pageSize=10&status=&ascending=desc&type=cotizacion&fieldColumn=&fieldValue=",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"sale",
+												"paginated"
+											],
+											"query": [
+												{
+													"key": "pageNumber",
+													"value": "1"
+												},
+												{
+													"key": "pageSize",
+													"value": "10"
+												},
+												{
+													"key": "status",
+													"value": ""
+												},
+												{
+													"key": "ascending",
+													"value": "desc"
+												},
+												{
+													"key": "type",
+													"value": "cotizacion"
+												},
+												{
+													"key": "fieldColumn",
+													"value": ""
+												},
+												{
+													"key": "fieldValue",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "sale/paginatedReport Copy",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/sale/paginatedReport?pageNumber=1&pageSize=100&status=&ascending=desc&type=compra&entename=&created_by=&currency=&startDate=2023-09-01&endDate=2024-09-30&folio=",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"sale",
+												"paginatedReport"
+											],
+											"query": [
+												{
+													"key": "pageNumber",
+													"value": "1"
+												},
+												{
+													"key": "pageSize",
+													"value": "100"
+												},
+												{
+													"key": "status",
+													"value": ""
+												},
+												{
+													"key": "ascending",
+													"value": "desc"
+												},
+												{
+													"key": "type",
+													"value": "compra"
+												},
+												{
+													"key": "entename",
+													"value": ""
+												},
+												{
+													"key": "created_by",
+													"value": ""
+												},
+												{
+													"key": "currency",
+													"value": ""
+												},
+												{
+													"key": "startDate",
+													"value": "2023-09-01"
+												},
+												{
+													"key": "endDate",
+													"value": "2024-09-30"
+												},
+												{
+													"key": "folio",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "sale/listByColumn",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"type\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/sale/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"sale",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "sale/getone",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/sale/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"sale",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "sale",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{    \r\n    \"saleid\": \"\",\r\n    \"accountid\": 1,\r\n    \"enteid\": \"\",\r\n    \"entename\": \"\",\r\n    \"currency\": \"MXN\",\r\n    \"parity\": \"19.5\",\r\n    \"taxname\": \"IVA 2024\",\r\n    \"taxamount\": \"0.16\",\r\n    \"subtotal\": \"\",\r\n    \"total\": \"\",\r\n    \"cost\": \"\",\r\n    \"paid\": \"\",\r\n    \"paymentmethod\": \"efectivo\",\r\n    \"folio\": \"\",\r\n    \"salename\": \"\",\r\n    \"shippingmethod\": \"sin envío\",\r\n    \"from\": \"\",\r\n    \"deliver_to\": \"\",\r\n    \"type\": \"cotizacion\",\r\n    \"items\": \"\",\r\n    \"startdate\": \"\",\r\n    \"enddate\": \"\",\r\n    \"description\": \"\",\r\n    \"status\": \"creada\",\r\n    \"created_by\": 23,\r\n    \"modified_by\": 23\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/sale",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"sale"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "sale",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1678,    \r\n    \"status\": \"creado 3\"    \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/sale",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"sale"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "sale",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1,\r\n    \"comments\": \"todo cool patch\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/sale",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"sale"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "sale",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/sale",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"sale"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "saleitems",
+							"item": [
+								{
+									"name": "saleitems",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/saleitems",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"saleitems"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "saleitems/filtered",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/saleitems/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"saleitems",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "saleitems/listByColumn",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"ticket\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/saleitems/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"saleitems",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "saleitems/paginated",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/saleitems/paginated?pageNumber=1&pageSize=10&status=&ascending=desc&type=cotizacion&fieldColumn=&fieldValue=",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"saleitems",
+												"paginated"
+											],
+											"query": [
+												{
+													"key": "pageNumber",
+													"value": "1"
+												},
+												{
+													"key": "pageSize",
+													"value": "10"
+												},
+												{
+													"key": "status",
+													"value": ""
+												},
+												{
+													"key": "ascending",
+													"value": "desc"
+												},
+												{
+													"key": "type",
+													"value": "cotizacion"
+												},
+												{
+													"key": "fieldColumn",
+													"value": ""
+												},
+												{
+													"key": "fieldValue",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "saleitems/paginatedByCompra",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/saleitems/paginatedByCompra?pageNumber=1&pageSize=10&ascending=desc&fieldValue=&fieldItemValue&seller=20&status=orden procesada",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"saleitems",
+												"paginatedByCompra"
+											],
+											"query": [
+												{
+													"key": "pageNumber",
+													"value": "1"
+												},
+												{
+													"key": "pageSize",
+													"value": "10"
+												},
+												{
+													"key": "ascending",
+													"value": "desc"
+												},
+												{
+													"key": "fieldValue",
+													"value": ""
+												},
+												{
+													"key": "fieldItemValue",
+													"value": null
+												},
+												{
+													"key": "seller",
+													"value": "20"
+												},
+												{
+													"key": "status",
+													"value": "orden procesada"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "saleitems/paginatedByRecibo",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/saleitems/paginatedByRecibo?pageNumber=1&pageSize=10&ascending=desc&startDate=2025-04-01&endDate=2025-04-30&seller=&fieldValue=&fieldItemValue=&fieldEnteValue=&type&",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"saleitems",
+												"paginatedByRecibo"
+											],
+											"query": [
+												{
+													"key": "pageNumber",
+													"value": "1"
+												},
+												{
+													"key": "pageSize",
+													"value": "10"
+												},
+												{
+													"key": "ascending",
+													"value": "desc"
+												},
+												{
+													"key": "startDate",
+													"value": "2025-04-01"
+												},
+												{
+													"key": "endDate",
+													"value": "2025-04-30"
+												},
+												{
+													"key": "seller",
+													"value": ""
+												},
+												{
+													"key": "fieldValue",
+													"value": ""
+												},
+												{
+													"key": "fieldItemValue",
+													"value": ""
+												},
+												{
+													"key": "fieldEnteValue",
+													"value": ""
+												},
+												{
+													"key": "type",
+													"value": null
+												},
+												{
+													"key": "",
+													"value": null
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "saleitems/paginatedReport",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/saleitems/paginatedReport?pageNumber=1&pageSize=10&status=&ascending=desc&type=cotizacion&entecode&created_by=&currency=&startDate=2025-03-01&endDate=2025-03-31&fieldItemValue=S000",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"saleitems",
+												"paginatedReport"
+											],
+											"query": [
+												{
+													"key": "pageNumber",
+													"value": "1"
+												},
+												{
+													"key": "pageSize",
+													"value": "10"
+												},
+												{
+													"key": "status",
+													"value": ""
+												},
+												{
+													"key": "ascending",
+													"value": "desc"
+												},
+												{
+													"key": "type",
+													"value": "cotizacion"
+												},
+												{
+													"key": "entecode",
+													"value": null
+												},
+												{
+													"key": "created_by",
+													"value": ""
+												},
+												{
+													"key": "currency",
+													"value": ""
+												},
+												{
+													"key": "startDate",
+													"value": "2025-03-01"
+												},
+												{
+													"key": "endDate",
+													"value": "2025-03-31"
+												},
+												{
+													"key": "fieldItemValue",
+													"value": "S000"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "saleitems/historyReport",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/saleitems/historyReport?pageNumber=1&pageSize=10&status=&ascending=ASC&created_by=&startDate=2025-03-01&endDate=2025-03-31&fieldItemValue=WD40G&unitkey=&created_by=",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"saleitems",
+												"historyReport"
+											],
+											"query": [
+												{
+													"key": "pageNumber",
+													"value": "1"
+												},
+												{
+													"key": "pageSize",
+													"value": "10"
+												},
+												{
+													"key": "status",
+													"value": ""
+												},
+												{
+													"key": "ascending",
+													"value": "ASC"
+												},
+												{
+													"key": "created_by",
+													"value": ""
+												},
+												{
+													"key": "startDate",
+													"value": "2025-03-01"
+												},
+												{
+													"key": "endDate",
+													"value": "2025-03-31"
+												},
+												{
+													"key": "fieldItemValue",
+													"value": "WD40G"
+												},
+												{
+													"key": "unitkey",
+													"value": ""
+												},
+												{
+													"key": "created_by",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "saleitems/traceabilityReport",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/saleitems/traceabilityReport?pageNumber=1&pageSize=10&status=&ascending=ASC&created_by=&startDate=2025-03-01&endDate=2025-03-31&fieldItemValue=&unitkey=&created_by=&searchMode=",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"saleitems",
+												"traceabilityReport"
+											],
+											"query": [
+												{
+													"key": "pageNumber",
+													"value": "1"
+												},
+												{
+													"key": "pageSize",
+													"value": "10"
+												},
+												{
+													"key": "status",
+													"value": ""
+												},
+												{
+													"key": "ascending",
+													"value": "ASC"
+												},
+												{
+													"key": "created_by",
+													"value": ""
+												},
+												{
+													"key": "startDate",
+													"value": "2025-03-01"
+												},
+												{
+													"key": "endDate",
+													"value": "2025-03-31"
+												},
+												{
+													"key": "fieldItemValue",
+													"value": ""
+												},
+												{
+													"key": "unitkey",
+													"value": ""
+												},
+												{
+													"key": "created_by",
+													"value": ""
+												},
+												{
+													"key": "searchMode",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "saleitems/countsByItem",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"itemid\": 50018\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/saleitems/countsByItem",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"saleitems",
+												"countsByItem"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "saleitems/recentsByItem",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"itemid\": 50018\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://misistemaerp.sistemasegmx.com/framework/saleitems/recentsByItem",
+											"protocol": "https",
+											"host": [
+												"misistemaerp",
+												"sistemasegmx",
+												"com"
+											],
+											"path": [
+												"framework",
+												"saleitems",
+												"recentsByItem"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "saleitems/getone",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/saleitems/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"saleitems",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "saleitems",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"\",\r\n    \"saleid\": \"\",\r\n    \"accountid\": 1,\r\n    \"enteid\": \"\",\r\n    \"entename\": \"\",\r\n    \"currency\": \"MXN\",\r\n    \"parity\": \"19.5\",\r\n    \"taxname\": \"IVA 2024\",\r\n    \"taxamount\": \"0.16\",\r\n    \"subtotal\": \"\",\r\n    \"total\": \"\",\r\n    \"cost\": \"\",\r\n    \"paid\": \"\",\r\n    \"paymentmethod\": \"efectivo\",\r\n    \"folio\": \"\",\r\n    \"salename\": \"\",\r\n    \"shippingmethod\": \"sin envío\",\r\n    \"from\": \"\",\r\n    \"deliver_to\": \"\",\r\n    \"type\": \"cotizacion\",\r\n    \"items\": \"\",\r\n    \"startdate\": \"\",\r\n    \"enddate\": \"\",\r\n    \"description\": \"\",\r\n    \"status\": \"creada\",\r\n    \"created_by\": 23,\r\n    \"modified_by\": 23\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/saleitems",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"saleitems"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "saleitemsbulk",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"bulk\": [\r\n        {\r\n            \"controlid\": 18686,\r\n            \"saleid\": 9542,\r\n            \"itemid\": 56712,\r\n            \"code\": \"FP2723\",\r\n            \"description\": \"FP2723 BOMBA DE CONDENSADOS ASPEN MINI AQUA 220 VOLTS 2 TR\",\r\n            \"unitkey\": \"pieza\",\r\n            \"qty\": 1,\r\n            \"receivedQuantity\": 1,\r\n            \"delivered1\": 2,\r\n            \"delivered2\": 2,\r\n            \"delivered3\": 3,\r\n            \"estimated\": \"\",\r\n            \"saletype\": \"bodega-tijuana\",\r\n            \"originsale\": \"compra\",\r\n            \"originfolio\": 3306,\r\n            \"price\": 2415,\r\n            \"cost\": 2514,\r\n            \"created_by\": 23\r\n        },\r\n        {\r\n            \"controlid\": 18526,\r\n            \"saleid\": 9542,\r\n            \"itemid\": 59645,\r\n            \"code\": \"4188T44\",\r\n            \"description\": \"TARRO DE PLÁSTICO DE POLIESTIRENO TRANSPARENTE\\nCAPACIDAD DE 8 FL OZ/235 ML\",\r\n            \"unitkey\": \"pieza\",\r\n            \"qty\": 2,\r\n            \"receivedQuantity\": 1,\r\n            \"delivered1\": 4,\r\n            \"delivered2\": 4,\r\n            \"delivered3\": 4,\r\n            \"estimated\": \"\",\r\n            \"saletype\": \"bodega-tijuana\",\r\n            \"originsale\": \"compra\",\r\n            \"originfolio\": 3296,\r\n            \"price\": 6.18,\r\n            \"cost\": 0,\r\n            \"created_by\": 23\r\n        },\r\n        {\r\n            \"controlid\": 18447,\r\n            \"saleid\": 9542,\r\n            \"itemid\": 60181,\r\n            \"code\": \"LS2208 \",\r\n            \"description\": \"SYMBOL ZEBRA LS2208 SERIES CORDED HANDHELD STANDARD RANGE LASER SCANNER KIT WITH GOOSENECK STAND AND CABLE TWILIGHT BLACK LS2208-SR20007R-NA\\n\",\r\n            \"unitkey\": \"pieza\",\r\n            \"qty\": 4,\r\n            \"receivedQuantity\": 1,\r\n            \"delivered1\": 2,\r\n            \"delivered2\": 2,\r\n            \"delivered3\": 6,\r\n            \"estimated\": \"\",\r\n            \"saletype\": \"bodega-tijuana\",\r\n            \"originsale\": \"compra\",\r\n            \"originfolio\": 3290,\r\n            \"price\": 73.97,\r\n            \"cost\": 0,\r\n            \"created_by\": 23\r\n        }\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/saleitemsbulk",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"saleitemsbulk"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "saleitems",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": 1000,\r\n  \"saleid\": 1000,\r\n  \"itemid\": 1,\r\n  \"code\": \"0nthtqevv7\",\r\n  \"description\": \"motor para uso industrial con alta durabilidad y precisión.\",\r\n  \"levelprice\": \"\",\r\n  \"qty\": 3,\r\n  \"price\": 921,\r\n  \"priceold\": 921,\r\n  \"cost\": 594,\r\n  \"estimated\": \"\",\r\n  \"created_by\": \"\",\r\n  \"created_at\": \"\",\r\n  \"modified_by\": \"\",\r\n  \"modified_at\": \"\",\r\n  \"item\": {\r\n    \"id\": 1,\r\n    \"accountid\": 1,\r\n    \"categoryid\": 1,\r\n    \"supplierid\": 468,\r\n    \"categoryname\": \"Sin categoría\",\r\n    \"suppliername\": \"GASTROEQUIPOS INDUSTRIALES SA DE CV\",\r\n    \"code\": \"0nthtqevv7\",\r\n    \"code_alternative\": \"motor\",\r\n    \"description\": \"motor para uso industrial con alta durabilidad y precisión.\",\r\n    \"unitkey\": \"exajulio\",\r\n    \"cost\": \"594\",\r\n    \"price\": \"921\",\r\n    \"image\": \"/assets/img/nofoto.png\",\r\n    \"type\": \"bien duradero\",\r\n    \"status\": \"activo\",\r\n    \"created_by\": 1,\r\n    \"created_at\": \"2024-07-20 13:15:34\",\r\n    \"modified_by\": 23,\r\n    \"modified_at\": \"2024-07-20 16:37:38\",\r\n    \"isUpdating\": false\r\n  },\r\n  \"quantity\": 1,\r\n  \"isUpdating\": false\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/saleitems",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"saleitems"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "saleitems",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1,\r\n    \"comments\": \"todo cool patch\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/saleitems",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"saleitems"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "saleitems",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/saleitems",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"saleitems"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "salehistory",
+							"item": [
+								{
+									"name": "salehistory",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/salehistory",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salehistory"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salehistory/filtered",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/salehistory/filtered?saleid=6312",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salehistory",
+												"filtered"
+											],
+											"query": [
+												{
+													"key": "saleid",
+													"value": "6312"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salehistory/listByColumn",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"ticket\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/salehistory/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salehistory",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salehistory/getone",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/salehistory/getone?id=50",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salehistory",
+												"getone"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "50"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salehistory",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": 63,\r\n  \"status\": \"orden procesada\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/salehistory",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salehistory"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salehistory",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 34113,\r\n    \"levelprice\": 4,\r\n    \"qty\": 300,\r\n    \"price\": 100,\r\n    \"priceold\": 100,\r\n    \"cost\": 895.3\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/salehistory",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salehistory"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salehistory",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1,\r\n    \"comments\": \"todo cool patch\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/salehistory",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salehistory"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salehistory",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/salehistory",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salehistory"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "salesequences",
+							"item": [
+								{
+									"name": "salesequences",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/salesequences",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salesequences"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salesequences/filtered",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/salesequences/filtered?saleid=6312",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salesequences",
+												"filtered"
+											],
+											"query": [
+												{
+													"key": "saleid",
+													"value": "6312"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salesequences/listByColumn",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"ticket\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/salesequences/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salesequences",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salesequences/getone",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/salesequences/getone?id=50",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salesequences",
+												"getone"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "50"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salesequences",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"\",\r\n    \"saleid\": \"\",\r\n    \"accountid\": 1,\r\n    \"enteid\": \"\",\r\n    \"entename\": \"\",\r\n    \"currency\": \"MXN\",\r\n    \"parity\": \"19.5\",\r\n    \"taxname\": \"IVA 2024\",\r\n    \"taxamount\": \"0.16\",\r\n    \"subtotal\": \"\",\r\n    \"total\": \"\",\r\n    \"cost\": \"\",\r\n    \"paid\": \"\",\r\n    \"paymentmethod\": \"efectivo\",\r\n    \"folio\": \"\",\r\n    \"salename\": \"\",\r\n    \"shippingmethod\": \"sin envío\",\r\n    \"from\": \"\",\r\n    \"deliver_to\": \"\",\r\n    \"type\": \"cotizacion\",\r\n    \"items\": \"\",\r\n    \"startdate\": \"\",\r\n    \"enddate\": \"\",\r\n    \"description\": \"\",\r\n    \"status\": \"creada\",\r\n    \"created_by\": 23,\r\n    \"modified_by\": 23\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/salesequences",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salesequences"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salesequences",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 34113,\r\n    \"levelprice\": 4,\r\n    \"qty\": 300,\r\n    \"price\": 100,\r\n    \"priceold\": 100,\r\n    \"cost\": 895.3\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/salesequences",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salesequences"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salesequences",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1,\r\n    \"nextnumber\": 1002\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/salesequences",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salesequences"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salesequences",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/salesequences",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salesequences"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "uploadFile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "module",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Pedro Esparza/Pictures/Foto.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localhost}}/uploadFile",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"uploadFile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sendEmailWithPDF",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "soporte@sistemasegmx.com",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Pedro Esparza/Downloads/MiSistemaERP_OrdenCotizacion#4524.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://misistemaerp.sistemasegmx.com/framework/sendEmailWithPDF",
+							"protocol": "https",
+							"host": [
+								"misistemaerp",
+								"sistemasegmx",
+								"com"
+							],
+							"path": [
+								"framework",
+								"sendEmailWithPDF"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "convertImageToBase64",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"path\": \"/assets/uploads/2024-08/account/1_1722542929.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/convertImageToBase64",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"convertImageToBase64"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "ZzFBODFIbGhRMXJZSlMwR2E2blRVeTRnMXdodlE3ekhCelFqTVNDOW0zS1hvaGFKYmh4TDdHZTdmVUZHZit1R25OQ3Q5U3BhY0ZQNDg4c3ZpdUd6V1hkTVZQd0JRb3hueXExT050b1crOUJkblhXQ0E4YmdlZGJya3lQUzdURFRQL3AvZHRYUmZVVjg4cndGamFab3VRUVJCSFFsbHY3RHU1R2swY2VRTXV4T3VYVnY1UjhoWC9LOUhmd1NpUVVBeEhlT0JPZ2tUSW9yUWdpRnlwMzVTRmtqQ0kycHFneHdpZ0hrZWpxb3ZXbz0",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "http://egmxframework",
+			"type": "default"
+		}
+	]
+}
