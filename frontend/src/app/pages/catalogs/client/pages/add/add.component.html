@@ -1,0 +1,195 @@
+<div class="d-flex flex-column flex-lg-row">
+    <div class="flex-column flex-lg-row-auto w-lg-250px w-xl-350px mb-10">
+        <div class="card card-flush py-4">
+            <div class="card-header">
+                <div class="card-title">
+                    <h2>Imágen</h2>
+                </div>
+            </div>
+            <div class="card-body text-center pt-0">
+                <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3"
+                    [ngStyle]="{ 'background-image': 'url(' + baseUrl + heroe.image + ')'}" data-kt-image-input="true">
+                    <div class="image-input-wrapper w-250px h-200px"></div>
+                    <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                        data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                        <i class="bi bi-pencil-fill fs-7"></i>
+                        <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+                    </label>
+                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                        data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+                        <i class="bi bi-x fs-2"></i>
+                    </span>
+                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                        data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+                        <i class="bi bi-x fs-2"></i>
+                    </span>
+                </div>
+                <div class="text-muted fs-7">Solo se admiten archivos de imagen *.png, *.jpg y *.jpeg.</div>
+            </div>
+        </div>
+    </div>
+    <div class="flex-lg-row-fluid ms-lg-15">
+        <form class="form" [formGroup]="letsdoitForm" (submit)="$event.preventDefault()" appEnterAsTab>
+            <div class="card pt-4 mb-6 mb-xl-9">
+                <div class="card-header border-0">
+                    <div class="card-title">
+                        <h2>General</h2>
+                    </div>
+                </div>
+                <div class="card-body pt-0 pb-5">
+                    <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed mb-9 p-6">
+                        <span class="svg-icon svg-icon-2tx svg-icon-primary me-4">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor" />
+                                <rect x="11" y="14" width="7" height="2" rx="1" transform="rotate(-90 11 14)"
+                                    fill="currentColor" />
+                                <rect x="11" y="17" width="2" height="2" rx="1" transform="rotate(-90 11 17)"
+                                    fill="currentColor" />
+                            </svg>
+                        </span>
+                        <div class="d-flex flex-stack flex-grow-1">
+                            <div class="fw-semibold">
+                                <div class="fs-6 text-gray-700">
+                                    Tenga en cuenta que se requiere código y razón social válida para completar la
+                                    verificación.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-1 row-cols-lg-2">
+                        <div class="col md-6">
+                            <label class="fs-6 fw-semibold form-label mb-2 required">
+                                <span>Nombre</span>
+                            </label>
+                            <input #fullnameInput class="form-control form-control-lg text-center" type="text"
+                                formControlName="fullname" required>
+                            <div *ngIf="letsdoitForm.get('fullname')?.invalid && letsdoitForm.get('fullname')?.touched"
+                                class="text-danger">
+                                Nombre es requerido. </div>
+                        </div>
+                        <div class="col md-6">
+                            <label class="form-label fw-semibold fs-6 mb-2 required">Código</label>
+                            <input class="form-control form-control-lg text-center" type="text" formControlName="code"
+                                required>
+                            <div *ngIf="letsdoitForm.get('code')?.invalid && letsdoitForm.get('code')?.touched"
+                                class="text-danger">
+                                Código es requerido.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+                        <div class="col">
+                            <label class="form-label fw-semibold fs-6 mb-2">Razón Social</label>
+                            <input class="form-control form-control-lg text-center" type="text"
+                                formControlName="fiscalname">
+                        </div>
+                        <div class="col">
+                            <label class="fs-6 fw-semibold form-label mb-2"> <span>RFC</span> </label>
+                            <input #fullnameInput class="form-control form-control-lg text-center" type="text"
+                                formControlName="rfc">
+                            <div *ngIf="letsdoitForm.get('rfc')?.invalid && letsdoitForm.get('rfc')?.touched"
+                                class="text-danger">
+                                RFC es requerido.
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label class="fs-6 fw-semibold form-label mb-2"> <span>Nacionalidad</span> </label>
+                            <select class="form-control form-control-lg text-center" data-control="select2"
+                                data-hide-search="true" data-placeholder="Status" formControlName="nationality">
+                                <option value="" disabled>Seleccione</option>
+                                <option value="MX">MX</option>
+                                <option value="USA">USA</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="fv-row mb-7">
+                        <label class="fs-6 fw-semibold form-label mb-2">Dirección Fiscal</label>
+                        <textarea class="form-control form-control-lg text-center" rows="3"
+                            formControlName="fulladdress" autocomplete="off"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="card pt-4 mb-6 mb-xl-9">
+                <div class="card-header border-0">
+                    <div class="card-title">
+                        <h2>Detalles adicionales</h2>
+                    </div>
+                </div>
+                <div class="card-body pt-0 pb-5">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-1 row-cols-lg-2">
+                        <div class="col md-6">
+                            <label class="form-label fw-semibold fs-6 mb-2">Teléfono</label>
+                            <input class="form-control form-control-lg text-center" type="tel" formControlName="phone"
+                                maxlength="13">
+                        </div>
+                        <div class="col md-6">
+                            <label class="fs-6 fw-semibold form-label mb-2"> <span>Correo</span> </label>
+                            <input class="form-control form-control-lg text-center" type="email"
+                                formControlName="email">
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+                        <div class="col">
+                            <label class="fs-6 fw-semibold form-label mb-2">
+                                <span>Nivel</span>
+                            </label>
+                            <select class="form-control form-control-lg text-center" data-control="select2"
+                                data-hide-search="true" data-placeholder="Nivel" formControlName="level">
+                                <option *ngFor="let item of [1,2,3,4,5]" [value]="item">{{ item }}</option>
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label class="fs-6 fw-semibold form-label mb-2">Status</label>
+                            <select class="form-control form-control-lg text-center" data-control="select2"
+                                data-hide-search="true" data-placeholder="Status" formControlName="status">
+                                <option value="" disabled>Seleccione</option>
+                                <option *ngFor="let item of basestatus" [value]="item">{{ item }}</option>
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label class="fs-6 fw-semibold form-label mb-2">Vendedor</label>
+                            <select class="form-control form-control-lg text-center" data-control="select2"
+                                data-hide-search="true" data-placeholder="Vendedor" formControlName="staffid">
+                                <option value="" disabled>Seleccione</option>
+                                <option *ngFor="let item of allSellers" [value]="item.id">
+                                    {{ item.fullname | titlecase }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center w-100 pt-15">
+                        <div>
+                            <button type="button" [routerLink]="['/administracion-de-clientes']"
+                                class="btn btn-secondary">Ir a Listado</button>
+                        </div>
+
+                        <div class="d-flex justify-content-center gap-3">
+                            <button [routerLink]="['/administracion-de-clientes', heroe.id]" type="button"
+                                class="btn btn-light-warning">Cancelar</button>
+
+                            <button type="button" class="btn btn-primary" [disabled]="letsdoitForm.invalid"
+                                (click)="saveItem()">
+                                <span class="indicator-label">
+                                    {{ isEditMode ? 'Actualizar' : 'Guardar' }}
+                                </span>
+                                <span class="indicator-progress">
+                                    Un momento por favor...
+                                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                </span>
+                            </button>
+                        </div>
+
+                        <div *ngIf="isEditMode && user.type==='admin'">
+                            <button type="button" class="btn btn-danger" (click)="deleteItem()">Eliminar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

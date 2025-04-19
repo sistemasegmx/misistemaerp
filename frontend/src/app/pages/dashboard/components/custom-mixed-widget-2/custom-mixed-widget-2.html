@@ -1,0 +1,55 @@
+<div class="card-header border-0 py-5" [ngClass]="'bg-' + chartColor">
+  <h3 class="card-title fw-bolder text-white">Mi Sistema ERP</h3>
+  <div class="card-toolbar">
+    <button type="button" class="
+          btn btn-sm btn-icon btn-color-white btn-active-white btn-active-color-
+          border-0
+          me-n3
+        " data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+      <span [inlineSVG]="'./assets/media/icons/duotune/general/gen024.svg'" class="svg-icon svg-icon-2"></span>
+    </button>
+  </div>
+</div>
+<div class="card-body p-0">
+  <div #chartRef class="mixed-widget-2-chart card-rounded-bottom" [ngClass]="'bg-' + chartColor">
+    <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+      [yaxis]="chartOptions.yaxis" [dataLabels]="chartOptions.dataLabels" [stroke]="chartOptions.stroke"
+      [legend]="chartOptions.legend" [fill]="chartOptions.fill" [states]="chartOptions.states"
+      [tooltip]="chartOptions.tooltip" [colors]="chartOptions.colors" [markers]="chartOptions.markers"
+      [plotOptions]="chartOptions.plotOptions"></apx-chart>
+  </div>
+  <div class="card-p mt-n20 position-relative">
+    <div class="row g-0">
+      <a routerLink="/administracion-de-catalogos" class="d-block col bg-light-warning px-6 py-8 rounded-2 me-7 mb-7">
+        <div>
+          <span [inlineSVG]="'./assets/media/icons/duotune/finance/fin007.svg'"
+            class="svg-icon svg-icon-3x svg-icon-warning mb-2"></span>
+          <p class="text-warning fw-bold fs-6">Catálogos</p>
+        </div>
+      </a>
+      <a routerLink="/administracion-de-movimientos" class="d-block col bg-light-primary px-6 py-8 rounded-2 me-7 mb-7">
+        <div>
+          <span [inlineSVG]="'./assets/media/icons/duotune/finance/fin006.svg'"
+            class="svg-icon svg-icon-3x svg-icon-primary mb-2"></span>
+          <p class="text-primary fw-bold fs-6">Movimientos</p>
+        </div>
+      </a>
+    </div>
+    <div class="row g-0">
+      <a routerLink="/rastreo-de-ordenes" class="d-block col bg-light-danger px-6 py-8 rounded-2 me-7 mb-7">
+        <div>
+          <span [inlineSVG]="'./assets/media/icons/duotune/finance/fin006.svg'"
+            class="svg-icon svg-icon-3x svg-icon-danger mb-2"></span>
+          <p class="text-danger fw-bold fs-6">Rastreo</p>
+        </div>
+      </a>
+      <a routerLink="/mi-perfil" class="d-block col bg-light-success px-6 py-8 rounded-2 me-7 mb-7">
+        <div>
+          <span [inlineSVG]="'./assets/media/icons/duotune/finance/fin006.svg'"
+            class="svg-icon svg-icon-3x svg-icon-success mb-2"></span>
+          <p class="text-success fw-bold fs-6">Mi perfil</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

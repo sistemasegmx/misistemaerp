@@ -1,0 +1,247 @@
+<div id="infoComponentContentES" class="card card-flush p-10" *ngIf="sale.countrycode === 'MX'">
+    <div id="my-table">
+        <table class="table">
+            <tbody class="fw-semibold text-gray-600">
+                <tr>
+                    <td class="text-left custom-border-left-top" style="width: 20%;">
+                        <img [src]="baseUrl + '/assets/uploads/2024-09/account/1_1726676125.jpeg'"
+                            style="max-height: 100px" id="logo" />
+                    </td>
+                    <td class="text-left custom-border-left-top" style="width: 40%;">
+                        <h2>CASTEL SUPPLY S. DE R.L. DE C.V.</h2>
+                        <div>{{ account.fiscalname }}</div>
+                        <div>{{ account.fulladdress }}</div>
+                        <div>{{ account.phone }}</div>
+                        <div>{{ account.email }}</div>
+                    </td>
+                    <td class="text-right text-end custom-border-right-top" style="width: 40%;">
+                        <h2>{{ ente.fullname }}</h2>
+                        <div>{{ sale.entecontact ? 'Atención a: ' + sale.entecontact : ente.fiscalname }}</div>
+                        <div>{{ ente.fulladdress }}</div>
+                        <div>{{ ente.phone }}</div>
+                        <div>{{ ente.email }}</div>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table" style="table-layout: fixed;">
+            <tbody class="fw-semibold text-gray-600">
+                <tr>
+                    <td class="text-center custom-border-left-top" style="width: 25%;">
+                        <h2>{{ sale.type | uppercase }}
+                            <br /> <span class="text-info">FOLIO #{{ sale.folio }}</span>
+                        </h2>
+                    </td>
+                    <td class="text-center no-border" style="width: 25%;">
+                        <label class="form-label fw-bold">FECHA</label>
+                        <br /> <span class="text-end text-warning">{{ sale.created_at }}</span>
+                    </td>
+                    <td class="text-center no-border" style="width: 25%;">
+                        <label class="form-label fw-bold">MONEDA: {{ sale.currency }}</label>
+                        <br /> <span class="text-success">{{ sale.taxname }} {{ sale.taxamount }}</span>
+                    </td>
+                    <td class="text-center custom-border-right-top" style="width: 25%;">
+                        <label class="form-label fw-bold"> {{ staff.fullname }}</label>
+                        <br /><span class="text-end text-warning">{{ staff.email }}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="table-responsive">
+            <table class="table align-middle table-row-dashed fs-6 mb-0 full-border">
+                <thead>
+                    <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0 full-border">
+                        <th class="min-w-200px text-start">ITEM</th>
+                        <th class="min-w-50px text-center">CANT.</th>
+                        <th class="min-w-75px text-right text-end">P.U.</th>
+                        <th class="min-w-75px text-right text-end">IMPORTE</th>
+                        <th class="min-w-50px text-center">ESTIMADO</th>
+                    </tr>
+                </thead>
+                <tbody class="fw-semibold text-gray-600">
+                    <tr *ngFor="let item of carrito">
+                        <td class="text-start">
+                            <div class="d-flex flex-column">
+                                <span class="fw-bold text-primary">{{ item.code }}</span><br />
+                                <span class="text-gray-600 text-hover-primary">
+                                    {{ item.description }}
+                                </span>
+                            </div>
+                        </td>
+                        <td class="text-center custom-border-right">{{ item.qty }} {{ item.unitkey }}</td>
+                        <td class="text-right text-end custom-border-right">{{ item.price | currency }}</td>
+                        <td class="text-right text-end custom-border-left custom-border-right">
+                            {{ (item.price * item.qty) | currency }}
+                        </td>
+                        <td class="text-center custom-border-right"> <span>{{ item.estimated }}</span> </td>
+                    </tr>
+
+                    <tr *ngIf="sale.enteorder || sale.description || sale.salename || sale.validity">
+                        <td colspan="4" class="text-start" style="vertical-align: middle;">
+                            <p *ngIf="sale.enteorder">
+                                <span class="fw-bold text-bold">Orden de Cliente #:</span> {{ sale.enteorder }}
+                            </p>
+
+                            <p *ngIf="sale.defaultcomment || sale.description">
+                                <span class="fw-bold text-bold">ESTIMADO: </span>
+                                <span *ngIf="sale.defaultcomment"> {{ sale.defaultcomment }} </span>
+                                <span *ngIf="sale.description"> {{ sale.description }} </span>
+                            </p>
+
+                            <p *ngIf="sale.salename">
+                                <span class="fw-bold text-bold">COMENTARIOS:</span> {{ sale.salename }}
+                            </p>
+
+                            <p *ngIf="sale.validity > 0">
+                                <span class="fw-bold text-bold">VIGENCIA:</span> {{ sale.validity }} días
+                            </p>
+
+                        </td>
+                    </tr>
+
+                    <tr class="custom-border-top">
+                        <td class="text-start" rowspan="3" colspan="1" style="vertical-align: top;">
+                            {{ account.description }}
+                        </td>
+                        <td colspan="2" class="text-right text-end custom-border-top no-border">
+                            <p><strong>Subtotal</strong></p>
+                            <p><strong>{{ sale.taxname }}</strong></p>
+                            <p><strong>Total</strong></p>
+                        </td>
+                        <td class="text-right text-end custom-border-left custom-border-right">
+                            <p><strong>{{ calculatedValues.subtotal | currency }}</strong></p>
+                            <p><strong>{{ calculatedValues.taxAmount | currency }}</strong></p>
+                            <p><strong>{{ calculatedValues.total | currency }}</strong></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div id="infoComponentContentEN" class="card card-flush p-10" *ngIf="sale.countrycode === 'USA'">
+    <div id="my-table">
+        <table class="table">
+            <tbody class="fw-semibold text-gray-600">
+                <tr>
+                    <td class="text-left custom-border-left-top" style="width: 20%;">
+                        <img [src]="baseUrl + '/assets/uploads/2024-09/account/1_1726676125.jpeg'"
+                            style="max-height: 100px" id="logo" />
+                    </td>
+                    <td class="text-left custom-border-left-top" style="width: 40%;">
+                        <h2>CASTEL SUPPLY S. DE R.L. DE C.V.</h2>
+                        <div>{{ account.address_usa }}</div>
+                        <div>{{ account.phone_usa }}</div>
+                        <div>{{ account.email }}</div>
+                    </td>
+                    <td class="text-right text-end custom-border-right-top" style="width: 40%;">
+                        <h2>DELIVER TO</h2>
+                        <div>{{ account.company_usa }}</div>
+                        <div>{{ account.address_usa }}</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table" style="table-layout: fixed;">
+            <tbody class="fw-semibold text-gray-600">
+                <tr>
+                    <td class="text-center custom-border-left-top" style="width: 25%;">
+                        <h2>QUOTE FROM
+                            <br /> <span class="text-primary">{{ ente.fiscalname }}</span>
+                        </h2>
+                    </td>
+                    <td class="text-center no-border" style="width: 25%;">
+                        <h2>QUOTE ORDER
+                            <br /> <span class="text-primary">#{{ sale.folio }}</span>
+                        </h2>
+                    </td>
+                    <td class="text-center no-border" style="width: 25%;">
+                        <label class="form-label fw-bold">{{ sale.created_at }}</label>
+                        <br />
+                        <span class="text-success">
+                            {{ sale.currency }}, {{ sale.taxname }} {{ sale.taxamount }}
+                        </span>
+                    </td>
+                    <td class="text-center custom-border-right-top" style="width: 25%;">
+                        <label class="form-label fw-bold"> {{ staff.fullname }}</label>
+                        <br /><span class="text-end text-warning">{{ staff.email }}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="table-responsive">
+            <table class="table align-middle table-row-dashed fs-6 mb-0 full-border">
+                <thead>
+                    <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0 full-border">
+                        <th class="min-w-200px text-start">PART NUMBER</th>
+                        <th class="min-w-50px text-center">NOTES</th>
+                        <th class="min-w-50px text-center">Quantity.</th>
+                        <th class="min-w-75px text-right text-end">UNIT PRICE</th>
+                        <th class="min-w-75px text-right text-end">AMOUNT</th>
+                    </tr>
+                </thead>
+                <tbody class="fw-semibold text-gray-600">
+                    <tr *ngFor="let item of carrito">
+                        <td class="text-start">
+                            <div class="d-flex flex-column">
+                                <span class="fw-bold text-primary">{{ item.code }}</span><br />
+                                <span class="text-gray-600 text-hover-primary">
+                                    {{ item.description }}
+                                </span>
+                            </div>
+                        </td>
+                        <td class="text-center custom-border-right">
+                            <span>{{ item.estimated }}</span>
+                        </td>
+                        <td class="text-center custom-border-right">{{ item.qty }} {{ item.unitkey }}</td>
+                        <td class="text-right text-end custom-border-right">{{ item.price | currency }}</td>
+                        <td class="text-right text-end custom-border-left custom-border-right">
+                            {{ (item.price * item.qty) | currency }}
+                        </td>
+                    </tr>
+
+                    <tr *ngIf="sale.enteorder || sale.description || sale.salename">
+                        <td colspan="4" class="text-start" style="vertical-align: middle;">
+                            <p *ngIf="sale.enteorder">
+                                <span class="fw-bold text-bold">YOUR REF#:</span> {{ sale.enteorder }}
+                            </p>
+
+                            <p *ngIf="sale.defaultcomment || sale.description">
+                                <span class="fw-bold text-bold">NOTES: </span>
+                                <span *ngIf="sale.defaultcomment"> {{ sale.defaultcomment }} </span>
+                                <span *ngIf="sale.description"> {{ sale.description }} </span>
+                            </p>
+
+                            <p *ngIf="sale.salename">
+                                <span class="fw-bold text-bold">COMMENTS:</span> {{ sale.salename }}
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr class="custom-border-top">
+                        <td class="text-start" rowspan="3" colspan="1" style="vertical-align: top;">
+                            {{ account.description }}
+                        </td>
+                        <td colspan="2" class="text-right text-end custom-border-top no-border">
+                            <p><strong>Subtotal</strong></p>
+                            <p><strong>{{ sale.taxname }}</strong></p>
+                            <p><strong>Total</strong></p>
+                        </td>
+                        <td class="text-right text-end custom-border-left custom-border-right">
+                            <p><strong>{{ calculatedValues.subtotal | currency }}</strong></p>
+                            <p><strong>{{ calculatedValues.taxAmount | currency }}</strong></p>
+                            <p><strong>{{ calculatedValues.total | currency }}</strong></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

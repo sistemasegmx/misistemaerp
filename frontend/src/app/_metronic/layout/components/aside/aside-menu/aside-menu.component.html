@@ -1,0 +1,94 @@
+<div class="hover-scroll-overlay-y my-2 my-lg-5 pe-lg-n1" id="kt_aside_menu_wrapper" data-kt-scroll="true"
+  data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer"
+  data-kt-scroll-wrappers="#kt_aside, #kt_aside_menu" data-kt-scroll-offset="5px">
+
+  <div
+    class="menu menu-column menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold"
+    id="kt_aside_menu" data-kt-menu="true">
+
+    <div class="menu-item py-3" routerLinkActive="here show">
+      <a class="menu-link menu-center" routerLink="/dashboard" routerLinkActive="show">
+        <span class="menu-icon me-0">
+          <span [inlineSVG]="'./assets/media/icons/duotune/ecommerce/ecm007.svg'" class="svg-icon svg-icon-2"></span>
+        </span>
+        <span class="menu-title">Dashboard</span>
+      </a>
+    </div>
+
+    <div class="menu-item py-3" routerLinkActive="here show">
+      <a class="menu-link menu-center" routerLink="/rastreo-de-ordenes" routerLinkActive="show">
+        <span class="menu-icon me-0">
+          <span [inlineSVG]="'./assets/media/icons/duotune/general/gen019.svg'" class="svg-icon svg-icon-2"></span>
+        </span>
+        <span class="menu-title">Tracking</span>
+      </a>
+    </div>
+
+    <div class="menu-item py-3" routerLinkActive="here show">
+      <a class="menu-link menu-center" routerLink="/trazabilidad-de-partes" routerLinkActive="show">
+        <span class="menu-icon me-0">
+          <span [inlineSVG]="'./assets/media/icons/duotune/general/gen020.svg'" class="svg-icon svg-icon-2"></span>
+        </span>
+        <span class="menu-title">Trazabilidad</span>
+      </a>
+    </div>
+
+    <div class="menu-item py-3" routerLinkActive="here show">
+      <a class="menu-link menu-center" routerLink="/administracion-de-catalogos" routerLinkActive="show">
+        <span class="menu-icon me-0">
+          <span [inlineSVG]="'./assets/media/icons/duotune/general/gen022.svg'" class="svg-icon svg-icon-2"></span>
+        </span>
+        <span class="menu-title">Catálogos</span>
+      </a>
+    </div>
+
+    <div class="menu-item py-3" routerLinkActive="here show">
+      <a class="menu-link menu-center" routerLink="/administracion-de-movimientos" routerLinkActive="show">
+        <span class="menu-icon me-0">
+          <span [inlineSVG]="'./assets/media/icons/duotune/general/gen025.svg'" class="svg-icon svg-icon-2"></span>
+        </span>
+        <span class="menu-title">Movimientos</span>
+      </a>
+    </div>
+
+    <div class="menu-item py-3" routerLinkActive="here show" *ngIf="user.type === 'admin'">
+      <a class="menu-link menu-center" routerLink="/administracion-de-reportes" routerLinkActive="show">
+        <span class="menu-icon me-0">
+          <span [inlineSVG]="'./assets/media/icons/duotune/communication/com012.svg'"
+            class="svg-icon svg-icon-2"></span>
+        </span>
+        <span class="menu-title">Reportes</span>
+      </a>
+    </div>
+
+    <div class="menu-item py-3" routerLinkActive="here show" *ngIf="user.type === 'admin'">
+      <a class="menu-link menu-center" routerLink="/configuracion-de-sistema" routerLinkActive="show">
+        <span class="menu-icon me-0">
+          <span [inlineSVG]="'./assets/media/icons/duotune/communication/com012.svg'"
+            class="svg-icon svg-icon-2"></span>
+        </span>
+        <span class="menu-title">Sistema</span>
+      </a>
+    </div>
+
+    <div class="menu-item py-3" routerLinkActive="here show" *ngIf="castelAccess.includes(user.id.toString())">
+      <a class="menu-link menu-center" routerLink="/administracion-de-castel" routerLinkActive="show">
+        <span class="menu-icon me-0">
+          <span [inlineSVG]="'./assets/media/icons/duotune/communication/com012.svg'"
+            class="svg-icon svg-icon-2"></span>
+        </span>
+        <span class="menu-title">CASTEL</span>
+      </a>
+    </div>
+
+    <div class="menu-item py-3" routerLinkActive="here show">
+      <a class="menu-link menu-center" routerLink="/mi-perfil" routerLinkActive="show">
+        <span class="menu-icon me-0">
+          <span [inlineSVG]="'./assets/media/icons/duotune/general/gen003.svg'" class="svg-icon svg-icon-2"></span>
+        </span>
+        <span class="menu-title">Mi Perfil</span>
+      </a>
+    </div>
+
+  </div>
+</div>

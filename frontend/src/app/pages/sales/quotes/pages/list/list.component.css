@@ -1,0 +1,150 @@
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.page-item.disabled .page-link {
+    cursor: not-allowed;
+    color: #ccc;
+}
+
+.page-link {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    color: #007bff;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.page-link:hover {
+    color: #0056b3;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+
+.fa-angle-double-left,
+.fa-angle-left,
+.fa-angle-right,
+.fa-angle-double-right {
+    font-size: 1.2rem;
+}
+
+
+.badge-light-borrador {
+    background-color: rgba(128, 128, 128, 0.2) !important;
+    color: #808080 !important;
+    font-weight: normal !important;
+}
+
+.badge-light-creado {
+    background-color: rgba(173, 216, 230, 0.2) !important;
+    color: #ADD8E6 !important;
+    font-weight: normal !important;
+}
+
+.badge-light-activo {
+    background-color: rgba(0, 128, 0, 0.2) !important;
+    color: #008000 !important;
+    font-weight: normal !important;
+}
+
+.badge-light-inactivo {
+    background-color: rgba(139, 0, 0, 0.2) !important;
+    color: #8B0000 !important;
+    font-weight: normal !important;
+}
+
+.badge-light-pendiente {
+    background-color: rgba(255, 165, 0, 0.2) !important;
+    color: #FFA500 !important;
+    font-weight: normal !important;
+}
+
+.badge-light-confirmado {
+    background-color: rgba(144, 238, 144, 0.2) !important;
+    color: #90EE90 !important;
+    font-weight: normal !important;
+}
+
+.badge-light-procesando {
+    background-color: rgba(255, 255, 0, 0.2) !important;
+    color: #FFFF00 !important;
+    font-weight: normal !important;
+}
+
+.badge-light-enviado {
+    background-color: rgba(0, 0, 255, 0.2) !important;
+    color: #0000FF !important;
+    font-weight: normal !important;
+}
+
+.badge-light-entregado {
+    background-color: rgba(0, 100, 0, 0.2) !important;
+    color: #006400 !important;
+    font-weight: normal !important;
+}
+
+.badge-light-aceptado {
+    background-color: rgba(0, 128, 0, 0.2) !important;
+    color: #008000 !important;
+    font-weight: normal !important;
+}
+
+.badge-light-finalizada {
+    background-color: rgba(0, 0, 139, 0.2) !important;
+    color: #00008B !important;
+    font-weight: normal !important;
+}
+
+.badge-light-revision {
+    background-color: rgba(128, 0, 128, 0.2) !important;
+    color: #800080 !important;
+    font-weight: normal !important;
+}
+
+.badge-light-rechazado {
+    background-color: rgba(255, 0, 0, 0.2) !important;
+    color: #FF0000 !important;
+    font-weight: normal !important;
+}
+
+.badge-light-devuelto {
+    background-color: rgba(255, 192, 203, 0.2) !important;
+    color: #FFC0CB !important;
+    font-weight: normal !important;
+}
+
+.badge-light-reembolsado {
+    background-color: rgba(0, 255, 255, 0.2) !important;
+    color: #00FFFF !important;
+    font-weight: normal !important;
+}
+
+.badge-light-suspendido {
+    background-color: rgba(165, 42, 42, 0.2) !important;
+    color: #A52A2A !important;
+    font-weight: normal !important;
+}
+
+.badge-light-expirado {
+    background-color: rgba(169, 169, 169, 0.2) !important;
+    color: #A9A9A9 !important;
+    font-weight: normal !important;
+}
+
+.badge-light-cancelado {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    color: #000000 !important;
+    font-weight: normal !important;
+}

@@ -1,0 +1,101 @@
+<div class="card card-flush">
+    <div class="card-header align-items-center py-5 gap-2 gap-md-5">
+        <div class="row w-100">
+            <div class="col-12 col-lg-4 d-flex align-items-center position-relative my-1">
+                <span class="svg-icon svg-icon-1 position-absolute ms-4">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
+                            transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+                        <path
+                            d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+                            fill="currentColor" />
+                    </svg>
+                </span>
+                <input #searchInput [(ngModel)]="searchTerm" (keydown.enter)="onEnter()" placeholder="Buscar..."
+                    class="form-control form-control-solid w-100 ps-14" />
+            </div>
+
+            <div class="col-12 col-lg-4 d-flex align-items-center my-1">
+                <select [(ngModel)]="pageSize" class="form-select form-control-solid w-100 w-md-auto me-2"
+                    (ngModelChange)="onPageSizeChange()">
+                    <option *ngFor="let size of [8, 10, 20, 50, 100, 200, 500, 1000]" [value]="size">{{ size }}</option>
+                </select>
+                <select class="form-select form-select-solid w-100 w-md-auto me-2" data-control="select2"
+                    data-hide-search="true" data-placeholder="Categoría" [(ngModel)]="selectedParentCategory"
+                    (ngModelChange)="loadData()">
+                    <option value="">Todas las Categorías</option>
+                    <option *ngFor="let item of allCategory" [value]="item.id">{{ item.fullname }}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body pt-0">
+        <div class="row g-4" style="max-height: 620px; overflow-y: scroll;">
+            <div *ngFor="let item of allData" class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card h-100 p-6 pb-5 mw-100">
+                    <div class="card-body text-center">
+                        <span>{{ truncateText(item.description, 40) }}</span>
+                        <div class="mb-2">
+                            <div class="text-center">
+                                <span class="fw-bold text-gray-800 cursor-pointer text-hover-primary fs-3 fs-xl-1">
+                                    {{ item.code }}
+                                </span>
+                                <span class="text-gray-500 fw-semibold d-block fs-6 mt-n1">
+                                    {{ item.categoryname }}
+                                </span>
+                            </div>
+                        </div>
+                        <span class="text-success text-end fw-bold fs-1">
+                            {{ sale.currency }} {{ calculatePrice(item) | currency }}
+                        </span>
+                        <button class="btn btn-light-primary mt-2" (click)="addToCart(item)"
+                            [disabled]="item.isUpdating">
+                            <img src="assets/media/icons/add-button.svg" alt="Agregar" /> Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="allData.length === 0" class="col-12 text-center">
+                No hay productos disponibles.
+            </div>
+        </div>
+
+        <div class="d-flex flex-stack flex-wrap pt-0">
+            <div class="fs-6 fw-bold text-gray-700">
+                Mostrando {{pageNumber * pageSize - pageSize + 1}} a
+                {{(pageNumber * pageSize) > totalRecords ? totalRecords : pageNumber * pageSize}}
+                de {{totalRecords}} productos
+            </div>
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{'disabled': pageNumber === 1}">
+                    <a class="page-link cursor-pointer" (click)="pageChanged(1)">
+                        <i class="fa fa-angle-double-left"></i>
+                    </a>
+                </li>
+                <li class="page-item" [ngClass]="{'disabled': pageNumber === 1}">
+                    <a class="page-link cursor-pointer" (click)="pageChanged(pageNumber - 1)">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                </li>
+                <li *ngFor="let page of getPageRange()" class="page-item" [ngClass]="{'active': pageNumber === page}">
+                    <a class="page-link cursor-pointer" (click)="pageChanged(page)">
+                        {{page}}
+                    </a>
+                </li>
+                <li class="page-item" [ngClass]="{'disabled': pageNumber === totalPages}">
+                    <a class="page-link cursor-pointer" (click)="pageChanged(pageNumber + 1)">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </li>
+                <li class="page-item" [ngClass]="{'disabled': pageNumber === totalPages}">
+                    <a class="page-link cursor-pointer" (click)="pageChanged(totalPages)">
+                        <i class="fa fa-angle-double-right"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>

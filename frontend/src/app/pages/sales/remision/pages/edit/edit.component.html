@@ -1,0 +1,495 @@
+<div class="toolbar mb-4 d-flex justify-content-center gap-3">
+    <button type="button" class="btn btn-sm btn-light-dark" (click)="toggleSection('saleDetails')">
+        <i class="fas fa-info-circle"></i> DETALLES
+    </button>
+    <button *ngIf="heroe.status != 'finalizada'" type="button" class="btn btn-sm btn-light-primary"
+        (click)="toggleSection('enteDetails')">
+        <i class="fas fa-user"></i> CLIENTE
+    </button>
+    <button type="button" class="btn btn-sm btn-light-primary" (click)="toggleSection('shoppingCart')">
+        <i class="fas fa-shopping-cart"></i> CARRITO
+    </button>
+    <button type="button" class="btn btn-sm btn-light-success" [routerLink]="['../../../movimiento-de-remision/add']">
+        <i class="fas fa-plus"></i> NUEVA
+    </button>
+</div>
+
+
+<div class="d-flex flex-column flex-lg-row">
+    <div class="flex-lg-row-fluid ms-lg-15">
+
+        <div class="d-grid gap-3 text-center" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+            <div class="fv-row pb-5">
+                <label class="form-label fw-bold">{{ heroe.type | uppercase }} {{ heroe.countrycode }}:
+                    <span class="text-danger">{{ heroe.folio }}</span>
+                </label>
+            </div>
+            <div class="fv-row pb-5">
+                <label class="form-label fw-bold">
+                    MONEDA:
+                    <span class="text-primary">{{ heroe.currency }} {{ heroe.parity }}</span>
+                </label>
+            </div>
+            <div class="fv-row pb-5">
+                <label class="form-label fw-bold">
+                    IMPUESTO:
+                    <span class="text-success">{{ heroe.taxname | uppercase }} {{ heroe.taxamount }}</span>
+                </label>
+            </div>
+            <div class="fv-row pb-5">
+                <label class="form-label fw-bold">
+                    STATUS:
+                    <span class="text-dark">{{ heroe.status | uppercase }}</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="pt-4 mb-6 mb-xl-9" *ngIf="activeSection === 'saleDetails'">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h2 class="pb-10">Cliente</h2>
+                            <div class="table-responsive" style="min-height: 450px;">
+                                <table id="my-table"
+                                    class="table align-middle table-row-dashed fs-6 gy-5 table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td class="w-150px text-end">
+                                                <div class="fw-bold">Código</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="text-gray-600">{{ selectedEnte.code }}</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-150px text-end">
+                                                <div class="fw-bold">Dirección</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="text-gray-600">
+                                                    {{ truncateText(selectedEnte.fulladdress, 60) }}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-150px text-end">
+                                                <div class="fw-bold">Email</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="text-gray-600">{{ selectedEnte.email }}</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-150px text-end">
+                                                <div class="fw-bold">Nacionalidad</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="text-gray-600">{{ selectedEnte.nationality }}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-150px text-end">
+                                                <div class="fw-bold">Nombre</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="text-gray-600">{{ selectedEnte.fullname }}</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-150px text-end">
+                                                <div class="fw-bold">Empresa</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="text-gray-600">{{ selectedEnte.fiscalname }}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-150px text-end">
+                                                <div class="fw-bold">RFC</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="text-gray-600">{{ selectedEnte.rfc }}</div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h2 class="pb-10">Total</h2>
+                            <div class="table-responsive" style="min-height: 450px;">
+                                <table id="my-table"
+                                    class="table align-middle table-row-dashed fs-6 gy-5 table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td class="w-150px text-end">
+                                                <div class="fw-bold">Subtotal</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="text-gray-600">{{ heroe.subtotal | currency }}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-150px text-end">
+                                                <div class="fw-bold">Impuestos</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="text-gray-600">
+                                                    {{ heroe.taxamount | currency }}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-150px text-end">
+                                                <div class="fw-bold">Total</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="text-gray-600">{{ heroe.total | currency }}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-150px text-end">
+                                                <div class="fw-bold">Pagado</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="text-gray-600">{{ heroe.paid | currency }}</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-150px text-end">
+                                                <div class="fw-bold">Status</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="text-gray-600">{{ heroe.status }}</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-150px text-end">
+                                                <div class="fw-bold">Ítems</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="text-gray-600">{{ heroe.items }}</div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-10">
+                <form class="form" [formGroup]="letsdoitForm" (submit)="$event.preventDefault()" appEnterAsTab>
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h2 class="pb-10">Detalles de la Remisión</h2>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row mt-5">
+
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">Moneda</label>
+                                            <select class="form-control form-control-lg text-center"
+                                                data-control="select2" data-hide-search="true" data-placeholder="Moneda"
+                                                formControlName="currency" (change)="onCurrencyChange($event)">
+                                                <option value="" disabled>Seleccione</option>
+                                                <option *ngFor="let item of allCurrency" [value]="item.code">
+                                                    {{ item.fullname }}</option>
+                                            </select>
+                                            <div class="text-muted fs-7">&nbsp;</div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">Paridad</label>
+                                            <input class="form-control form-control-lg text-center" type="number"
+                                                min="0" step="0.01" formControlName="parity" required />
+                                            <div *ngIf="letsdoitForm.get('parity')?.invalid && letsdoitForm.get('parity')?.touched"
+                                                class="text-danger">
+                                                Paridad es requerido, mínimo 0.</div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="required form-label fw-bold">Impuesto</label>
+                                            <select class="form-control form-control-lg text-center"
+                                                data-control="select2" data-hide-search="true"
+                                                data-placeholder="Impuesto" formControlName="taxname"
+                                                (change)="onTaxChange($event)">
+                                                <option value="" disabled>Seleccione</option>
+                                                <option *ngFor="let item of allTax" [value]="item.fullname">
+                                                    {{ item.fullname }}</option>
+                                            </select>
+                                            <div class="text-muted fs-7">&nbsp;</div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">Tasa</label>
+                                            <input class="form-control form-control-lg text-center" type="number"
+                                                min="0" step="0.01" formControlName="taxamount" required />
+                                            <div *ngIf="letsdoitForm.get('taxamount')?.invalid && letsdoitForm.get('taxamount')?.touched"
+                                                class="text-danger">
+                                                Tasa es requerida, mínimo 0.</div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="required form-label fw-bold">Contacto</label>
+                                            <select class="form-control form-control-lg text-center"
+                                                data-control="select2" data-hide-search="true"
+                                                data-placeholder="Contacto" formControlName="entecontact">
+                                                <option value="" disabled>Seleccione</option>
+                                                <option *ngFor="let item of allContacts" [value]="item.fullname">
+                                                    {{ item.fullname }}
+                                                </option>
+                                            </select>
+                                            <div class="text-muted fs-7">&nbsp;</div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label
+                                                class="fs-6 fw-semibold form-label fw-bold mb-2 required">Status</label>
+                                            <select class="form-control form-control-lg text-center"
+                                                data-control="select2" data-hide-search="true" data-placeholder="Status"
+                                                formControlName="status">
+                                                <option value="" disabled>Seleccione</option>
+                                                <option *ngFor="let item of salestatus" [value]="item.status">
+                                                    {{ item.status }}
+                                                </option>
+                                            </select>
+                                            <div class="text-muted fs-7">&nbsp;</div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold"># Orden de Cliente</label>
+                                            <input class="form-control form-control-lg text-center" type="text"
+                                                formControlName="enteorder" style="text-transform: uppercase" />
+                                            <div class="text-muted fs-7">&nbsp;</div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="fs-6 fw-semibold form-label fw-bold mb-2 required">
+                                                Comentario
+                                            </label>
+                                            <select class="form-control form-control-lg text-center"
+                                                formControlName="defaultcomment">
+                                                <option value="" disabled>Seleccione</option>
+                                                <option value=""></option>
+                                                <option *ngFor="let item of defaultcomments" [value]="item">
+                                                    {{ item }}
+                                                </option>
+                                            </select>
+                                            <div class="text-muted fs-7">&nbsp;</div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="fs-6 fw-semibold form-label fw-bold mb-2 required">
+                                                Nivel
+                                            </label>
+                                            <select class="form-control form-control-lg text-center"
+                                                data-control="select2" data-hide-search="true"
+                                                data-placeholder="Nivel de Precio" formControlName="pricelevel">
+                                                <option value="" disabled>Seleccione</option>
+                                                <option *ngFor="let item of allPricelevel" [value]="item.id">
+                                                    {{ item.fullname }} - {{ item.amount }}%
+                                                </option>
+                                            </select>
+                                            <div class="text-muted fs-7">&nbsp;</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="mt-5">
+                                        <label class="form-label fw-bold">Nombre de la Orden</label>
+                                        <textarea class="form-control form-control-lg text-center" rows="4"
+                                            formControlName="salename" style="text-transform: uppercase"></textarea>
+                                        <div class="text-muted fs-7">Establezca el nombre de la orden.</div>
+                                    </div>
+                                    <div class="mt-5">
+                                        <label class="form-label fw-bold">Descripción</label>
+                                        <textarea class="form-control form-control-lg text-center" rows="4"
+                                            formControlName="description" style="text-transform: uppercase"></textarea>
+                                        <div class="text-muted fs-7">Establezca detalles de la orden.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between w-100 pt-15">
+                                <div class="d-flex justify-content-start w-100">
+                                    <button type="button" [routerLink]="['/movimiento-de-remision']"
+                                        class="btn btn-secondary me-3">Ir a Listado</button>
+                                </div>
+                                <div class="d-flex justify-content-center w-100">
+                                    <button type="button" class="btn btn-primary" [disabled]="letsdoitForm.invalid"
+                                        (click)="saveItem()">
+                                        <span class="indicator-label">Actualizar</span>
+                                        <span class="indicator-progress">
+                                            Un momento por favor...
+                                            <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                        </span>
+                                    </button>
+                                </div>
+                                <div *ngIf="user.type==='admin'" class="d-flex justify-content-end w-100">
+                                    <button type="button" class="btn btn-danger ms-3"
+                                        (click)="deleteItem()">Eliminar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card pt-4 mb-6 mb-xl-9" *ngIf="activeSection === 'enteDetails'">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="fv-row d-flex align-items-center">
+                            <div class="input-group">
+                                <div class="position-relative flex-grow-1">
+                                    <span class="svg-icon svg-icon-1 position-absolute ms-3 top-50 translate-middle-y">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2"
+                                                rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+                                            <path
+                                                d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+                                                fill="currentColor" />
+                                        </svg>
+                                    </span>
+                                    <input #enteSearchInput class="form-control ps-14" type="text"
+                                        [(ngModel)]="enteSearch" name="enteSearch"
+                                        placeholder="Buscar por Razón Social..." (input)="searchEnte()" />
+
+                                </div>
+                                <button type="button" [routerLink]="['../../administracion-de-clientes/add']"
+                                    class="btn btn-primary ms-2">
+                                    <span class="svg-icon svg-icon-2">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1"
+                                                transform="rotate(-90 11.364 20.364)" fill="currentColor" />
+                                            <rect x="4.36396" y="11.364" width="16" height="2" rx="1"
+                                                fill="currentColor" />
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="pt-10">
+                            <div class="results-container">
+                                <div class="table-responsive">
+                                    <table class="table align-middle table-row-dashed fs-6 gy-5 table-striped">
+                                        <thead>
+                                            <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                                                <th class="text-center">Cliente</th>
+                                                <th class="text-start">Código</th>
+                                                <th class="text-start">Razón Social</th>
+                                                <th class="text-center">RFC</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="fw-semibold text-gray-600">
+                                            <ng-container *ngIf="searchResults.length > 0; else noData">
+                                                <tr *ngFor="let item of searchResults">
+                                                    <td class="text-center">
+                                                        <button class="btn btn-sm btn-info"
+                                                            (click)="onSelectEnte(item)">
+                                                            Seleccionar
+                                                        </button>
+                                                    </td>
+                                                    <td class="min-w-70px text-start text-primary">{{ item.code }}</td>
+                                                    <td class="min-w-100px text-start">
+                                                        <strong>{{ truncateText(item.fiscalname, 40) }}</strong>
+                                                    </td>
+                                                    <td class="min-w-70px text-center">{{ item.rfc }}</td>
+                                                </tr>
+                                            </ng-container>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ng-template #noData>
+                            <div class="pt-10 text-center">
+                                <h2>No hay datos</h2>
+                            </div>
+                        </ng-template>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card card-flush h-lg-100">
+                            <div class="card-header pt-7">
+                                <div class="card-title text-center">
+                                    <i class="ki-duotone ki-badge fs-1 me-2">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                        <span class="path4"></span>
+                                        <span class="path5"></span>
+                                    </i>
+                                    <h2>Cliente seleccionado</h2>
+                                </div>
+                            </div>
+                            <div class="card-body pt-5">
+                                <table class="table table-centered">
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center" colspan="2">
+                                                <div class="symbol symbol-circle symbol-100px mb-3">
+                                                    <img [src]="baseUrl + selectedEnte.image" alt="Imagen del Ente" />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-end fw-bold text-primary">Código:</td>
+                                            <td class="text-start">{{ selectedEnte.code }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-end fw-bold text-primary">Dirección:</td>
+                                            <td class="text-start">{{ selectedEnte.fulladdress }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-end fw-bold text-primary">Email:</td>
+                                            <td class="text-start"> {{ selectedEnte.email }} </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-end fw-bold text-primary">Nacionalidad:</td>
+                                            <td class="text-start">{{ selectedEnte.nationality }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-end fw-bold text-primary">Nombre:</td>
+                                            <td class="text-start">{{ selectedEnte.fullname }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-end fw-bold text-primary">Empresa:</td>
+                                            <td class="text-start">{{ selectedEnte.fiscalname }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-end fw-bold text-primary">RFC:</td>
+                                            <td class="text-start">{{ selectedEnte.rfc }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <app-shoppingcart *ngIf="activeSection === 'shoppingCart' && heroe?.id" [sale]="heroe"
+            [ente]="selectedEnte"></app-shoppingcart>
+
+    </div>
+</div>

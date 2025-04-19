@@ -1,0 +1,84 @@
+<div class="d-flex flex-column flex-lg-row">
+    <div class="flex-lg-row-fluid ms-lg-15">
+
+        <div class="row">
+            <div class="col-lg-3 d-flex flex-column">
+                <div class="card card-flush py-4 mb-3">
+                    <div class="card-body text-center">
+                        <h2>Resúmen</h2>
+                        <div class="table-responsive">
+                            <table class="table align-middle table-row-bordered mb-0 fs-6 gy-5">
+                                <tbody class="fw-semibold text-gray-600">
+                                    <tr>
+                                        <td class="text-muted">
+                                            <div class="d-flex align-items-center text-primary">Ítems</div>
+                                        </td>
+                                        <td class="fw-bold text-end">{{ cartItems.length }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-muted">
+                                            <div class="d-flex align-items-center text-primary">Subtotal</div>
+                                        </td>
+                                        <td class="fw-bold text-end">
+                                            {{ calculatedValues.subtotal | currency }} {{ heroe.currency }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-muted">
+                                            <div class="d-flex align-items-center text-primary">Impuestos</div>
+                                        </td>
+                                        <td class="fw-bold text-end">
+                                            {{ calculatedValues.taxAmount | currency }} {{ heroe.currency }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-muted">
+                                            <div class="d-flex align-items-center text-primary">Total</div>
+                                        </td>
+                                        <td class="fw-bold text-end">
+                                            {{ calculatedValues.total | currency }} {{ heroe.currency }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center my-3">
+                    <button class="btn btn-warning mx-1 flex-grow-1 d-flex align-items-center justify-content-center"
+                        (click)="printInfo()">
+                        <i class="fa fa-print me-2"></i>
+                        Imprimir
+                    </button>
+                    <button class="btn btn-info mx-1 flex-grow-1 d-flex align-items-center justify-content-center"
+                        (click)="sendEmail()" [disabled]="emailButtonDisabled">
+                        <i class="fa fa-envelope me-2"></i>
+                        Email
+                    </button>
+                    <button
+                        *ngIf="heroe.status === 'inactivo' || heroe.status === 'finalizada'"
+                        class="btn btn-danger mx-1 flex-grow-1 d-flex align-items-center justify-content-center"
+                        (click)="reopenSale()">
+                        <i class="fa fa-usd me-2"></i>
+                        Reabrir
+                    </button>
+                    <button *ngIf="heroe.status !== 'inactivo' && heroe.status !== 'finalizada'"
+                        class="btn btn-primary mx-1 flex-grow-1 d-flex align-items-center justify-content-center"
+                        [routerLink]="['edit']">
+                        <i class="fa fa-edit me-2"></i>
+                        Editar
+                    </button>
+                </div>
+
+
+            </div>
+            <div class="col-lg-9 d-flex flex-column">
+                <div>
+                    <app-info [sale]="heroe" [ente]="selectedEnte" [carrito]="cartItems" [account]="user.account"
+                        [staff]="staff" [calculatedValues]="calculatedValues"></app-info>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

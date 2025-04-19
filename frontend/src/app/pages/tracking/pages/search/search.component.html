@@ -1,0 +1,238 @@
+<div class="container d-flex flex-column align-items-center justify-content-center text-center">
+    <div class="d-flex justify-content-center my-4">
+        <img src="./assets/media/logos/logoH.png" class="img-fluid" style="max-height: 200px;">
+    </div>
+
+    <div class="card card-flush w-100">
+        <div class="card-body d-flex flex-column align-items-center">
+            <div class="row w-100 justify-content-center text-center">
+                <div class="col-lg-10 col-md-10 col-sm-12">
+
+                    <div class="d-flex align-items-center position-relative my-1 w-100">
+
+                        <select [(ngModel)]="searchMode" class="form-select form-control-solid me-3"
+                            style="width: 150px; height: 50px;" (ngModelChange)="setSearchMode()">
+                            <option *ngFor="let mode of searchModes" [value]="mode.value">
+                                {{ mode.label }}
+                            </option>
+                        </select>
+
+                        <div class="position-relative flex-grow-1">
+                            <span class="svg-icon svg-icon-1 position-absolute"
+                                style="left: 10px; top: 50%; transform: translateY(-50%);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
+                                        transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+                                    <path
+                                        d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </span>
+
+                            <input #searchInput [(ngModel)]="searchTerm" (focus)="showSearchDropdown()"
+                                (click)="showSearchDropdown()" (input)="onSearch()" (keydown.enter)="onEnter()"
+                                (keydown.tab)="onEnter()"
+                                (keydown.arrowDown)="moveSelection(1); $event.preventDefault();"
+                                (keydown.arrowUp)="moveSelection(-1); $event.preventDefault();" (blur)="hideDropdown()"
+                                [placeholder]="'Ingresar ' + (getSearchLabel() + ' ...')"
+                                class="text-center form-control form-control-solid w-100"
+                                style="height: 50px; padding-left: 40px;" />
+
+                            <span *ngIf="searchTerm"
+                                class="position-absolute top-50 translate-middle-y end-0 me-3 search-reset"
+                                (click)="clearSearch()">✖</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-2 col-sm-12 text-center">
+                    <button type="button" class="btn btn-primary btn-lg w-100 rounded" style="height: 50px"
+                        (click)="onEnter()">
+                        Buscar
+                    </button>
+                </div>
+            </div>
+
+            <div *ngIf="showDropdown" class="search-dropdown shadow-sm p-3 bg-white rounded">
+
+                <div class="d-flex justify-content-between align-items-center pb-2 border-bottom">
+                    <span class="fs-7 fw-semibold" [ngClass]="{
+                                'text-primary': searchHistory.length > 0 && searchResults.length === 0,
+                                'text-success': searchResults.length > 0
+                            }">
+                        {{ searchHistory.length > 0 && searchResults.length === 0 ? 'Búsquedas' :
+                        pageTitle.toUpperCase() }}
+                    </span>
+
+                    <button *ngIf="searchHistory.length > 0 && searchResults.length === 0"
+                        class="btn btn-sm btn-light text-primary fw-semibold"
+                        (click)="clearSearchHistory()">Limpiar</button>
+                </div>
+
+                <div class="scroll-y mh-225px mh-lg-325px mt-2">
+
+                    <div *ngIf="searchResults.length > 0" class="table-responsive">
+                        <table class="table align-middle table-row-dashed fs-6 gy-5">
+                            <thead>
+                                <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                                    <th class="max-w-70px text-center">FOLIO</th>
+                                    <th class="max-w-70px text-center text-center">PAÍS</th>
+                                    <th class="max-w-100px text-start">Razón Social</th>
+                                    <th class="max-w-70px text-center">STATUS</th>
+                                    <th class="max-w-50px text-center">CREADO</th>
+                                    <th class="max-w-100px text-center">RASTREO</th>
+                                </tr>
+                            </thead>
+                            <tbody class="fw-semibold text-gray-600">
+                                <tr *ngFor="let item of searchResults; let i = index" class="selectable-item"
+                                    style="cursor: pointer" [ngClass]="{'table-active': i === selectedIndex}"
+                                    (click)="selectSuggestion(item)">
+                                    <td class="text-center text-primary"><strong>{{ item.folio }}</strong></td>
+                                    <td class="text-center">{{ item.countrycode }}</td>
+                                    <td class="text-start">{{ truncateText(item.entename, 60) }}</td>
+                                    <td class="text-center">
+                                        <div class="badge" [ngClass]="getStatusClass(item.status)">{{ item.status }}
+                                        </div>
+                                    </td>
+                                    <td class="text-center">{{ item.created_at | date:'short' }}</td>
+                                    <td class="text-center">{{ item.trackingnumber || 'N/A' }}</td>
+                                </tr>
+                                <tr *ngIf="searchResults.length == 0">
+                                    <td colspan="9" class="text-center">No hay datos</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div *ngIf="favorites.length > 0" class="mt-3">
+                        <div class="d-flex justify-content-between align-items-center pb-2 border-bottom">
+                            <span class="fs-7 fw-semibold text-warning">Favoritos</span>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table align-middle table-row-dashed fs-6 gy-5">
+                                <thead>
+                                    <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                                        <th class="text-center"></th>
+                                        <th class="text-start">No. de Folio</th>
+                                        <th class="text-center">Fecha de creación</th>
+                                        <th class="text-start">Texto Ingresado</th>
+                                        <th class="text-center">Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="fw-semibold text-gray-600">
+                                    <tr *ngFor="let item of favorites; let i = index" class="selectable-item"
+                                        style="cursor: pointer" [ngClass]="{'table-active': i === selectedIndex}"
+                                        (click)="selectRecentSearch(item)">
+
+                                        <td class="text-center">
+                                            <div class="symbol symbol-35px">
+                                                <div
+                                                    class="search-item-icon symbol-label rounded-circle d-flex align-items-center justify-content-center">
+                                                    <i class="fa fa-star fs-4 text-warning"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-start">
+                                            <span class="fw-semibold text-primary">{{ item.folio }}</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <small class="text-muted">{{ item.date }}</small>
+                                        </td>
+                                        <td class="text-start">
+                                            <span class="fw-semibold text-gray-800 fst-italic">{{ item.term }}</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <button *ngIf="isFavorite(item.term)"
+                                                class="btn btn-sm btn-light text-danger"
+                                                (click)="updateFavorites(item, false); $event.stopPropagation();">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr *ngIf="favorites.length == 0">
+                                        <td colspan="4" class="text-center">No hay favoritos</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+
+                    <div *ngIf="favorites.length > 0 && searchHistory.length > 0" class="border-top my-2"></div>
+
+                    <div *ngIf="searchResults.length === 0 && searchHistory.length > 0" class="mt-3">
+                        <div class="d-flex justify-content-between align-items-center pb-2 border-bottom">
+                            <span class="fs-7 fw-semibold text-success"> Recientes </span>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table align-middle table-row-dashed fs-6 gy-5">
+                                <thead>
+                                    <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                                        <th class="text-center"></th>
+                                        <th class="text-start">No. de Folio</th>
+                                        <th class="text-center">Fecha de creación</th>
+                                        <th class="text-start">Texto Ingresado</th>
+                                        <th class="text-center">Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="fw-semibold text-gray-600">
+                                    <tr *ngFor="let item of searchHistory; let i = index" class="selectable-item"
+                                        style="cursor: pointer" [ngClass]="{'table-active': i === selectedIndex}"
+                                        (click)="selectRecentSearch(item)">
+                                        <td class="text-center">
+                                            <div class="symbol symbol-35px">
+                                                <div
+                                                    class="search-item-icon symbol-label rounded-circle d-flex align-items-center justify-content-center">
+                                                    <i class="fa fa-file-text fs-4 text-primary"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-start">
+                                            <span class="fw-semibold text-primary">{{ item.folio }}</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <small class="text-muted">{{ item.date }}</small>
+                                        </td>
+                                        <td class="text-start">
+                                            <span class="fw-semibold text-gray-800 fst-italic">{{ item.term }}</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <button *ngIf="!isFavorite(item.term)"
+                                                class="btn btn-sm btn-light text-danger"
+                                                (click)="updateFavorites(item, true); $event.stopPropagation();">
+                                                <i class="fa fa-star"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr *ngIf="searchHistory.length == 0">
+                                        <td colspan="4" class="text-center">No hay búsquedas recientes</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <div *ngIf="searchResults.length === 0 && searchHistory.length === 0"
+                        class="text-center text-muted py-3">
+                        <i class="ki-duotone ki-search-list fs-2x opacity-50"></i>
+                        <p class="fs-6">Empieza a escribir para ver resultados</p>
+                        <small>Usa las teclas ↑ ↓ para navegar.</small>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer-info text-center w-100"
+        style="position: fixed; bottom: 0; left: 0; width: 100%; background: #f8f9fa; padding: 10px;">
+        <h2 class="mb-1">{{ currentDateTime }}</h2>
+        <h3 class="fw-light fst-italic">"{{ currentFrase?.frase }}" - {{ currentFrase?.autor }}</h3>
+    </div>
+</div>

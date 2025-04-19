@@ -1,0 +1,10 @@
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, OPTIONS"
+    Header set Access-Control-Allow-Headers "X-Requested-With, Content-Type, Accept"
+</IfModule>
+
+# Asegurar acceso solo a imágenes y PDFs
+<FilesMatch "\.(jpg|jpeg|png|gif|svg|webp|ico|pdf)$">
+    Header set Access-Control-Allow-Origin "*"
+</FilesMatch>

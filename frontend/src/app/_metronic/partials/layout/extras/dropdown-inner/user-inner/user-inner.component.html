@@ -1,0 +1,58 @@
+<ng-container *ngIf="user | async as _user">
+  <div routerLink="/mi-perfil"
+    class="d-flex flex-column flex-center bgi-no-repeat rounded-top px-9 py-10 cursor-pointer"
+    [style.background-image]="'url(./assets/media/misc/pattern-1.jpg)'">
+
+    <div class="text-center">
+      <div class="symbol symbol-50px"> <img alt="Logo" [src]="baseUrl + _user.image" /> </div>
+      <h3 class="text-white fw-bold mb-3"><br />{{ _user.fullname }}</h3>
+      <span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">{{ _user.username }}</span><br />
+      <span class="badge badge-light-primary fw-bolder fs-8 px-2 py-1 ms-2">{{ _user.type }}</span>
+    </div>
+  </div>
+</ng-container>
+
+<div class="row g-0">
+  <div class="col-6">
+    <a routerLink="/administracion-de-catalogos"
+      class="d-flex flex-column flex-center h-100 p-6 bg-hover-light border-end border-bottom cursor-pointer">
+      <span [inlineSVG]="'./assets/media/icons/duotune/finance/fin007.svg'"
+        class="svg-icon svg-icon-3x svg-icon-primary mb-2"></span>
+      <span class="fs-5 fw-bold text-gray-800 mb-0">Administración</span>
+      <span class="fs-7 text-gray-500">catalogos</span>
+    </a>
+  </div>
+
+  <div class="col-6">
+    <a routerLink="/administracion-de-movimientos"
+      class="d-flex flex-column flex-center h-100 p-6 bg-hover-light border-bottom cursor-pointer">
+      <span [inlineSVG]="'./assets/media/icons/duotune/finance/fin006.svg'"
+        class="svg-icon svg-icon-3x svg-icon-primary mb-2"></span>
+      <span class="fs-5 fw-bold text-gray-800 mb-0">Movimientos</span>
+      <span class="fs-7 text-gray-500">ordenes</span>
+    </a>
+  </div>
+
+  <div class="col-6">
+    <a routerLink="rastreo-de-ordenes"
+      class="d-flex flex-column flex-center h-100 p-6 bg-hover-light border-end cursor-pointer">
+      <span [inlineSVG]="'./assets/media/icons/duotune/finance/fin002.svg'"
+        class="svg-icon svg-icon-3x svg-icon-primary mb-2"></span>
+      <span class="fs-5 fw-bold text-gray-800 mb-0">Tracking</span>
+      <span class="fs-7 text-gray-500">rastreo</span>
+    </a>
+  </div>
+
+  <div class="col-6">
+    <a routerLink="mi-perfil" class="d-flex flex-column flex-center h-100 p-6 bg-hover-light cursor-pointer">
+      <span [inlineSVG]="'./assets/media/icons/duotune/abstract/abs042.svg'"
+        class="svg-icon svg-icon-3x svg-icon-primary mb-2"></span>
+      <span class="fs-5 fw-bold text-gray-800 mb-0">Mi Perfil</span>
+      <span class="fs-7 text-gray-500">mis operaciones</span>
+    </a>
+  </div>
+</div>
+
+<div class="py-2 text-center border-top">
+  <a (click)="logout()" class="menu-link px-5 cursor-pointer">Cerrar Sesión </a>
+</div>

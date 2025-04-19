@@ -1,0 +1,130 @@
+<div class="container">
+    <div class="row g-4">
+
+
+        <div class="col-lg-6 col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h2 class="fs-2x fw-bold mb-4">Categorías</h2>
+                    <p class="text-gray-500 fs-4 fw-semibold py-3">Gestiona y organiza las categorías de productos y
+                        servicios.</p>
+                    <a [routerLink]="['/configuracion-de-categorias']" class="btn btn-info fs-6 px-8 py-4"
+                        [class.disabled]="user.type !== 'admin'"
+                        [attr.disabled]="user.type !== 'admin' ? true : null">Configuración de Categorías</a>
+                    <div class="mt-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#000080"
+                            class="bi bi-list-ul" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M2 12.5a.5.5 0 1 1 0-1h12a.5.5 0 0 1 0 1H2zm0-4a.5.5 0 0 1 0-1h12a.5.5 0 0 1 0 1H2zm0-4a.5.5 0 0 1 0-1h12a.5.5 0 0 1 0 1H2zm-1 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h2 class="fs-2x fw-bold mb-4">Monedas</h2>
+                    <p class="text-gray-500 fs-4 fw-semibold py-3">Administra las diferentes monedas para tus
+                        transacciones.</p>
+                    <a routerLink="/configuracion-de-monedas" class="btn btn-primary fs-6 px-8 py-4"
+                        [class.disabled]="user.type !== 'admin'"
+                        [attr.disabled]="user.type !== 'admin' ? true : null">Configuración de Monedas</a>
+                    <div class="mt-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#000080"
+                            class="bi bi-currency-exchange" viewBox="0 0 16 16">
+                            <path
+                                d="M16 2.5a.5.5 0 0 1-.5.5h-2.793l.147.146a.5.5 0 1 1-.708.708l-1.5-1.5a.5.5 0 0 1 0-.708l1.5-1.5a.5.5 0 0 1 .708.708L12.707 2H15.5a.5.5 0 0 1 .5.5zM0 13.5a.5.5 0 0 1 .5-.5h2.793l-.147-.146a.5.5 0 0 1 .708-.708l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708-.708l.147-.146H.5a.5.5 0 0 1-.5-.5z" />
+                            <path
+                                d="M1 2.5a.5.5 0 0 0-.5.5v4a5.5 5.5 0 1 0 6.442 5.404.5.5 0 1 0-.984-.176A4.5 4.5 0 1 1 1.5 7h3.793l-.147.146a.5.5 0 1 0 .708.708l1.5-1.5a.5.5 0 0 0 0-.708l-1.5-1.5a.5.5 0 1 0-.708.708L5.293 6H1.5a.5.5 0 0 0-.5-.5z" />
+                            <path
+                                d="M15 9.5a.5.5 0 0 0-.5.5v-4a5.5 5.5 0 1 0-6.442 5.404.5.5 0 1 0 .984-.176A4.5 4.5 0 1 1 14.5 7h-3.793l.147.146a.5.5 0 0 0-.708-.708l-1.5-1.5a.5.5 0 0 0 0-.708l1.5-1.5a.5.5 0 0 0 .708.708L10.707 6H14.5a.5.5 0 0 0 .5.5z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h2 class="fs-2x fw-bold mb-4">Impuestos</h2>
+                    <p class="text-gray-500 fs-4 fw-semibold py-3">Gestiona los impuestos aplicables a productos y
+                        servicios.</p>
+                    <a routerLink="/configuracion-de-impuestos" class="btn btn-danger fs-6 px-8 py-4"
+                        [class.disabled]="user.type !== 'admin'"
+                        [attr.disabled]="user.type !== 'admin' ? true : null">Configuración de Impuestos</a>
+                    <div class="mt-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#000080"
+                            class="bi bi-percent" viewBox="0 0 16 16">
+                            <path
+                                d="M13.442 2.558a3.5 3.5 0 1 0-4.884 4.884l1.438-1.438a.5.5 0 0 1 .707 0l1.415 1.414a.5.5 0 0 1 0 .707L7.965 12.7l-.707-.707 2.121-2.121a.5.5 0 0 1 .707 0l1.414 1.415a.5.5 0 0 1 0 .707l-4.172 4.172a3.5 3.5 0 0 0 4.884-4.884L8.808 7.172a.5.5 0 0 1 0-.707l1.414-1.414a.5.5 0 0 1 .707 0l2.828 2.828a3.5 3.5 0 0 0 0-4.884L13.442 2.558z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h2 class="fs-2x fw-bold mb-4">Niveles de Precio</h2>
+                    <p class="text-gray-500 fs-4 fw-semibold py-3">Configura y administra diferentes niveles de precios
+                        para productos.</p>
+                    <a routerLink="/configuracion-de-precios" class="btn btn-warning fs-6 px-8 py-4"
+                        [class.disabled]="user.type !== 'admin'"
+                        [attr.disabled]="user.type !== 'admin' ? true : null">Configuración de Precios</a>
+                    <div class="mt-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#000080"
+                            class="bi bi-currency-dollar" viewBox="0 0 16 16">
+                            <path
+                                d="M6.548 8.321A1.998 1.998 0 0 1 8 7h2a.5.5 0 0 1 0 1H8c-.23 0-.448.054-.632.157a.5.5 0 1 0 .5.866A1.99 1.99 0 0 1 8 9H6.5A1.5 1.5 0 1 1 6.5 6H8c.23 0 .448-.054.632-.157a.5.5 0 1 0-.5-.866A1.99 1.99 0 0 1 8 5H6.5A1.5 1.5 0 0 1 6.5 8H8a.5.5 0 0 1 0 1H6.5A1.5 1.5 0 0 1 6.548 8.321zM8 1a7 7 0 0 1 7 7A7 7 0 0 1 8 15A7 7 0 0 1 1 8A7 7 0 0 1 8 1z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h2 class="fs-2x fw-bold mb-4">Usuarios</h2>
+                    <p class="text-gray-500 fs-4 fw-semibold py-3">Gestiona la información y permisos de los usuarios
+                        del sistema.</p>
+                    <a routerLink="/configuracion-de-usuarios" class="btn btn-success fs-6 px-8 py-4"
+                        [class.disabled]="user.type !== 'admin'"
+                        [attr.disabled]="user.type !== 'admin' ? true : null">Configuración de Usuarios</a>
+                    <div class="mt-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#000080"
+                            class="bi bi-people-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M13.468 13.37C14.163 12.354 15 10.354 15 8.5c0-2.5-1.5-3.5-3.5-3.5C9 5 7.5 6 7.5 8.5c0 1.854.837 3.854 1.532 4.87.065.09.16.135.26.135h3.416a.26.26 0 0 0 .26-.135zm-4.4-4.864C8.16 6.868 7.5 5.816 7.5 4.5c0-2.5-1.5-3.5-3.5-3.5C2 1 1.5 2 1.5 4.5c0 1.316.66 2.368 1.532 4.006C2.435 9.97 2 10.935 2 12c0 1.105.268 2 .865 2 .69 0 1.433-.987 1.907-2.333C5.933 11.987 6.676 12.5 7.5 12.5c.967 0 1.61-.82 1.65-1.738l.418.134z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h2 class="fs-2x fw-bold mb-4">Mi Empresa</h2>
+                    <p class="text-gray-500 fs-4 fw-semibold py-3">Configura y administra la información de tu empresa.
+                    </p>
+                    <a routerLink="/configuracion-de-miempresa" class="btn btn-dark fs-6 px-8 py-4"
+                        [class.disabled]="user.type !== 'admin'"
+                        [attr.disabled]="user.type !== 'admin' ? true : null">Configurar Empresa</a>
+                    <div class="mt-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#000080"
+                            class="bi bi-building" viewBox="0 0 16 16">
+                            <path
+                                d="M6.5 15.5V10h3v5.5h4V6.5h-3v-5H2v5H0v9h6.5zM1 1v4.5h4V1H1zm1 1h2v2H2V2zM1 15v-7h4v7H1zM10.5 5v10H16v-9.5h-5.5V5zm1 1h3.5v2h-3.5v-2z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="card card-xl-stretch mb-xl-8">
+
+  <div class="card-header border-0 pt-5">
+    <div class="card-title align-items-start flex-column">
+      <span class="card-label fw-bolder fs-2">{{ title }}</span>
+      <span class="d-block text-muted fw-bolder fs-6">{{ dataLabel }} totales: {{ totalItems }}</span>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div *ngIf="chartOptions && chartOptions.series && chartOptions.series.length > 0" #chartRef
+      id="kt_charts_widget_3_chart" [style.height]="'350px'">
+      <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+        [yaxis]="chartOptions.yaxis" [dataLabels]="chartOptions.dataLabels" [stroke]="chartOptions.stroke"
+        [legend]="chartOptions.legend" [fill]="chartOptions.fill" [states]="chartOptions.states"
+        [tooltip]="chartOptions.tooltip" [colors]="chartOptions.colors" [markers]="chartOptions.markers"
+        [plotOptions]="chartOptions.plotOptions"></apx-chart>
+    </div>
+    <div *ngIf="!chartOptions || !chartOptions.series || chartOptions.series.length === 0">
+      <p>Datos no disponibles para el gráfico.</p>
+    </div>
+  </div>
+</div>

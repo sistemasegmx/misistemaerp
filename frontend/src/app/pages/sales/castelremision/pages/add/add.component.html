@@ -1,0 +1,232 @@
+<form class="form" [formGroup]="letsdoitForm" (submit)="$event.preventDefault()" appEnterAsTab>
+    <div class="d-flex flex-column flex-lg-row">
+        <div class="flex-lg-row-fluid ms-lg-15">
+
+            <div class="card pt-4 mb-6 mb-xl-9">
+                <div class="card-body pt-0 text-center">
+                    <h2>Nueva CASTEL Remisión</h2>
+
+                    <div class="row g-3">
+                        <div class="col-md">
+                            <div class="fv-row">
+                                <label class="form-label">Moneda</label>
+                                <select class="form-control form-control-lg text-center" data-control="select2"
+                                    data-hide-search="true" data-placeholder="Moneda" formControlName="currency"
+                                    (change)="onCurrencyChange($event)">
+                                    <option value="" disabled>Seleccione</option>
+                                    <option *ngFor="let item of allCurrency" [value]="item.code">{{ item.fullname }}
+                                    </option>
+                                </select>
+                                <div class="text-muted fs-7">Seleccione la Moneda</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md">
+                            <div class="fv-row">
+                                <label class="required form-label">Paridad</label>
+                                <input class="form-control form-control-lg text-center" type="number" min="0"
+                                    step="0.01" formControlName="parity" required />
+                                <div class="text-muted fs-7">Valor de la Paridad</div>
+                                <div *ngIf="letsdoitForm.get('parity')?.invalid && letsdoitForm.get('parity')?.touched"
+                                    class="text-danger">
+                                    Paridad es requerido, mínimo 0.</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md">
+                            <div class="fv-row">
+                                <label class="form-label">Impuesto</label>
+                                <select class="form-control form-control-lg text-center" data-control="select2"
+                                    data-hide-search="true" data-placeholder="Impuesto" formControlName="taxname"
+                                    (change)="onTaxChange($event)">
+                                    <option value="" disabled>Seleccione</option>
+                                    <option *ngFor="let item of allTax" [value]="item.fullname">{{ item.fullname }}
+                                    </option>
+                                </select>
+                                <div class="text-muted fs-7">Seleccione el Impuesto</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md">
+                            <div class="fv-row">
+                                <label class="required form-label">Tasa</label>
+                                <input class="form-control form-control-lg text-center" type="number" min="0"
+                                    step="0.01" formControlName="taxamount" required />
+                                <div class="text-muted fs-7">Valor de la Tasa</div>
+                                <div *ngIf="letsdoitForm.get('taxamount')?.invalid && letsdoitForm.get('taxamount')?.touched"
+                                    class="text-danger">
+                                    Tasa es requerida, mínimo 0.</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md">
+                            <div class="fv-row">
+                                <label class="form-label">Nivel</label>
+                                <select class="form-control form-control-lg text-center" data-control="select2"
+                                    data-hide-search="true" data-placeholder="Nivel de Precio"
+                                    formControlName="pricelevel" (change)="onPricelevelChange($event)">
+                                    <option value="" disabled>Seleccione</option>
+                                    <option *ngFor="let item of allPricelevel" [value]="item.id">
+                                        {{ item.fullname }} - {{ item.amount }}%
+                                    </option>
+                                </select>
+                                <div class="text-muted fs-7">Seleccione el Nivel de precio</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card pt-4 mb-6 mb-xl-9">
+                <div class="card-body pt-0">
+                    <div class="row">
+                        <div class="col-xl-8">
+                            <div class="fv-row d-flex align-items-center">
+                                <div class="input-group">
+                                    <div class="position-relative flex-grow-1">
+                                        <span
+                                            class="svg-icon svg-icon-1 position-absolute ms-3 top-50 translate-middle-y">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2"
+                                                    rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+                                                <path
+                                                    d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+                                                    fill="currentColor" />
+                                            </svg>
+                                        </span>
+                                        <input #fullnameInput class="form-control ps-14" type="text"
+                                            formControlName="enteSearch" placeholder="Buscar por Razón Social..."
+                                            (input)="searchEnte()" (keydown)="preventSubmit($event)" />
+                                    </div>
+                                    <button type="button" [routerLink]="['../../administracion-de-clientes/add']"
+                                        class="btn btn-primary ms-2">
+                                        <span class="svg-icon svg-icon-2">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1"
+                                                    transform="rotate(-90 11.364 20.364)" fill="currentColor" />
+                                                <rect x="4.36396" y="11.364" width="16" height="2" rx="1"
+                                                    fill="currentColor" />
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="pt-10" *ngIf="searchResults && searchResults.length > 0">
+                                <div class="results-container">
+                                    <div class="table-responsive" class="result-item">
+                                        <table class="table align-middle table-row-dashed fs-6 gy-5 table-striped">
+                                            <thead>
+                                                <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                                                    <th class="text-center">Cliente</th>
+                                                    <th class="text-start">Código</th>
+                                                    <th class="text-start">Razón Social</th>
+                                                    <th class="text-center">RFC</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="fw-semibold text-gray-600">
+                                                <tr class="cursor-pointer" *ngFor="let item of searchResults">
+                                                    <td class="text-center">
+                                                        <button class="btn btn-sm btn-info" (click)="selectEnte(item)">
+                                                            Seleccionar
+                                                        </button>
+                                                    </td>
+                                                    <td class="min-w-70px text-start text-primary">{{ item.code }}</td>
+                                                    <td class="min-w-100px text-start">
+                                                        <strong>{{ truncateText(item.fiscalname, 40) }}</strong>
+                                                    </td>
+                                                    <td class="min-w-70px text-center">{{ item.rfc }}</td>
+                                                </tr>
+                                                <tr *ngIf="searchResults.length === 0">
+                                                    <td colspan="4" class="text-center">No hay datos</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pt-10 text-center" *ngIf="searchResults && searchResults.length === 0">
+                                <h2>No hay datos</h2>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-4">
+                            <div class="card card-flush h-lg-100">
+                                <div class="card-header pt-7 text-center">
+                                    <h2 class="text-primary">
+                                        <i class="fas fa-user-tie me-2"></i> Cliente Seleccionado
+                                    </h2>
+                                </div>
+                                <div class="card-body pt-5">
+
+                                    <div *ngIf="!selectedEnte || !selectedEnte.code"
+                                        class="d-flex flex-column align-items-center text-center py-5 animate__animated animate__fadeIn">
+                                        <i class="fas fa-info-circle text-primary fs-1 mb-3"></i>
+                                        <h4 class="text-gray-700 fw-bold">Ningún cliente seleccionado</h4>
+                                        <p class="text-gray-600">Por favor, seleccione un cliente de la lista.</p>
+                                    </div>
+
+                                    <table *ngIf="selectedEnte && selectedEnte.code"
+                                        class="table table-centered animate__animated animate__fadeIn">
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-end fw-bold text-primary">Código:</td>
+                                                <td class="text-start">{{ selectedEnte.code }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-end fw-bold text-primary">Dirección:</td>
+                                                <td class="text-start">{{ selectedEnte.fulladdress }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-end fw-bold text-primary">Nacionalidad:</td>
+                                                <td class="text-start">{{ selectedEnte.nationality }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-end fw-bold text-primary">Nombre:</td>
+                                                <td class="text-start">{{ selectedEnte.fullname }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-end fw-bold text-primary">Empresa:</td>
+                                                <td class="text-start">{{ selectedEnte.fiscalname }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-end fw-bold text-primary">RFC:</td>
+                                                <td class="text-start">{{ selectedEnte.rfc }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end w-100 pt-15">
+                        <div class="d-flex">
+                            <button routerLink="'../'" type="reset" class="btn btn-light-warning me-3">Cancelar</button>
+
+                            <button type="button" class="btn btn-primary me-3" [disabled]="letsdoitForm.invalid"
+                                (click)="submitWithCountry('MX')">
+                                <span class="indicator-label">Remisión MX</span>
+                                <span class="indicator-progress">Un momento por favor...
+                                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                </span>
+                            </button>
+
+                            <button type="button" class="btn btn-success" [disabled]="letsdoitForm.invalid"
+                                (click)="submitWithCountry('USA')">
+                                <span class="indicator-label">Remision USA</span>
+                                <span class="indicator-progress">Un momento por favor...
+                                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>

@@ -1,0 +1,31 @@
+<div class="menu-item px-3">
+  <div class="menu-content fs-6 text-gray-900 fw-bolder px-3 py-4">
+    Acciones Rápidas
+  </div>
+</div>
+
+<div class="separator mb-3 opacity-75"></div>
+
+<div class="menu-item px-3">
+  <a class="menu-link px-3 cursor-pointer" routerLink="/mi-perfil"> Mi Perfil </a>
+</div>
+
+<div class="menu-item px-3">
+  <a class="menu-link px-3 cursor-pointer" [routerLink]="['movimiento-de-cotizacion/add']"> Nueva Cotización </a>
+</div>
+
+<div class="menu-item px-3">
+  <a class="menu-link px-3 cursor-pointer" [routerLink]="['movimiento-de-compra/add']"> Nueva Compra </a>
+</div>
+
+<div class="menu-item px-3">
+  <a class="menu-link px-3 cursor-pointer" [routerLink]="['movimiento-de-remision/add']"> Nueva Remisión </a>
+</div>
+
+<div class="separator mt-3 opacity-75"></div>
+
+<div class="menu-item px-3">
+  <div class="menu-content px-3 py-3">
+    <a (click)="logout()" class="btn btn-success btn-sm px-4 cursor-pointer"> Cerrar Sesión </a>
+  </div>
+</div>

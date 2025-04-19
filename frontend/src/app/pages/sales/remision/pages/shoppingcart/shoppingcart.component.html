@@ -1,0 +1,243 @@
+<div class="row">
+    <div class="col-lg-3 d-flex flex-column">
+        <div class="card card-flush py-4 mb-3">
+            <div class="card-body text-center">
+                <h2>Agregar al carrito</h2>
+                <div class="d-flex flex-column gap-10">
+                    <div class="d-flex align-items-center position-relative mb-n7">
+                        <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                        </i>
+                        <input type="text" #searchInput (keyup.enter)="searchItem(searchInput.value)"
+                            class="form-control form-control-solid w-100 ps-12 text-center"
+                            placeholder="código * cantidad" [disabled]="isLoading" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-flush py-4 mb-3 shadow-sm border-0" *ngIf="lastModifiedItem">
+            <div class="card-body pt-0">
+                <div class="row g-4">
+                    <div class="col-12">
+                        <div class="card h-100 p-6 pb-5 mw-100">
+                            <div class="card-body text-center">
+                                <h2 class="fw-bold text-primary mb-3">Modificado o Añadido</h2>
+                                <div class="mb-2">
+                                    <div class="text-center">
+                                        <span class="fw-bold text-gray-800 cursor-pointer text-hover-primary fs-3">
+                                            {{ lastModifiedItem.code }}
+                                        </span>
+                                        <span class="text-gray-500 fw-semibold d-block fs-6 mt-1">
+                                            {{ truncateText(lastModifiedItem.description, 40) }}
+                                        </span>
+                                    </div>
+                                </div>
+                                <span class="text-success fw-bold fs-4 d-block mb-1">
+                                    {{ sale.currency }} {{ lastModifiedItem.price | currency }}
+                                </span>
+                                <span class="badge bg-success fs-6">
+                                    Cantidad: {{ lastModifiedItem.qty }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card card-flush py-4 mb-3">
+            <div class="card-body text-center">
+                <h2>Resúmen</h2>
+                <div class="table-responsive">
+                    <table class="table align-middle table-row-bordered mb-0 fs-6 gy-5">
+                        <tbody class="fw-semibold text-gray-600">
+                            <tr>
+                                <td class="text-muted">
+                                    <div class="d-flex align-items-center text-primary">Ítems</div>
+                                </td>
+                                <td class="fw-bold text-end">{{ cartItems.length }}</td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">
+                                    <div class="d-flex align-items-center text-primary">Nivel</div>
+                                </td>
+                                <td class="fw-bold text-end" *ngIf="pricelevel.id">
+                                    {{ pricelevel.fullname }} - {{ pricelevel.amount }}%
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">
+                                    <div class="d-flex align-items-center text-primary">Subtotal</div>
+                                </td>
+                                <td class="fw-bold text-end">
+                                    {{ calculatedValues.subtotal | currency }} {{ sale.currency }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">
+                                    <div class="d-flex align-items-center text-primary">Impuestos</div>
+                                </td>
+                                <td class="fw-bold text-end">
+                                    {{ calculatedValues.taxAmount | currency }} {{ sale.currency }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">
+                                    <div class="d-flex align-items-center text-primary">Total</div>
+                                </td>
+                                <td class="fw-bold text-end">
+                                    {{ calculatedValues.total | currency }} {{ sale.currency }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-column justify-content-center my-3">
+            <div class="d-flex justify-content-center mb-2">
+                <a target="_blank" class="btn btn-primary mx-1 flex-grow-1"
+                    [routerLink]="['../../../administracion-de-partes/add']">
+                    <span class="svg-icon svg-icon-2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1"
+                                transform="rotate(-90 11.364 20.364)" fill="currentColor" />
+                            <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="currentColor" />
+                        </svg>
+                        Crear Item
+                    </span>
+                </a>
+                <button *ngIf="activeSection === 'cart'"
+                    class="btn btn-info mx-1 flex-grow-1 d-flex align-items-center justify-content-center"
+                    (click)="setActiveSection('search')">
+                    <i class="ki-duotone ki-magnifier fs-3 me-2">
+                        <span class="path1"></span>
+                        <span class="path2"></span>
+                    </i>
+                    Buscar
+                </button>
+                <button *ngIf="activeSection === 'search' || activeSection !== 'cart'"
+                    class="btn btn-success mx-1 flex-grow-1 d-flex align-items-center justify-content-center"
+                    (click)="setActiveSection('cart')">
+                    <i class="ki-duotone ki-magnifier fs-3 me-2">
+                        <span class="path1"></span>
+                        <span class="path2"></span>
+                    </i>
+                    Carrito
+                </button>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-dark mx-1 flex-grow-1 d-flex align-items-center justify-content-center"
+                    (click)="setActiveSection('info')">
+                    <i class="fa fa-info-circle"></i>
+                </button>
+                <button class="btn btn-warning mx-1 flex-grow-1 d-flex align-items-center justify-content-center"
+                    (click)="printInfo()">
+                    <i class="fa fa-print"></i>
+                </button>
+                <button class="btn btn-info mx-1 flex-grow-1 d-flex align-items-center justify-content-center"
+                    (click)="sendEmail()" [disabled]="emailButtonDisabled">
+                    <i class="fa fa-envelope"></i>
+                </button>
+            </div>
+            <div class="d-flex justify-content-center mt-2">
+                <button class="btn btn-danger mx-1 flex-grow-1 d-flex align-items-center justify-content-center"
+                    (click)="closeSale()">
+                    <i class="fa fa-check"></i>
+                    Finalizar
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-9 d-flex flex-column">
+        <div class="card card-flush py-4" *ngIf="activeSection === 'cart'">
+            <div class="card-body pt-0">
+                <div class="d-flex flex-column gap-10">
+                    <div class="table-responsive rounded px-2 mh-700px overflow-scroll">
+                        <table class="table align-middle table-row-dashed fs-7 gy-3">
+                            <thead>
+                                <tr class="text-start text-gray-500 fw-bold fs-8 text-uppercase gs-0">
+                                    <th class="min-w-200px">Item</th>
+                                    <th class="min-w-150px text-center">Cantidad</th>
+                                    <th class="min-w-150px text-center">Precio</th>
+                                    <th class="min-w-150px text-center">Unidad de Medida</th>
+                                    <th class="min-w-100px text-end">Importe</th>
+                                    <th class="min-w-150px text-center">Estimado</th>
+                                    <th class="min-w-150px text-center">Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody class="fw-semibold text-gray-600">
+                                <tr *ngFor="let item of cartItems">
+                                    <td class="text-start">
+                                        <span class="text-primary text-hover-success fs-6 fw-bold">
+                                            {{ item.code }}
+                                        </span>
+                                        <br>{{ truncateText(item.description, 50) }}
+                                    </td>
+                                    <td class="text-center">
+                                        <input class="form-control form-control-sm text-center" type="number" step="1"
+                                            autocomplete="off" [(ngModel)]="item.qty" (change)="updateCartItem(item)"
+                                            [disabled]="item.isUpdating" placeholder="Cantidad" />
+                                    </td>
+                                    <td class="text-center">
+                                        <input class="form-control form-control-sm text-center" type="number" step="1"
+                                            autocomplete="off" [(ngModel)]="item.price" (change)="updateCartItem(item)"
+                                            [disabled]="item.isUpdating" placeholder="Precio" />
+                                    </td>
+                                    <td class="text-center">
+                                        <select class="form-control form-control-sm text-center"
+                                            [(ngModel)]="item.unitkey" (change)="updateCartItem(item)"
+                                            [disabled]="item.isUpdating">
+                                            <option *ngFor="let unit of itemUnits" [value]="unit">{{ unit }}</option>
+                                        </select>
+                                    </td>
+                                    <td class="text-end">{{ getTotalPrice(item.price, item.qty) | currency }}</td>
+                                    <td class="text-center">
+                                        <input class="form-control form-control-sm text-center" type="text"
+                                            maxlength="128" [(ngModel)]="item.estimated"
+                                            (input)="onEstimatedChange(item)" [disabled]="item.isUpdating"
+                                            style="text-transform: uppercase" />
+                                    </td>
+                                    <td class="text-center">
+                                        <button class="btn btn-link p-0" (click)="decrementQuantity(item)"
+                                            [disabled]="item.isUpdating">
+                                            <img src="assets/media/icons/minus-button.svg" />
+                                        </button>
+                                        &nbsp;
+                                        <button class="btn btn-link p-0" (click)="incrementQuantity(item)"
+                                            [disabled]="item.isUpdating">
+                                            <img src="assets/media/icons/add-button.svg" />
+                                        </button>
+                                        &nbsp;
+                                        <button class="btn btn-link p-0" (click)="removeFromCart(item.id)"
+                                            [disabled]="item.isUpdating">
+                                            <img src="assets/media/icons/delete-button.svg" />
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr *ngIf="cartItems.length === 0">
+                                    <td colspan="6" class="text-center">Carrito Vacío</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="activeSection === 'search'">
+            <app-searchitems *ngIf="sale?.id" [sale]="sale" [pricelevel]="pricelevel"
+                (itemAdded)="handleItemAdded($event)"></app-searchitems>
+        </div>
+
+        <div *ngIf="activeSection === 'info'">
+            <app-info [sale]="sale" [ente]="ente" [carrito]="cartItems" [account]="user.account" [staff]="staff"
+                [calculatedValues]="calculatedValues"></app-info>
+        </div>
+    </div>
+</div>

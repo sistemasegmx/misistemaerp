@@ -1,0 +1,28 @@
+<div class="aside-logo py-8" id="kt_aside_logo">
+  <a router="/dashboard" class="d-flex align-items-center">
+    <img alt="Logo" src="./assets/media/logos/icon.png" class="h-65px logo">
+  </a>
+
+  <ng-container *ngIf="asideMinimize">
+    <div id="kt_aside_toggle" class="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle"
+      data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body"
+      data-kt-toggle-name="aside-minimize">
+    </div>
+  </ng-container>
+</div>
+
+<div #ktAsideScroll id="kt_aside_nav"
+  class="aside-nav d-flex flex-column align-lg-center flex-column-fluid w-100 pt-5 pt-lg-0">
+  <app-aside-menu id="kt_aside_menu" data-kt-menu="true" class="aside-menu flex-column-fluid"> </app-aside-menu>
+</div>
+
+<div class="aside-footer flex-column-auto" id="kt_aside_footer">
+  <div class="d-flex justify-content-center">
+    <button type="button" class="btn btm-sm btn-icon btn-active-color-primary" data-kt-menu-trigger="click"
+      data-kt-menu-placement="right-end" data-kt-menu-flip="top-end" data-bs-toggle="tooltip" data-bs-trigger="hover"
+      data-bs-dismiss-="click" ngbDropdown="Quick actions">
+      <span [inlineSVG]="'./assets/media/icons/duotune/general/gen008.svg'" class="svg-icon btn-icon svg-icon-2"></span>
+    </button>
+    <app-dropdown-menu2></app-dropdown-menu2>
+  </div>
+</div>

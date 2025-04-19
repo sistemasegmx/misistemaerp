@@ -1,0 +1,51 @@
+Perfil de usuario
+
+Catalogos
+
+	Clientes
+
+	Empleados
+
+	Partes
+
+	Proveedores
+		MX
+		USA
+
+Movimientos
+
+	Cotizacion
+
+	Importación
+
+	Orden de Compra
+		MX
+		USa
+
+	Packing Slip
+	Recibo de Material
+	Remisión
+
+Reportes
+
+	Reporte de Cotizaciones
+
+	Reporte de Importaciones
+
+	Ordenes de Compra
+		MX
+		USA
+
+	Ordenes de Venta
+
+	Packng Slips
+
+	Remsiones
+
+Castel Supply
+	
+	Generar Cotización
+
+	Reporte de Cotizaciones
+	
+	

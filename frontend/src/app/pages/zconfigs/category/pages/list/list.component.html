@@ -1,0 +1,129 @@
+<div class="card card-flush">
+    <div class="card-header align-items-center py-5 gap-2 gap-md-5">
+        <div class="row w-100">
+            <div class="col-12 col-lg-4 d-flex align-items-center position-relative my-1">
+                <span class="svg-icon svg-icon-1 position-absolute ms-4">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
+                            transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+                        <path
+                            d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+                            fill="currentColor" />
+                    </svg>
+                </span>
+                <input #searchInput [(ngModel)]="searchTerm" (input)="filterData()" placeholder="Buscar..."
+                    class="form-control form-control-solid w-100 ps-14" />
+            </div>
+
+            <div class="col-12 col-lg-4 d-flex align-items-center my-1">
+                <select [(ngModel)]="pageSize" class="form-select form-control-solid w-100 w-md-auto me-2"
+                    (ngModelChange)="filterData()">
+                    <option *ngFor="let size of [5, 10, 20, 50, 100, 200, 500, 1000]" [value]="size">{{ size }}</option>
+                </select>
+                <select class="form-select form-select-solid w-100 w-md-auto me-2" data-control="select2"
+                    data-hide-search="true" data-placeholder="Status" [(ngModel)]="selectedStatus"
+                    (ngModelChange)="filterData()">
+                    <option value="">Status</option>
+                    <option *ngFor="let item of basestatus" [value]="item">{{ item }}</option>
+                </select>
+                <select class="form-select form-select-solid w-100 w-md-auto me-2" data-control="select2"
+                    data-hide-search="true" data-placeholder="Padre" [(ngModel)]="selectedParentCategory"
+                    (ngModelChange)="filterData()">
+                    <option value="">Categorías</option>
+                    <option *ngFor="let category of allCategories" [value]="category.id">{{ category.fullname }}
+                    </option>
+                </select>
+            </div>
+            <div
+                class="col-12 col-lg-4 d-flex flex-wrap align-items-center position-relative my-1 gap-2 justify-content-center justify-content-lg-end">
+
+                <button [disabled]="isLoading" class="btn btn-success" (click)="exportToPDF(true, 'p')">
+                    <i class="fa fa-print"></i>
+                </button>
+                <button [disabled]="isLoading" class="btn btn-success" (click)="exportToPDF(false, 'p')">
+                    <i class="fa fa-file-pdf"></i>
+                </button>
+
+                <button [disabled]="isLoading" routerLink="add" class="btn btn-primary">
+                    <span class="svg-icon svg-icon-2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1"
+                                transform="rotate(-90 11.364 20.364)" fill="currentColor" />
+                            <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="currentColor" />
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body text-center pt-0">
+        <div class="table-responsive" style="min-height: 550px;">
+            <table id="my-table" class="table align-middle table-row-dashed fs-6 gy-5 table-striped">
+                <thead>
+                    <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                        <th class="text-center">Img</th>
+                        <th class="min-w-100px text-start" (click)="changeOrder('fullname')" style="cursor: pointer">
+                            Nombre
+                            <span [class]="getArrow('fullname')"></span>
+                        </th>
+                        <th class="min-w-100px text-start" (click)="changeOrder('description')" style="cursor: pointer">
+                            Descripcion
+                            <span [class]="getArrow('description')"></span>
+                        </th>
+                        <th class="min-w-100px text-center" (click)="changeOrder('categoryName')"
+                            style="cursor: pointer">
+                            Padre
+                            <span [class]="getArrow('categoryName')"></span>
+                        </th>
+                        <th class="min-w-70px text-center" style="cursor: pointer" (click)="changeOrder('status')">
+                            Status
+                            <span [class]="getArrow('status')"></span>
+                        </th>
+                        <th class="min-w-70px text-center">Acción</th>
+                    </tr>
+                </thead>
+                <tbody class="fw-semibold text-gray-600">
+                    <tr
+                        *ngFor="let item of allDataFiltered | paginate : { itemsPerPage: pageSize, currentPage: pageNumber }">
+                        <td class="text-center">
+                            <div class="symbol symbol-25px">
+                                <img [src]="baseUrl +  item.image">
+                            </div>
+                        </td>
+                        <td class="text-start text-primary"><strong>{{ item.fullname }}</strong></td>
+                        <td class="text-start">{{ truncateText(item.description, 80) }}</td>
+                        <td class="text-center">{{ item.categoryName }}</td>
+                        <td class="text-center">
+                            <div [ngClass]="{'badge-light-danger': item.status === 'inactivo', 'badge-light-success': item.status !== 'inactivo'}"
+                                class="badge">
+                                {{ item.status }}
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <a routerLink="{{ item.id }}" class="symbol symbol-20px">
+                                <img src="assets/media/icons/edit-button.svg" />
+                            </a>
+                        </td>
+                    </tr>
+                    <tr *ngIf="allDataFiltered.length === 0">
+                        <td colspan="6" class="text-center">No hay datos</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center">
+            <span>&nbsp; {{ totalRecords }} registros</span>
+            <div class="d-flex justify-content-center flex-grow-1">
+                <pagination-controls (pageChange)="pageChanged($event)" i18n-nextLabel="@@nextLabel"
+                    nextLabel="Siguiente" i18n-previousLabel="@@previousLabel" previousLabel="Anterior"
+                    i18n-pageLabel="@@pageLabel" pageLabel="Página" i18n-ofLabel="@@ofLabel" ofLabel="de"
+                    i18n-itemsPerPageLabel="@@itemsPerPageLabel" itemsPerPageLabel="Elementos por página"
+                    i18n-directionLinks="@@directionLinks" [directionLinks]="true" i18n-autoHide="@@autoHide"
+                    [autoHide]="true"></pagination-controls>
+            </div>
+            <span class="ms-auto">Página {{ pageNumber }} de {{ totalPages }}</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+export interface ISale {
+  id: string;
+  accountid: string;
+  saleid: string;
+  enteid: string;
+  enteorder: string;
+  entecode: string;
+  entename: string;
+  currency: string;
+  parity: string;
+  taxname: string;
+  taxamount: string;
+  subtotal: string;
+  total: string;
+  cost: string;
+  paid: string;
+  salename: string;
+  type: string;
+  countrycode: string;
+  items: string;
+  startdate: string;
+  enddate: string;
+  description: string;
+  status: string;
+  created_by?: string;
+  created_at?: string;
+  modified_by?: string;
+  modified_at?: string;
+  [key: string]: any;
+}

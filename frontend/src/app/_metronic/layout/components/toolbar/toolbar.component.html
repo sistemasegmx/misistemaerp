@@ -1,0 +1,17 @@
+<div id="kt_toolbar_container" [ngClass]="toolbarContainerCssClasses" class="d-flex flex-stack">
+  <app-page-title #ktPageTitle class="page-title d-flex" [ngClass]="pageTitleCssClasses"></app-page-title>
+  <div class="d-flex align-items-center py-1">
+
+    <a [routerLink]="['movimiento-de-cotizacion/add']" class="btn btn-sm btn-primary me-3">
+      <i class="fas fa-plus"></i> Nueva Cotización
+    </a>
+
+    <a [routerLink]="['movimiento-de-compra/add']" class="btn btn-sm btn-success me-3">
+      <i class="fas fa-shopping-cart"></i> Nueva Compra
+    </a>
+
+    <a [routerLink]="['movimiento-de-remision/add']" class="btn btn-sm btn-warning">
+      <i class="fas fa-undo"></i> Nueva Remisión
+    </a>
+  </div>
+</div>

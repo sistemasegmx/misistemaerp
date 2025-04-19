@@ -1,0 +1,52 @@
+<div class="card card-flush card-xl-stretch">
+    <div class="card-header border-0">
+        <h3 class="card-title fw-bolder fs-2">{{ title }}</h3>
+    </div>
+    <div class="card-body h-50 text-center pt-0">
+        <div class="table-responsive">
+            <table id="my-table" class="table table-row-dashed align-middle gs-0 gy-4 my-0">
+                <thead>
+                    <tr class="fs-7 fw-bold text-gray-500 border-bottom-0 text-uppercase">
+                        <th class="text-start">Razón social</th>
+                        <th class="text-center">Folio</th>
+                        <th class="text-center">Total</th>
+                        <th class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="fw-semibold text-gray-600">
+                    <tr *ngFor="let item of items">
+                        <td class="text-start">
+                            <div class="text-gray-600 fw-bolder text-hover-primary fs-6">
+                                {{ truncateText(item.entename, 40) }}
+                            </div>
+                            <div class="text-success fw-bolder">{{ item.created_at | dateAgo }}</div>
+                        </td>
+                        <td class="text-center">
+                            <div class="text-primary"><strong>{{ item.folio }}</strong></div>
+                            <div>{{ item.countrycode }}</div>
+                        </td>
+
+                        <td class="text-center">
+                            <div class="text-gray-700 fw-bold">
+                                {{ item.total | currency }} {{ item.currency }}
+                            </div>
+                            <div>
+                                <div [ngClass]="getStatusClass(item.status)" class="badge fs-6">{{ item.status }}</div>
+                            </div>
+                        </td>
+
+                        <td class="text-center">
+                            <a routerLink="{{actionsLink}}/{{ item.id }}" class="symbol symbol-25px">
+                                <img src="assets/media/icons/view-button.svg" />
+                            </a>
+                            &nbsp;
+                            <a routerLink="{{actionsLink}}/{{ item.id }}/edit" class="symbol symbol-20px">
+                                <img src="assets/media/icons/edit-button.svg" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

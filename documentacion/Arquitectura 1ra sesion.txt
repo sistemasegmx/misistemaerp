@@ -1,0 +1,112 @@
+CRUD - Verbos HTTP - API
+	Alta
+	Baja
+	Modificacion
+	Consulta
+	Elimino
+
+Modulo
+	1 CRUD
+	Vistas personalizadas
+	Reporte con filtro
+		Listas
+		Tablas
+		Graficos
+		Resumen (agrupados)
+		Totales
+	Factor
+		utilidad
+		consumo
+
+	Presentación (requemrios de sistema)
+		video uso
+		cuenta
+		instalador
+		
+
+ANUALIDAD / 12
+	DOMINIO
+	SERVIDOR
+	SSL
+
+SISTEMA - EJEMEPO DE CASAS
+   2 o mas MODULOS
+
+	(requemrios de sistema)
+		TEMPLATE
+		USUARIOS - VENDEDORES
+		ROLES
+
+	LANDINGPAGE (CMS)
+		CHATBOT
+		SEVICIO A CLIENTE
+		CONTACTO
+	ITEMS
+	INVENTARIO
+		sumatarios
+		moviemintos
+
+	SUCURSALES (multicursal)	
+
+
+SaaS online
+	CRM CLIENTE
+	ERP PROCESOS
+	CMS BE - BO (panel de usuarios)
+	ECOMMERCE
+
+
+PERFIL
+CONFIRABLE
+LANDINGPAGE
+MUTIEMPRESA - rfc
+MULTISUCURSAL - SLUG (rfc_slug) misma rfc con otra ubicacion (alamcen, tienda, oficna, taller, aula, mesa)
+MULTISUSUASIO - paquete promcinal ($$$)
+MULTISTAFF - ilimitado (usuario)
+MULTIMONEDA - recursos
+MULTITAXES - recursos
+
+modulos gratutos
+modulos profesionales (limitaciones)
+
+
+MARKETPLACE
+	+MODULOS
+	AI velocidad (tiempo es dinero)
+
+
+	exportaciones
+
+
+5 cofres
+25 dlls
+
+2 millones DLLS - campana videojuego
+	cuenta premuim
+		1 cofre
+			monedas, esmeraldas *5
+			chatbot, pedicitv (6 meses)
+			ejercio (minijuego, resolvias)			
+
+		2 cofre (1000) usuarios
+			monedas, esmeraldas *5
+			por voz (1 años)
+			2 modulos
+			ejercio (minijuego, resolvias)
+
+		3 cofre (1000) usuarios
+			monedas, esmeraldas *5
+			por voz (1 años)
+			2 modulos
+			ejercio (minijuego, resolvias)
+
+		4 cofre (1000) usuarios
+			monedas, esmeraldas *5
+			por voz (1 años)
+			2 modulos
+			ejercio (minijuego, resolvias)
+
+		5 cofre (1000) usuarios
+			1 año servicio 
+			1 landing page perosnlaiza
+			1 ipod a tu casa

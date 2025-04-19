@@ -1,0 +1,183 @@
+<div class="card card-flush">
+    <div class="card-header align-items-center py-5 gap-2 gap-md-5">
+        <div class="row w-100 d-flex align-items-center justify-content-between flex-wrap">
+            <div class="d-flex w-100 align-items-center flex-wrap justify-content-between gap-2">
+                <div class="d-flex gap-2">
+                    <div class="position-relative w-100">
+                        <span class="svg-icon svg-icon-1 position-absolute top-50 start-0 translate-middle-y ms-3">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
+                                    transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+                                <path
+                                    d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </span>
+                        <input #searchInputItem [(ngModel)]="searchTermItem" (keydown.enter)="onEnter('item')"
+                            placeholder="No. Parte..." class="form-control form-control-solid w-100 ps-14" />
+                    </div>
+                    <div class="position-relative w-100">
+                        <span class="svg-icon svg-icon-1 position-absolute top-50 start-0 translate-middle-y ms-3">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
+                                    transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+                                <path
+                                    d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </span>
+                        <input #searchInputEnte [(ngModel)]="searchTermEnte" (keydown.enter)="onEnter('ente')"
+                            placeholder="Proveedor..." class="form-control form-control-solid w-100 ps-14" />
+                    </div>
+                    <div class="position-relative w-100">
+                        <span class="svg-icon svg-icon-1 position-absolute top-50 start-0 translate-middle-y ms-3">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
+                                    transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+                                <path
+                                    d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </span>
+                        <input #searchInputFolio [(ngModel)]="searchTermFolio" (keydown.enter)="onEnter('folio')"
+                            placeholder="Folio..." class="form-control form-control-solid w-100 ps-14" />
+                    </div>
+                </div>
+                <div class="d-flex gap-2">
+                    <select [(ngModel)]="pageSize" class="form-select form-control-solid" style="max-width: 120px"
+                        (ngModelChange)="loadData()">
+                        <option *ngFor="let size of [5, 10, 20, 50, 100, 200, 500, 1000]" [value]="size">{{ size }}
+                        </option>
+                    </select>
+                    <select [(ngModel)]="selectedStatus" class="form-select form-control-solid"
+                        style="max-width: 140px;" (ngModelChange)="loadData()">
+                        <option value="">Status</option>
+                        <option *ngFor="let status of salestatus" [value]="status.status">{{ status.status }}</option>
+                    </select>
+                    <select [(ngModel)]="selectedSeller" class="form-select form-control-solid"
+                        style="max-width: 160px;" (ngModelChange)="loadData()">
+                        <option value="">Creador</option>
+                        <option *ngFor="let item of allSellers" [value]="item.id">{{ item.fullname | titlecase }}
+                        </option>
+                    </select>
+                    <input type="date" [(ngModel)]="startDate" class="form-control form-control-solid"
+                        style="max-width: 130px;" (ngModelChange)="loadData()" />
+                    <input type="date" [(ngModel)]="endDate" class="form-control form-control-solid"
+                        style="max-width: 130px;" (ngModelChange)="loadData()" />
+                </div>
+                <div class="d-flex gap-2">
+                    <button type="button" class="btn btn-primary me-2" (click)="toggleDateRange()">
+                        {{ isToday ? 'Mes' : 'Hoy' }}
+                    </button>
+                    <button [disabled]="isLoading" class="btn btn-success" (click)="exportToPDF(true, 'l')">
+                        <i class="fa fa-print"></i>
+                    </button>
+                    <button [disabled]="isLoading" class="btn btn-success" (click)="exportToPDF(false, 'l')">
+                        <i class="fa fa-file-pdf"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body text-center pt-0" id="infoComponentContent">
+        <div class="table-responsive" style="min-height: 550px;">
+            <table id="my-table" class="table align-middle table-row-dashed fs-6 gy-5 table-striped">
+                <thead>
+                    <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                        <th class="min-w-50px" (click)="changeOrder('code')" style="cursor: pointer">
+                            No. Parte
+                        </th>
+                        <th class="min-w-80px" (click)="changeOrder('description')" style="cursor: pointer">
+                            Descripción
+                        </th>
+                        <th class="text-center" (click)="changeOrder('qty')" style="cursor: pointer">
+                            Cant
+                        </th>
+                        <th class="text-end" (click)="changeOrder('price')" style="cursor: pointer">
+                            Costo
+                        </th>
+                        <th class="text-center" (click)="changeOrder('fullname')" style="cursor: pointer">
+                            Atendido por
+                        </th>
+                        <th class="text-center" (click)="changeOrder('modified_at')" style="cursor: pointer">
+                            Fecha
+                        </th>
+                        <th class="text-center" (click)="changeOrder('folio')" style="cursor: pointer">
+                            Folio
+                        </th>
+                        <th class="text-center" (click)="changeOrder('saleentename')" style="cursor: pointer">
+                            Proveedor
+                        </th>
+                        <th class="text-center" (click)="changeOrder('salecreated_at')" style="cursor: pointer">
+                            Creada
+                        </th>
+                        <th class="text-center" (click)="changeOrder('salestatus')" style="cursor: pointer">
+                            Status
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="fw-semibold text-gray-600">
+                    <tr *ngFor="let item of allData">
+                        <td class="text-start">
+                            <strong class=" text-primary"> {{ item.code }}</strong>
+                        </td>
+                        <td class="text-start">
+                            {{ truncateText(item.description, 25) }}
+                        </td>
+                        <td class="text-center text-warning fw-bold">{{ item.qty }}</td>
+                        <td class="text-end ">{{ item.price | currency }} {{ item.salecurrency}}</td>
+                        <td class="text-center">{{ truncateText(item.fullname, 25) }}</td>
+                        <td class="text-center">{{ item.modified_at | date:'short' }}</td>
+                        <td class="text-center">#{{ item.folio }} </td>
+                        <td class="text-center"><strong>{{ truncateText(item.saleentename, 25) }}</strong></td>
+                        <td class="text-center">{{ item.salecreated_at | date:'short' }}</td>
+                        <td class="text-center">
+                            <div [ngClass]="getStatusClass(item.status)" class="badge"> {{ item.salestatus }} </div>
+                        </td>
+                    </tr>
+                    <tr *ngIf="allData.length == 0">
+                        <td colspan="10" class="text-center">No hay datos</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex flex-stack flex-wrap pt-10">
+                <div class="fs-6 fw-bold text-gray-700">
+                    Mostrando {{pageNumber * pageSize - pageSize + 1}} a
+                    {{(pageNumber * pageSize) > totalRecords ? totalRecords : pageNumber * pageSize}}
+                    de {{totalRecords}} registros
+                </div>
+                <ul class="pagination">
+                    <li class="page-item" [ngClass]="{'disabled': pageNumber === 1}">
+                        <a class="page-link cursor-pointer" (click)="pageChanged(1)">
+                            <i class="fa fa-angle-double-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item" [ngClass]="{'disabled': pageNumber === 1}">
+                        <a class="page-link cursor-pointer" (click)="pageChanged(pageNumber - 1)">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                    </li>
+                    <li *ngFor="let page of getPageRange()" class="page-item"
+                        [ngClass]="{'active': pageNumber === page}">
+                        <a class="page-link cursor-pointer" (click)="pageChanged(page)">
+                            {{page}}
+                        </a>
+                    </li>
+                    <li class="page-item" [ngClass]="{'disabled': pageNumber === totalPages}">
+                        <a class="page-link cursor-pointer" (click)="pageChanged(pageNumber + 1)">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                    <li class="page-item" [ngClass]="{'disabled': pageNumber === totalPages}">
+                        <a class="page-link cursor-pointer" (click)="pageChanged(totalPages)">
+                            <i class="fa fa-angle-double-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

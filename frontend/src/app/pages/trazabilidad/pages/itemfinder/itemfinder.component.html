@@ -1,0 +1,278 @@
+<div class="container-xxl">
+
+  <div class="card mb-12">
+    <div class="card-body flex-column p-5">
+      <div class="d-flex align-items-center h-lg-200px p-5 p-lg-15">
+        <div class="d-flex flex-column align-items-start justift-content-center flex-equal me-5">
+          <h1 class="fw-bold fs-4 fs-lg-1 text-gray-800 mb-5 mb-lg-10">Trazabilidad del Número de Parte</h1>
+          <div class="d-flex align-items-center position-relative w-100">
+            <select [(ngModel)]="searchMode" class="form-select form-control-solid me-3 h-auto py-4 fs-4 text-gray-700"
+              style="width: 150px" (ngModelChange)="setSearchMode()">
+              <option value="" disabled>Filtro</option>
+              <option *ngFor="let mode of searchModes" [value]="mode.value">
+                {{ mode.label }}
+              </option>
+            </select>
+
+            <div class="position-relative w-100">
+              <i class="ki-outline ki-magnifier fs-2 text-primary position-absolute top-50 translate-middle ms-8"></i>
+
+              <input #searchInput [(ngModel)]="searchTerm" (focus)="showSearchDropdown()" (click)="showSearchDropdown()"
+                (input)="onSearch()" (keydown.enter)="onEnter()" (keydown.tab)="onEnter()"
+                (keydown.arrowDown)="moveSelection(1); $event.preventDefault();"
+                (keydown.arrowUp)="moveSelection(-1); $event.preventDefault();" (blur)="hideDropdown()" type="text"
+                [placeholder]="'Buscar por ' + (getSearchLabel() + ' ...')"
+                class="form-control fs-4 py-4 ps-14 text-gray-700 placeholder-gray-500 mw-500px" />
+
+              <span *ngIf="searchTerm" class="position-absolute top-50 translate-middle-y end-0 me-3 search-reset"
+                (click)="clearSearch()">✖</span>
+            </div>
+          </div>
+
+          <div *ngIf="showDropdown" class="search-dropdown shadow-sm p-3 bg-white rounded">
+
+            <div class="d-flex justify-content-between align-items-center pb-2 border-bottom">
+              <span class="fs-7 fw-semibold" [ngClass]="{
+                        'text-primary': searchHistory.length > 0 && searchResults.length === 0,
+                        'text-success': searchResults.length > 0
+                    }">
+                {{ searchHistory.length > 0 && searchResults.length === 0 ? 'Búsquedas' :
+                pageTitle.toUpperCase() }}
+              </span>
+
+              <button *ngIf="searchHistory.length > 0 && searchResults.length === 0"
+                class="btn btn-sm btn-light text-primary fw-semibold" (click)="clearSearchHistory()">Limpiar</button>
+            </div>
+
+            <div class="scroll-y mh-225px mh-lg-325px mt-2">
+
+              <div *ngIf="searchResults.length > 0">
+                <div class="d-flex flex-column">
+                  <a style="cursor: pointer" *ngFor="let item of searchResults; let i = index"
+                    class="d-flex align-items-center px-2 py-2 rounded text-decoration-none hover-bg-light"
+                    [ngClass]="{'active': i === selectedIndex}" (click)="selectSuggestion(item)">
+                    <div class="symbol symbol-30px me-3">
+                      <div class="search-item-image symbol-label rounded-circle"
+                        [ngStyle]="{ 'background-image': 'url(' + baseUrl + (item.image ? item.image : 'nofoto.png') + ')' }">
+                      </div>
+                    </div>
+                    <div class="d-flex flex-column">
+                      <span class="fw-semibold text-gray-800">
+                        {{ item.code }}
+                        <span class="fst-italic" *ngIf="item.code_alternative && item.code_alternative.length > 0">
+                          - {{ '[' + item.code_alternative + ']' }}
+                        </span>
+                      </span>
+                      <span class="text-muted fs-7">{{ truncateText(item.description, 60) }}</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+              <div *ngIf="favorites.length > 0">
+                <div class="d-flex justify-content-between align-items-center pb-2 border-bottom">
+                  <span class="fs-7 fw-semibold text-warning">Favoritos</span>
+                </div>
+
+                <div class="d-flex flex-column">
+                  <div style="cursor: pointer" *ngFor="let item of favorites; let i = index"
+                    class="d-flex align-items-center px-2 py-2 rounded text-decoration-none hover-bg-light">
+
+                    <div class="symbol symbol-35px me-3">
+                      <div
+                        class="search-item-icon symbol-label rounded-circle d-flex align-items-center justify-content-center">
+                        <i class="fa fa-star fs-4 text-warning"></i>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-grow-1" (click)="selectRecentSearch(item.term)">
+                      <span class="fw-semibold text-gray-800">{{ item.term }}</span>
+                      <small class="text-muted">{{ item.date }}</small>
+                    </div>
+
+                    <button *ngIf="isFavorite(item.term)" class="btn btn-sm btn-light text-danger ms-2"
+                      (click)="updateFavorites(item.term, false); $event.stopPropagation();">
+                      <i class="fa fa-trash"></i>
+                    </button>
+
+                  </div>
+                </div>
+              </div>
+
+
+              <div *ngIf="favorites.length > 0 && searchHistory.length > 0" class="border-top my-2"></div>
+
+              <div *ngIf="searchResults.length === 0 && searchHistory.length > 0">
+                <div class="d-flex justify-content-between align-items-center pb-2 border-bottom">
+                  <span class="fs-7 fw-semibold text-success"> Recientes </span>
+                </div>
+
+                <div class="d-flex flex-column">
+                  <div style="cursor: pointer" *ngFor="let item of searchHistory; let i = index"
+                    class="d-flex align-items-center px-2 py-2 rounded text-decoration-none hover-bg-light"
+                    [ngClass]="{'active': i === selectedIndex}">
+
+                    <div class="symbol symbol-35px me-3">
+                      <div
+                        class="search-item-icon symbol-label rounded-circle d-flex align-items-center justify-content-center">
+                        <i class="fa fa-file-text fs-4 text-primary"></i>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-grow-1" (click)="selectRecentSearch(item.term)">
+                      <span class="fw-semibold text-gray-800">{{ item.term }}</span>
+                      <small class="text-muted">{{ item.date }}</small>
+                    </div>
+
+                    <button *ngIf="!isFavorite(item.term)" class="btn btn-sm btn-light text-danger ms-2"
+                      (click)="updateFavorites(item.term, true); $event.stopPropagation();">
+                      <i class="fa fa-star"></i>
+                    </button>
+
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="searchResults.length === 0 && searchHistory.length === 0" class="text-center text-muted py-3">
+                <i class="ki-duotone ki-search-list fs-2x opacity-50"></i>
+                <p class="fs-6">Empieza a escribir para ver resultados</p>
+                <small>Usa las teclas ↑ ↓ para navegar.</small>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="flex-equal d-flex justify-content-center align-items-end ms-5">
+          <div class="d-flex justify-content-center my-4">
+            <img src="./assets/media/logos/logoH.png" class="img-fluid" style="max-height: 125px;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-container *ngIf="heroe && heroe.id; else noResults">
+
+    <div class="card mb-6 mb-xl-9">
+      <div class="card-body pt-9 pb-0">
+        <div class="d-flex flex-wrap flex-sm-nowrap mb-6">
+          <div
+            class="d-flex flex-center flex-shrink-0 bg-light rounded w-100px h-100px w-lg-150px h-lg-150px me-7 mb-4">
+            <img class="mw-50px mw-lg-75px" [src]="baseUrl + heroe.image" alt="Imagen del ítem" />
+          </div>
+
+          <div class="flex-grow-1">
+            <div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
+              <div class="d-flex flex-column">
+                <div class="d-flex align-items-center mb-1">
+                  <span class="text-gray-800 fs-2 fw-bold me-3">{{ heroe.description }}</span>
+                  <span class="badge"
+                    [ngClass]="{'badge-light-success': heroe.status === 'activo', 'badge-light-danger': heroe.status !== 'activo'}">
+                    {{ heroe.status | titlecase }}
+                  </span>
+                </div>
+
+                <div class="d-flex flex-wrap fw-semibold mb-4 fs-5 text-gray-500">
+                  Código: {{ heroe.code }} | Categoría: {{ heroe.categoryname }} | Proveedor: {{
+                  heroe.suppliername }}
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-end mb-4">
+                <button [routerLink]="['/administracion-de-partes']" class="btn btn-secondary me-2" title="Listado">
+                  <i class="fa fa-list"></i>
+                </button>
+
+                <button *ngIf="heroe?.id" [routerLink]="['/administracion-de-partes', heroe.id, 'edit']"
+                  class="btn btn-primary me-2" title="Editar">
+                  <i class="fa fa-edit"></i>
+                </button>
+
+                <button [routerLink]="['/administracion-de-partes', 'add']" class="btn btn-success" title="Nuevo">
+                  <i class="fa fa-plus"></i>
+                </button>
+              </div>
+
+            </div>
+
+            <div class="d-flex flex-wrap justify-content-start">
+              <div class="d-flex flex-wrap">
+                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
+                  <div class="d-flex align-items-center">
+                    <div class="fs-4 fw-bold">{{ heroe.unitkey }}</div>
+                  </div>
+                  <div class="fw-semibold fs-6 text-gray-500">Unidad de Medida</div>
+                </div>
+
+                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
+                  <div class="d-flex align-items-center">
+                    <div class="fs-4 fw-bold">{{ heroe.price }} {{ heroe.currencyprice }}</div>
+                  </div>
+                  <div class="fw-semibold fs-6 text-gray-500">Precio</div>
+                </div>
+
+                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
+                  <div class="d-flex align-items-center">
+                    <div class="fs-4 fw-bold">{{ heroe.cost }} {{ heroe.currencycost }}</div>
+                  </div>
+                  <div class="fw-semibold fs-6 text-gray-500">Costo</div>
+                </div>
+
+                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
+                  <div class="d-flex align-items-center">
+                    <div class="fs-4 fw-bold">{{ heroe.created_at | date:'short' }}</div>
+                  </div>
+                  <div class="fw-semibold fs-6 text-gray-500">Creado</div>
+                </div>
+
+                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
+                  <div class="d-flex align-items-center">
+                    <div class="fs-4 fw-bold">{{ heroe.modified_at | date:'short' }}</div>
+                  </div>
+                  <div class="fw-semibold fs-6 text-gray-500">Última Modificación</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="separator"></div>
+
+        <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold">
+          <li class="nav-item" *ngFor="let tab of tabs" style="cursor: pointer">
+            <a class="nav-link text-active-primary py-5 me-6" [ngClass]="{ 'active': activeSection === tab.section }"
+              (click)="changeSection(tab.section)">
+              {{ tab.label }}
+            </a>
+          </li>
+        </ul>
+
+        <div *ngIf="activeSection">
+          <ng-container [ngSwitch]="activeSection">
+            <app-resumen *ngSwitchCase="'resumen'" [heroe]="heroe"></app-resumen>
+            <app-quots *ngSwitchCase="'cotizaciones'" [heroe]="heroe"></app-quots>
+            <app-purchase *ngSwitchCase="'compras'" [heroe]="heroe"></app-purchase>
+            <app-remission *ngSwitchCase="'remisiones'" [heroe]="heroe"></app-remission>
+            <app-bodegausa *ngSwitchCase="'bodegausa'" [heroe]="heroe"></app-bodegausa>
+            <app-importacion *ngSwitchCase="'importacion'" [heroe]="heroe"></app-importacion>
+            <app-bodegatijuana *ngSwitchCase="'bodegatijuana'" [heroe]="heroe"></app-bodegatijuana>
+          </ng-container>
+        </div>
+
+
+      </div>
+    </div>
+
+    <router-outlet></router-outlet>
+
+  </ng-container>
+
+  <ng-template #noResults>
+    <div class="footer-info text-center w-100"
+      style="position: fixed; bottom: 0; left: 0; width: 100%; background: #f8f9fa; padding: 10px;">
+      <h2 class="mb-1">{{ currentDateTime }}</h2>
+      <h3 class="fw-light fst-italic">"{{ currentFrase?.frase }}" - {{ currentFrase?.autor }}</h3>
+    </div>
+  </ng-template>
+
+</div>

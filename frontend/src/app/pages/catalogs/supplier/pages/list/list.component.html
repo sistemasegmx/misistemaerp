@@ -1,0 +1,292 @@
+<div class="card card-flush">
+    <div class="card-header align-items-center py-5 gap-2 gap-md-5">
+        <div class="row w-100">
+            <div class="col-12 col-lg-4 d-flex align-items-center position-relative my-1">
+
+                <div class="d-flex align-items-center position-relative w-100">
+
+                    <select [(ngModel)]="searchMode" class="form-select form-control-solid me-3" style="width: 150px"
+                        (ngModelChange)="setSearchMode()">
+                        <option value="" disabled>Filtro</option>
+                        <option *ngFor="let mode of searchModes" [value]="mode.value">
+                            {{ mode.label }}
+                        </option>
+                    </select>
+
+                    <div class="position-relative flex-grow-1">
+                        <span class="svg-icon svg-icon-1 position-absolute top-50 translate-middle-y ms-3">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
+                                    transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+                                <path
+                                    d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </span>
+
+                        <input #searchInput [(ngModel)]="searchTerm" (focus)="showSearchDropdown()"
+                            (click)="showSearchDropdown()" (input)="onSearch()" (keydown.enter)="onEnter()"
+                            (keydown.tab)="onEnter()" (keydown.arrowDown)="moveSelection(1); $event.preventDefault();"
+                            (keydown.arrowUp)="moveSelection(-1); $event.preventDefault();" (blur)="hideDropdown()"
+                            [placeholder]="'Buscar por ' + (getSearchLabel() + ' ...')"
+                            class="form-control form-control-solid w-100 ps-14 pe-5" />
+
+                        <span *ngIf="searchTerm"
+                            class="position-absolute top-50 translate-middle-y end-0 me-3 search-reset"
+                            (click)="clearSearch()">✖</span>
+                    </div>
+                </div>
+
+                <div *ngIf="showDropdown" class="search-dropdown shadow-sm p-3 bg-white rounded">
+
+                    <div class="d-flex justify-content-between align-items-center pb-2 border-bottom">
+                        <span class="fs-7 fw-semibold" [ngClass]="{
+                                'text-primary': searchHistory.length > 0 && searchResults.length === 0,
+                                'text-success': searchResults.length > 0
+                            }">
+                            {{ searchHistory.length > 0 && searchResults.length === 0 ? 'Búsquedas' :
+                            pageTitle.toUpperCase() }}
+                        </span>
+
+                        <button *ngIf="searchHistory.length > 0 && searchResults.length === 0"
+                            class="btn btn-sm btn-light text-primary fw-semibold"
+                            (click)="clearSearchHistory()">Limpiar</button>
+                    </div>
+
+                    <div class="scroll-y mh-225px mh-lg-325px mt-2">
+
+                        <div *ngIf="searchResults.length > 0">
+                            <div class="d-flex flex-column">
+                                <a style="cursor: pointer" *ngFor="let item of searchResults; let i = index"
+                                    class="d-flex align-items-center px-2 py-2 rounded text-decoration-none hover-bg-light"
+                                    [ngClass]="{'active': i === selectedIndex}" (click)="selectSuggestion(item)">
+                                    <div class="symbol symbol-30px me-3">
+                                        <div class="search-item-image symbol-label rounded-circle"
+                                            [ngStyle]="{ 'background-image': 'url(' + baseUrl + (item.image ? item.image : 'nofoto.png') + ')' }">
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <span class="fw-semibold text-gray-800">
+                                            {{ item.code }}
+                                            <span class="fst-italic" *ngIf="item.rfc && item.rfc.length > 0">
+                                                - {{ '[' + item.rfc + ']' }}
+                                            </span>
+                                        </span>
+                                        <span class="text-muted fs-7">{{ truncateText(item.fiscalname, 60) }}</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div *ngIf="favorites.length > 0">
+                            <div class="d-flex justify-content-between align-items-center pb-2 border-bottom">
+                                <span class="fs-7 fw-semibold text-warning">Favoritos</span>
+                            </div>
+
+                            <div class="d-flex flex-column">
+                                <div style="cursor: pointer" *ngFor="let item of favorites; let i = index"
+                                    class="d-flex align-items-center px-2 py-2 rounded text-decoration-none hover-bg-light">
+
+                                    <div class="symbol symbol-35px me-3">
+                                        <div
+                                            class="search-item-icon symbol-label rounded-circle d-flex align-items-center justify-content-center">
+                                            <i class="fa fa-star fs-4 text-warning"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-column flex-grow-1" (click)="selectRecentSearch(item.term)">
+                                        <span class="fw-semibold text-gray-800">{{ item.term }}</span>
+                                        <small class="text-muted">{{ item.date }}</small>
+                                    </div>
+
+                                    <button *ngIf="isFavorite(item.term)" class="btn btn-sm btn-light text-danger ms-2"
+                                        (click)="updateFavorites(item.term, false); $event.stopPropagation();">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div *ngIf="favorites.length > 0 && searchHistory.length > 0" class="border-top my-2"></div>
+
+                        <div *ngIf="searchResults.length === 0 && searchHistory.length > 0">
+                            <div class="d-flex justify-content-between align-items-center pb-2 border-bottom">
+                                <span class="fs-7 fw-semibold text-success"> Recientes </span>
+                            </div>
+
+                            <div class="d-flex flex-column">
+                                <div style="cursor: pointer" *ngFor="let item of searchHistory; let i = index"
+                                    class="d-flex align-items-center px-2 py-2 rounded text-decoration-none hover-bg-light"
+                                    [ngClass]="{'active': i === selectedIndex}">
+
+                                    <div class="symbol symbol-35px me-3">
+                                        <div
+                                            class="search-item-icon symbol-label rounded-circle d-flex align-items-center justify-content-center">
+                                            <i class="fa fa-file-text fs-4 text-primary"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-column flex-grow-1" (click)="selectRecentSearch(item.term)">
+                                        <span class="fw-semibold text-gray-800">{{ item.term }}</span>
+                                        <small class="text-muted">{{ item.date }}</small>
+                                    </div>
+
+                                    <button *ngIf="!isFavorite(item.term)" class="btn btn-sm btn-light text-danger ms-2"
+                                        (click)="updateFavorites(item.term, true); $event.stopPropagation();">
+                                        <i class="fa fa-star"></i>
+                                    </button>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div *ngIf="searchResults.length === 0 && searchHistory.length === 0"
+                            class="text-center text-muted py-3">
+                            <i class="ki-duotone ki-search-list fs-2x opacity-50"></i>
+                            <p class="fs-6">Empieza a escribir para ver resultados</p>
+                            <small>Usa las teclas ↑ ↓ para navegar.</small>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-lg-4 d-flex align-items-center my-1">
+                <select [(ngModel)]="pageSize" class="form-select form-control-solid w-100 w-md-auto me-2"
+                    (ngModelChange)="onPageSizeChange()">
+                    <option *ngFor="let size of [5, 10, 20, 50, 100, 200, 500, 1000]" [value]="size">{{ size }}</option>
+                </select>
+                <select class="form-select form-select-solid w-100 w-md-auto me-2" data-control="select2"
+                    data-hide-search="true" data-placeholder="Status" [(ngModel)]="selectedStatus"
+                    (ngModelChange)="loadData()">
+                    <option value="" disabled>Status</option>
+                    <option value="">Todos</option>
+                    <option *ngFor="let item of basestatus" [value]="item">{{ item }}</option>
+                </select>
+            </div>
+
+            <div
+                class="col-12 col-lg-4 d-flex flex-wrap align-items-center position-relative my-1 gap-2 justify-content-center justify-content-lg-end">
+
+                <button [disabled]="isLoading" class="btn btn-success" (click)="exportToPDF(true, 'l')">
+                    <i class="fa fa-print"></i>
+                </button>
+                <button [disabled]="isLoading" class="btn btn-success" (click)="exportToPDF(false, 'l')">
+                    <i class="fa fa-file-pdf"></i>
+                </button>
+                <button [disabled]="isLoading" routerLink="add" class="btn btn-primary">
+                    <span class="svg-icon svg-icon-2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1"
+                                transform="rotate(-90 11.364 20.364)" fill="currentColor" />
+                            <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="currentColor" />
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body text-center pt-0">
+        <div class="table-responsive" style="min-height: 550px;">
+
+
+            <table id="my-table" class="table align-middle table-row-dashed fs-6 gy-5 table-striped">
+                <thead>
+                    <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                        <th class="min-w-70px text-start" (click)="changeOrder('code')" style="cursor: pointer">
+                            Código <span [class]="getArrow('code')"></span>
+                        </th>
+                        <th class="min-w-100px text-center" (click)="changeOrder('rfc')" style="cursor: pointer">
+                            RFC <span [class]="getArrow('rfc')"></span>
+                        </th>
+                        <th class="min-w-100px text-start" (click)="changeOrder('fiscalname')" style="cursor: pointer">
+                            Razón Social <span [class]="getArrow('fiscalname')"></span>
+                        </th>
+                        <th class="min-w-100px text-center" (click)="changeOrder('email')" style="cursor: pointer">
+                            Correo <span [class]="getArrow('email')"></span>
+                        </th>
+                        <th class="text-center" (click)="changeOrder('created_at')" style="cursor: pointer">
+                            CREADO
+                        </th>
+                        <th class="text-center" (click)="changeOrder('modified_at')" style="cursor: pointer">
+                            MODIFICADO
+                        </th>
+                        <th class="min-w-70px text-center" style="cursor: pointer" (click)="changeOrder('status')">
+                            Status
+                            <span [class]="getArrow('status')"></span>
+                        </th>
+                        <th class="min-w-70px text-center">Acción</th>
+                    </tr>
+                </thead>
+                <tbody class="fw-semibold text-gray-600">
+                    <tr *ngFor="let item of allData">
+                        <td class="text-start text-primary">{{ item.code }}</td>
+                        <td class="text-center">{{ item.rfc }}</td>
+                        <td class="text-start"><strong>{{ truncateText(item.fiscalname, 60) }}</strong></td>
+                        <td class="text-center">{{ item.email }}</td>
+                        <td class="text-center">{{ item.created_at | date:'short' }}</td>
+                        <td class="text-center">{{ item.modified_at | date:'short' }}</td>
+                        <td class="text-center">
+                            <div [ngClass]="{'badge-light-danger': item.status === 'inactivo', 'badge-light-success': item.status !== 'inactivo'}"
+                                class="badge">
+                                {{ item.status }}
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <a routerLink="{{ item.id }}" class="symbol symbol-25px">
+                                <img src="assets/media/icons/view-button.svg" />
+                            </a>
+                            &nbsp;
+                            <a routerLink="{{ item.id }}/edit" class="symbol symbol-20px">
+                                <img src="assets/media/icons/edit-button.svg" />
+                            </a>
+                        </td>
+                    </tr>
+                    <tr *ngIf="allData.length === 0">
+                        <td colspan="8" class="text-center">No hay datos</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-flex flex-stack flex-wrap pt-10">
+            <div class="fs-6 fw-bold text-gray-700">
+                Mostrando {{pageNumber * pageSize - pageSize + 1}} a
+                {{(pageNumber * pageSize) > totalRecords ? totalRecords : pageNumber * pageSize}}
+                de {{totalRecords}} registros
+            </div>
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{'disabled': pageNumber === 1}">
+                    <a class="page-link cursor-pointer" (click)="pageChanged(1)">
+                        <i class="fa fa-angle-double-left"></i>
+                    </a>
+                </li>
+                <li class="page-item" [ngClass]="{'disabled': pageNumber === 1}">
+                    <a class="page-link cursor-pointer" (click)="pageChanged(pageNumber - 1)">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                </li>
+                <li *ngFor="let page of getPageRange()" class="page-item" [ngClass]="{'active': pageNumber === page}">
+                    <a class="page-link cursor-pointer" (click)="pageChanged(page)">
+                        {{page}}
+                    </a>
+                </li>
+                <li class="page-item" [ngClass]="{'disabled': pageNumber === totalPages}">
+                    <a class="page-link cursor-pointer" (click)="pageChanged(pageNumber + 1)">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </li>
+                <li class="page-item" [ngClass]="{'disabled': pageNumber === totalPages}">
+                    <a class="page-link cursor-pointer" (click)="pageChanged(totalPages)">
+                        <i class="fa fa-angle-double-right"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,127 @@
+<div class="d-flex flex-column flex-lg-row">
+    <div class="flex-lg-row-fluid ms-lg-15">
+
+        <div class="row">
+            <div class="col-lg-3 d-flex flex-column">
+                <div class="card card-flush py-4 mb-3">
+                    <div class="card-body text-center">
+                        <h2>Resúmen</h2>
+                        <div class="table-responsive">
+                            <table class="table align-middle table-row-bordered mb-0 fs-6 gy-5">
+                                <tbody class="fw-semibold text-gray-600">
+                                    <tr>
+                                        <td class="text-muted">
+                                            <div class="d-flex align-items-center text-primary">Ítems</div>
+                                        </td>
+                                        <td class="fw-bold text-end">{{ cartItems.length }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-muted">
+                                            <div class="d-flex align-items-center text-primary">Subtotal</div>
+                                        </td>
+                                        <td class="fw-bold text-end">{{ calculatedValues.subtotal | currency }} {{
+                                            heroe.currency }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-muted">
+                                            <div class="d-flex align-items-center text-primary">Impuestos</div>
+                                        </td>
+                                        <td class="fw-bold text-end">{{ calculatedValues.taxAmount | currency }} {{
+                                            heroe.currency }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-muted">
+                                            <div class="d-flex align-items-center text-primary">Total</div>
+                                        </td>
+                                        <td class="fw-bold text-end">{{ calculatedValues.total | currency }} {{
+                                            heroe.currency }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-muted">
+                                            <div class="d-flex align-items-center text-primary">Status</div>
+                                        </td>
+                                        <td class="fw-bold text-end">{{ heroe.status | titlecase }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-column justify-content-center my-3 gap-3">
+                    <div class="d-flex justify-content-center gap-2">
+                        <button class="btn btn-warning flex-grow-1 d-flex align-items-center justify-content-center"
+                            (click)="printInfo()">
+                            <i class="fa fa-print"></i>
+                        </button>
+                        <button class="btn btn-info flex-grow-1 d-flex align-items-center justify-content-center"
+                            (click)="sendEmail()" [disabled]="emailButtonDisabled">
+                            <i class="fa fa-envelope"></i>
+                        </button>
+
+                        <button class="btn btn-primary flex-grow-1 d-flex align-items-center justify-content-center"
+                            (click)="trackOrder()"> <i class="fa fa-search"></i>
+                            Rastrear
+                        </button>
+                    </div>
+
+
+                    <div class="d-flex justify-content-center gap-2">
+                        <button
+                            *ngIf="heroe.status !== 'borrador' && heroe.status !== 'atendiendo' && heroe.status !== 'orden creada' && heroe.status !== 'finalizada'"
+                            class="btn btn-danger flex-grow-1 d-flex align-items-center justify-content-center"
+                            (click)="changeStatusSale('inactivo')">
+                            <i class="fa fa-trash me-2"></i>
+                        </button>
+                        <button
+                            *ngIf="heroe.status === 'borrador' || heroe.status === 'atendiendo' || heroe.status === 'orden creada'"
+                            class="btn btn-primary flex-grow-1 d-flex align-items-center justify-content-center"
+                            [routerLink]="['edit']">
+                            <i class="fa fa-edit me-2"></i>
+                            Editar
+                        </button>
+                        <button
+                            *ngIf="(heroe.status === 'inactivo' || heroe.status === 'finalizada') && user.type === 'admin'"
+                            class="btn btn-danger flex-grow-1 d-flex align-items-center justify-content-center"
+                            (click)="changeStatusSale('atendiendo')">
+                            <i class="fa fa-undo me-2"></i>
+                            Reabrir
+                        </button>
+                        <button *ngIf="heroe.status === 'orden creada'"
+                            class="btn btn-success flex-grow-1 d-flex align-items-center justify-content-center"
+                            (click)="changeStatusSale('orden recibida')">
+                            <i class="fa fa-download me-2"></i>
+                            Recibir
+                        </button>
+                        <button *ngIf="heroe.status === 'orden recibida'"
+                            class="btn btn-warning flex-grow-1 d-flex align-items-center justify-content-center"
+                            (click)="changeStatusSale('orden procesada')">
+                            <i class="fa fa-upload me-2"></i>
+                            Procesar
+                        </button>
+                        <button *ngIf="heroe.status === 'orden procesada'"
+                            class="btn btn-primary flex-grow-1 d-flex align-items-center justify-content-center"
+                            (click)="changeStatusSale('material-in-transit')">
+                            <i class="fa fa-upload me-2"></i>
+                            Material en Transito
+                        </button>
+                        <button
+                            *ngIf="heroe.status !== 'inactivo' && heroe.status !== 'finalizada' && user.type === 'admin'"
+                            class="btn btn-success flex-grow-1 d-flex align-items-center justify-content-center"
+                            (click)="closeSale()">
+                            <i class="fa fa-check me-2"></i>
+                            Finalizar
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-9 d-flex flex-column">
+                <div>
+                    <app-info [sale]="heroe" [ente]="selectedEnte" [carrito]="cartItems" [account]="user.account"
+                        [staff]="staff" [calculatedValues]="calculatedValues"></app-info>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

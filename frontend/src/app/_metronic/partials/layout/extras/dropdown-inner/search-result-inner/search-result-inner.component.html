@@ -1,0 +1,48 @@
+<div data-kt-search-element="wrapper">
+  <form class="w-100 position-relative mb-3" autocomplete="off">
+    <span [inlineSVG]="'./assets/media/icons/duotune/general/gen021.svg'"
+      class="svg-icon svg-icon-2 position-absolute top-50 translate-middle-y"></span>
+
+    <input type="text" class="form-control form-control-flush ps-10" placeholder="Folio de Compra..."
+      [(ngModel)]="keyword" name="keyword" (keyup.enter)="onEnter($event)" />
+
+
+    <span class="position-absolute top-50 end-0 translate-middle-y lh-0 me-1" [ngClass]="searching ? '' : 'd-none'">
+      <span class="spinner-border h-15px w-15px align-middle text-gray-500"></span>
+    </span>
+
+    <span class="btn btn-flush btn-active-color-primary position-absolute top-50 end-0 translate-middle-y"
+      [ngClass]="searching || !keyword.length ? 'd-none' : ''" (click)="clearSearch()">
+      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr061.svg'" class="svg-icon svg-icon-2"></span>
+    </span>
+  </form>
+
+  <div class="separator border-gray-200 mb-6"></div>
+
+  <div data-kt-search-element="results" [ngClass]="!keyword.length ? '' : 'd-none'">
+    <h3 class="fs-5 text-muted m-0 pb-5">Compras recientes</h3>
+    <div class="scroll-y mh-200px mh-lg-325px">
+      <a *ngFor="let item of allData" routerLink="/movimiento-de-compra/{{ item.id }}"
+        class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
+        <div class="d-flex flex-column fw-bold">
+          <span class="fs-6 fw-bold">{{ item.type | uppercase }} {{ item.countrycode }} #{{ item.folio }}</span>
+          <span class="fs-7 text-muted">{{ item.total | currency }} {{ item.entename }}</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div data-kt-search-element="results" [ngClass]="searching || !keyword.length ? 'd-none' : ''">
+    <h3 class="fs-5 text-muted m-0 pb-5">Resultados de la búsqueda</h3>
+    <div class="scroll-y mh-200px mh-lg-325px">
+      <a *ngFor="let item of resultData" routerLink="/movimiento-de-compra/{{ item.id }}"
+        class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
+        <div class="d-flex flex-column fw-bold">
+          <span class="fs-6 fw-bold">{{ item.type | uppercase }} {{ item.countrycode }} #{{ item.folio }}</span>
+          <span class="fs-7 text-muted">{{ item.total | currency }} {{ item.entename }}</span>
+        </div>
+      </a>
+    </div>
+    <p *ngIf="!searching && !resultData.length">No se encontraron resultados</p>
+  </div>
+</div>

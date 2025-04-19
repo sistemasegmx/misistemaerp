@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Mi Sistema ERP</title>
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="./assets/media/logos/icon.png" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
+  <link rel="stylesheet" id="layout-styles-anchor" href="./assets/splash-screen.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+</head>
+
+<body root id="kt_body" class="mat-typography">
+  <script>
+    if (document.documentElement) {
+      var defaultThemeMode = "system";
+      var hasKTName = document.body.hasAttribute("data-kt-name");
+      var lsKey = "kt_" + (hasKTName ? name + "_" : "") + "theme_mode_value"
+      var themeMode = localStorage.getItem(lsKey);
+      if (!themeMode) themeMode = defaultThemeMode === "system" ? window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light" : defaultThemeMode;
+      document.documentElement.setAttribute("data-bs-theme", themeMode);
+    }
+  </script>
+  <div id="splash-screen" class="splash-screen"> <img src="./assets/media/logos/logoH.png" class="h-80px"
+      alt="Sistema CRM" /> <span>Trabajando ...</span> </div>
+</body>
+
+</html>

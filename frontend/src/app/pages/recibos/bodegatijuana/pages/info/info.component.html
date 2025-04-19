@@ -1,0 +1,76 @@
+<div id="infoComponentContentES" class="card card-flush p-10">
+    <div id="my-table">
+        <table class="table">
+            <tbody class="fw-semibold text-gray-600">
+                <tr>
+                    <td class="text-left custom-border-left-top" style="width: 20%;">
+                        <img [src]="baseUrl + account.image" style="max-height: 100px" id="logo" />
+                    </td>
+                    <td class="text-left custom-border-left-top" style="width: 40%;">
+                        <h2>{{ account.fullname }}</h2>
+                        <div>{{ account.fiscalname }}</div>
+                        <div>{{ account.fulladdress }}</div>
+                        <div>{{ account.phone }}</div>
+                        <div>{{ account.email }}</div>
+                    </td>
+                    <td class="text-right text-end custom-border-right-top" style="width: 40%;">
+                        <h2>{{ ente.fullname }}</h2>
+                        <div>{{ sale.entecontact ? 'Atención a: ' + sale.entecontact : ente.fiscalname }}</div>
+                        <div>{{ ente.fulladdress }}</div>
+                        <div>{{ ente.phone }}</div>
+                        <div>{{ ente.email }}</div>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table" style="table-layout: fixed;">
+            <tbody class="fw-semibold text-gray-600">
+                <tr>
+                    <td class="text-center custom-border-left-top" style="width: 25%;">
+                        <h2>RECIBO<br />{{ sale.type | uppercase }} </h2>
+                    </td>
+                    <td class="text-center custom-border-left-top" style="width: 25%;">
+                        <h2><span class="text-info">FOLIO<br />#{{ sale.folio }}</span> </h2>
+                    </td>
+                    <td class="text-center no-border" style="width: 25%;">
+                        <label class="form-label fw-bold">FECHA</label>
+                        <br /> <span class="text-end text-warning">{{ sale.created_at }}</span>
+                    </td>
+                    <td class="text-center custom-border-right-top" style="width: 25%;">
+                        <label class="form-label fw-bold"> {{ staff.fullname }}</label>
+                        <br /><span class="text-end text-warning">{{ staff.email }}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="table-responsive">
+            <table class="table align-middle table-row-dashed fs-6 mb-0 full-border">
+                <thead>
+                    <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
+                        <th class="min-w-150px text-start">CODIGO</th>
+                        <th class="text-start">ITEM</th>
+                        <th class="min-w-100px text-center">RECIBIDA</th>
+                        <th class="min-w-100px text-center">UNIDAD</th>
+                        <th class="min-w-150px text-start">NOTAS</th>
+                    </tr>
+                </thead>
+                <tbody class="fw-semibold text-gray-600">
+                    <tr *ngFor="let item of carrito">
+                        <td class="text-start">
+                            <div class="d-flex flex-column">
+                                <span class="fw-bold text-primary"> {{ item.code }}</span>
+                            </div>
+                        </td>
+                        <td class="text-start">{{ item.description }}</td>
+                        <td class="text-center">{{ item.delivered3 }}</td>
+                        <td class="text-center">{{ item.unitkey }}</td>
+                        <td class="text-start"> <span>{{ item.estimated }}</span> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

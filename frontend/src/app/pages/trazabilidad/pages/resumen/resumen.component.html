@@ -1,0 +1,150 @@
+<div class="row gx-6 gx-xl-9">
+
+    <div class="col-6">
+        <div class="card card-flush mt-6 mt-xl-9">
+            <div class="card-header mt-6">
+                <div class="card-title flex-column">
+                    <h3 class="fw-bold mb-1">Resumen de Ordenes</h3>
+                    <div class="fs-6 fw-semibold text-gray-500">{{ totalTasks }} Ordenes en Total</div>
+                </div>
+                <div class="card-toolbar">
+                    <a href="#" class="btn btn-light btn-sm">Ver Ordenes</a>
+                </div>
+            </div>
+
+            <div class="card-body p-9 pt-5">
+                <div class="d-flex flex-wrap">
+                    <div class="position-relative d-flex flex-center h-175px w-175px me-15 mb-7">
+                        <div class="position-absolute translate-middle start-50 top-50 d-flex flex-column flex-center">
+                            <span class="fs-2qx fw-bold">{{ totalTasks }}</span>
+                            <span class="fs-6 fw-semibold text-gray-500">Total de Ordenes</span>
+                        </div>
+                        <canvas id="project_overview_chart"></canvas>
+                    </div>
+
+                    <div class="d-flex flex-column justify-content-center flex-row-fluid pe-11 mb-5">
+                        <div *ngFor="let type of orderTypes" class="mb-4">
+                            <h5 *ngIf="groupedTasks[type]?.length" class="fw-bold text-primary">{{ type | titlecase }}
+                            </h5>
+                            <div *ngFor="let task of groupedTasks[type]"
+                                class="d-flex fs-6 fw-semibold align-items-center mb-3">
+                                <div class="bullet me-3" [ngClass]="getStatusClass(task.status)"></div>
+                                <div class="text-gray-500">{{ task.status | titlecase }}</div>
+                                <div class="ms-auto fw-bold text-gray-700">{{ task.total }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed p-6">
+                    <div class="d-flex flex-stack flex-grow-1">
+                        <div class="fw-semibold">
+                            <div class="fs-6 text-gray-700">
+                                <a href="#" class="fw-bold me-1">Optimiza tu flujo de trabajo</a>
+                                Gestiona y rastrea todas las órdenes con eficiencia.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="card card-flush mt-6 mt-xl-9">
+            <div class="card-header mt-6">
+                <div class="card-title flex-column">
+                    <h3 class="fw-bold mb-1">Remisiones recientes</h3>
+                    <div class="fs-6 text-gray-500"> Clientes</div>
+                </div>
+                <div class="card-toolbar">
+                    <a routerLink="/movimiento-de-cotizacion"
+                        class="btn btn-bg-light btn-active-color-primary btn-sm">Ver todas</a>
+                </div>
+            </div>
+            <div class="card-body d-flex flex-column p-9 pt-3 mb-9">
+                <div class="d-flex align-items-center mb-5" *ngFor="let item of recentClients">
+                    <div class="me-5 position-relative">
+                        <div class="symbol symbol-35px symbol-circle">
+                            <span class="symbol-label bg-light-primary text-primary fw-semibold">C</span>
+                        </div>
+                        <div
+                            class="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1">
+                        </div>
+                    </div>
+                    <div class="fw-semibold">
+                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary">{{ item.entename }}</a>
+                        <div class="text-gray-500">{{ item.modified_at | date:'short' }}</div>
+                    </div>
+                    <div class="badge badge-light ms-auto">{{ item.total_units }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="card card-flush mt-6 mt-xl-9">
+            <div class="card-header mt-6">
+                <div class="card-title flex-column">
+                    <h3 class="fw-bold mb-1">Compras recientes</h3>
+                    <div class="fs-6 text-gray-500">Proveedores</div>
+                </div>
+                <div class="card-toolbar">
+                    <a routerLink="/movimiento-de-cotizacion"
+                        class="btn btn-bg-light btn-active-color-primary btn-sm">Ver todas</a>
+                </div>
+            </div>
+            <div class="card-body d-flex flex-column p-9 pt-3 mb-9">
+                <div class="d-flex align-items-center mb-5" *ngFor="let item of recentSuppliers">
+                    <div class="me-5 position-relative">
+                        <div class="symbol symbol-35px symbol-circle">
+                            <span class="symbol-label bg-light-primary text-primary fw-semibold">C</span>
+                        </div>
+                        <div
+                            class="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1">
+                        </div>
+                    </div>
+                    <div class="fw-semibold">
+                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary">{{ item.entename }}</a>
+                        <div class="text-gray-500">{{ item.modified_at | date:'short' }}</div>
+                    </div>
+                    <div class="badge badge-light ms-auto">{{ item.total_units }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="card card-flush mt-6 mt-xl-9">
+            <div class="card-header mt-6">
+                <div class="card-title flex-column">
+                    <h3 class="fw-bold mb-1">Remisiones recientes</h3>
+                    <div class="fs-6 text-gray-500"> Clientes</div>
+                </div>
+                <div class="card-toolbar">
+                    <a routerLink="/movimiento-de-remision" class="btn btn-bg-light btn-active-color-primary btn-sm">Ver
+                        todas</a>
+                </div>
+            </div>
+            <div class="card-body d-flex flex-column p-9 pt-3 mb-9">
+                <div class="d-flex align-items-center mb-5" *ngFor="let item of recentRemissions">
+                    <div class="me-5 position-relative">
+                        <div class="symbol symbol-35px symbol-circle">
+                            <span class="symbol-label bg-light-warning text-warning fw-semibold">R</span>
+                        </div>
+                        <div
+                            class="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1">
+                        </div>
+                    </div>
+                    <div class="fw-semibold">
+                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary">{{ item.entename }}</a>
+                        <div class="text-gray-500">{{ item.modified_at | date:'short' }}</div>
+                    </div>
+                    <div class="badge badge-light ms-auto">{{ item.total_units }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-reporthistory [heroe]="heroe"></app-reporthistory>

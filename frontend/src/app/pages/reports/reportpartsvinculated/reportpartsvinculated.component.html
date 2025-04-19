@@ -1,0 +1,203 @@
+<div class="card card-flush">
+    <div class="card-header align-items-center py-5 gap-2 gap-md-5">
+        <div class="row w-100">
+
+            <div class="col-6 col-lg-3 d-flex align-items-center position-relative my-1">
+                <select [(ngModel)]="searchMode" class="form-select form-control-solid w-100 w-md-auto me-2">
+                    <option value="" disabled>Filtro</option>
+                    <option *ngFor="let mode of searchModes" [value]="mode.value"> {{ mode.label }} </option>
+                </select>
+
+                <div class="position-relative">
+                    <span class="svg-icon svg-icon-1 position-absolute top-50 start-0 translate-middle-y ms-3">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
+                                transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+                            <path
+                                d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+                                fill="currentColor" />
+                        </svg>
+                    </span>
+                    <input #searchInputItem [(ngModel)]="searchTermItem" (keydown.enter)="onEnter('item')"
+                        [placeholder]="'Buscar por ' + (getSearchLabel() + ' ...')"
+                        class="form-control form-control-solid w-100 ps-14" />
+                </div>
+            </div>
+            <div
+                class="col-12 col-lg-6 d-flex flex-wrap align-items-center my-1 gap-1 justify-content-center justify-content-lg-end">
+
+                <select [(ngModel)]="pageSize" class="form-select form-control-solid w-100 w-md-auto me-2"
+                    style="max-width: 80px" (ngModelChange)="loadData()">
+                    <option *ngFor="let size of [5, 10, 20, 50, 100, 200, 500, 1000]" [value]="size">{{ size }}
+                    </option>
+                </select>
+                <select [(ngModel)]="selectedStatus" class="form-select form-control-solid w-100 w-md-auto me-2"
+                    style="max-width: 100px" (ngModelChange)="loadData()">
+                    <option value="">Status</option>
+                    <option *ngFor="let status of salestatus" [value]="status.status">{{ status.status }}</option>
+                </select>
+                <select [(ngModel)]="selectedSeller" class="form-select form-control-solid w-100 w-md-auto me-2"
+                    style="max-width: 110px" (ngModelChange)="loadData()">
+                    <option value="">Creador</option>
+                    <option *ngFor="let item of allSellers" [value]="item.id">{{ item.fullname | titlecase }}
+                    </option>
+                </select>
+                <select class="form-select form-control-solid w-100 w-md-auto me-2" [(ngModel)]="selectedParentCategory"
+                    style="max-width: 80px" (ngModelChange)="loadData()">
+                    <option value="" disabled>Categoría</option>
+                    <option value="">Todas</option>
+                    <option *ngFor="let item of allCategory" [value]="item.id">{{ item.fullname }}
+                    </option>
+                </select>
+                <select class="form-select form-control-solid w-100 w-md-auto me-2" [(ngModel)]="selectedUnitkey"
+                    style="max-width: 100px" (ngModelChange)="loadData()">
+                    <option value="" disabled>Unidad de Medida</option>
+                    <option value="">Todas</option>
+                    <option *ngFor="let item of itemUnits" [value]="item">{{ item }}
+                    </option>
+                </select>
+                <input type="date" [(ngModel)]="startDate" class="form-control form-control-solid"
+                    style="max-width: 120px" (ngModelChange)="loadData()" />
+                <input type="date" [(ngModel)]="endDate" class="form-control form-control-solid"
+                    style="max-width: 120px" (ngModelChange)="loadData()" />
+            </div>
+
+            <div class="col-12 col-lg-3 d-flex flex-wrap align-items-center justify-content-end my-2 gap-1">
+                <button type="button" class="btn btn-primary me-2" (click)="toggleDateRange()">
+                    {{ isToday ? 'Mes' : 'Hoy' }}
+                </button>
+                <button [disabled]="isLoading" class="btn btn-info me-2" (click)="toggleView()"
+                    *ngIf="allData.length > 0">
+                    <span *ngIf="!isGroupedView"> <i class="fa fa-table"></i> </span>
+                    <span *ngIf="isGroupedView"> <i class="fa fa-list"></i> </span>
+                </button>
+                <button [disabled]="isLoading" class="btn btn-success" (click)="exportToPDF(true, 'l')">
+                    <i class="fa fa-print"></i>
+                </button>
+                <button [disabled]="isLoading" class="btn btn-success" (click)="exportToPDF(false, 'l')">
+                    <i class="fa fa-file-pdf"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body text-center pt-0" id="infoComponentContent">
+        <div *ngIf="!isGroupedView" class="table-responsive" style="min-height: 550px">
+            <table id="my-table" class="table align-middle table-row-dashed fs-6 gy-5 table-striped">
+                <thead>
+                    <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                        <th class="min-w-50px" (click)="changeOrder('code')" style="cursor: pointer">
+                            No. Parte
+                        </th>
+                        <th class="min-w-80px" (click)="changeOrder('description')" style="cursor: pointer">
+                            Descripción
+                        </th>
+                        <th class="text-center" (click)="changeOrder('fullname')" style="cursor: pointer">
+                            Cantidad (Atendidos)
+                        </th>
+                        <th class="text-center" (click)="changeOrder('fullname')" style="cursor: pointer">
+                            Unidad de Medida
+                        </th>
+                        <th class="text-center" (click)="changeOrder('modified_at')" style="cursor: pointer">
+                            Razón Social
+                        </th>
+                        <th class="text-center" (click)="changeOrder('qty')" style="cursor: pointer">
+                            Tipo de Orden
+                        </th>
+                        <th class="text-center" (click)="changeOrder('price')" style="cursor: pointer">
+                            Status
+                        </th>
+                        <th class="text-center" (click)="changeOrder('folio')" style="cursor: pointer">
+                            Rango de Folios
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="fw-semibold text-gray-600">
+                    <tr *ngFor="let item of allData">
+                        <td class="text-start"> <strong class=" text-primary"> {{ item.sicode }}</strong> </td>
+                        <td class="text-start"> {{ truncateText(item.sidescription, 40) }} </td>
+                        <td class="text-center text-success fw-bold">{{ item.siqty }}</td>
+                        <td class="text-center fw-bold">{{ item.unitkey }}</td>
+                        <td class="text-center">{{ item.saleentename }}</td>
+                        <td class="text-center"> <strong> {{ item.saletype }}</strong> </td>
+                        <td class="text-center">
+                            <div [ngClass]="getStatusClass(item.status)" class="badge"> {{ item.salestatus }} </div>
+                        </td>
+                        <td class="text-center">{{ item.salefolios }}</td>
+                    </tr>
+                    <tr *ngIf="allData.length == 0">
+                        <td colspan="8" class="text-center">No hay datos</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex flex-stack flex-wrap pt-10">
+                <div class="fs-6 fw-bold text-gray-700">
+                    Mostrando {{pageNumber * pageSize - pageSize + 1}} a
+                    {{(pageNumber * pageSize) > totalRecords ? totalRecords : pageNumber * pageSize}}
+                    de {{totalRecords}} registros
+                </div>
+                <ul class="pagination">
+                    <li class="page-item" [ngClass]="{'disabled': pageNumber === 1}">
+                        <a class="page-link cursor-pointer" (click)="pageChanged(1)">
+                            <i class="fa fa-angle-double-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item" [ngClass]="{'disabled': pageNumber === 1}">
+                        <a class="page-link cursor-pointer" (click)="pageChanged(pageNumber - 1)">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                    </li>
+                    <li *ngFor="let page of getPageRange()" class="page-item"
+                        [ngClass]="{'active': pageNumber === page}">
+                        <a class="page-link cursor-pointer" (click)="pageChanged(page)">
+                            {{page}}
+                        </a>
+                    </li>
+                    <li class="page-item" [ngClass]="{'disabled': pageNumber === totalPages}">
+                        <a class="page-link cursor-pointer" (click)="pageChanged(pageNumber + 1)">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                    <li class="page-item" [ngClass]="{'disabled': pageNumber === totalPages}">
+                        <a class="page-link cursor-pointer" (click)="pageChanged(totalPages)">
+                            <i class="fa fa-angle-double-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div *ngIf="isGroupedView" class="table-responsive">
+            <table class="table align-middle table-row-dashed fs-6 gy-5 table-striped">
+                <thead>
+                    <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                        <th class="min-w-100px">No. Parte</th>
+                        <th class="min-w-100px">Descripción</th>
+                        <th class="min-w-100px text-center">Cantidad Total</th>
+                        <th class="min-w-100px text-center">Total Entes</th>
+                        <th class="min-w-100px text-center">Tipo de Orden</th>
+                        <th class="min-w-100px text-center">Desde</th>
+                        <th class="min-w-100px text-center">Hasta</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let summary of summaryData">
+                        <td class="text-start text-primary">
+                            <strong>{{ summary.sicode }}</strong>
+                        </td>
+                        <td class="text-start">{{ truncateText(summary.sidescription, 60) }}</td>
+                        <td class="text-center text-success fw-bold">{{ summary.totalQuantity }}</td>
+                        <td class="text-center">{{ summary.saleentename }}</td>
+                        <td class="text-center">
+                            <strong> {{ summary.saletype }} </strong>
+                        </td>
+                        <td class="text-center">#{{ summary.minFolio }}</td>
+                        <td class="text-center">#{{ summary.maxFolio }}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,88 @@
+<div class="d-flex flex-column flex-lg-row">
+    <div class="flex-column flex-lg-row-auto w-lg-250px w-xl-350px mb-10">
+        <div class="card card-flush py-4">
+            <div class="card-body pt-15">
+                <div class="d-flex flex-column mb-5">
+                    <h3 class="text-center mb-5">{{ isEditMode ? 'Editar' : 'Agregar' }} Contacto</h3>
+                    <form [formGroup]="letsdoitForm" (submit)="$event.preventDefault()" appEnterAsTab>
+                        <div class="mb-5">
+                            <label class="form-label fw-semibold required">Nombre Completo</label>
+                            <input class="form-control" type="text" formControlName="fullname" #fullnameInput
+                                style="text-align: center" required>
+                            <div *ngIf="letsdoitForm.get('fullname')?.invalid && letsdoitForm.get('fullname')?.touched"
+                                class="text-danger">
+                                Nombre es requerido.</div>
+                        </div>
+                        <div class="mb-5">
+                            <label class="form-label fw-semibold required">Correo Electrónico</label>
+                            <input class="form-control" type="email" formControlName="email" style="text-align: center"
+                                required>
+                            <div *ngIf="letsdoitForm.get('email')?.invalid && letsdoitForm.get('email')?.touched"
+                                class="text-danger">
+                                Correo es requerido.</div>
+                        </div>
+                        <div class="mb-5">
+                            <label class="form-label fw-semibold">Puesto</label>
+                            <input class="form-control" type="text" formControlName="position"
+                                style="text-align: center">
+                        </div>
+                        <div class="mb-5">
+                            <label class="form-label fw-semibold">Teléfono</label>
+                            <input class="form-control" type="tel" formControlName="phone" style="text-align: center">
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary w-100" [disabled]="letsdoitForm.invalid"
+                                (click)="saveContact()">
+                                {{ isEditMode ? 'Actualizar' : 'Guardar' }} Contacto
+                            </button>
+                        </div>
+
+                        <div class="d-flex justify-content-center mt-3" *ngIf="isEditMode">
+                            <button type="button" class="btn btn-secondary w-100"
+                                (click)="cancelEdit()">Cancelar</button>
+                        </div>
+                        <input type="hidden" formControlName="enteid">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex-lg-row-fluid ms-lg-15">
+        <div class="card pt-4 mb-6 mb-xl-9">
+            <div class="card-header border-0">
+                <div class="card-title">
+                    <h2>Contactos del Proveedor</h2>
+                </div>
+            </div>
+            <div class="card-body pt-0 pb-5">
+                <table class="table align-middle table-row-dashed fs-6 gy-5 section-to-print">
+                    <thead>
+                        <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                            <th class="min-w-50px text-start">Nombre</th>
+                            <th class="min-w-70px text-start">Posición</th>
+                            <th class="min-w-100px text-start">Correo</th>
+                            <th class="min-w-70px text-start">Teléfono</th>
+                            <th class="min-w-50px text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="fw-semibold text-gray-600">
+                        <tr *ngFor="let contact of contacts" (click)="loadContact(contact)">
+                            <td class="text-start">{{ contact.fullname }}</td>
+                            <td class="text-start">{{ contact.position }}</td>
+                            <td class="text-start">{{ contact.email }}</td>
+                            <td class="text-start">{{ contact.phone }}</td>
+                            <td class="text-center">
+                                <button (click)="deleteContact(contact); $event.stopPropagation()"
+                                    class="btn btn-danger btn-sm">Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr *ngIf="contacts.length === 0">
+                            <td colspan="5" class="text-center">No hay contactos registrados</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

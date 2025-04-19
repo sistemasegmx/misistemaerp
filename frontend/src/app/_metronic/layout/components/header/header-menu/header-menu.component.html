@@ -1,0 +1,360 @@
+<div
+  class="menu menu-lg-rounded menu-column menu-lg-row menu-state-bg menu-title-gray-600 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold fs-6 my-5 my-lg-0 align-items-stretch"
+  id="kt_header_menu" data-kt-menu="true">
+
+  <div class="menu-item me-lg-1">
+    <a class="menu-link py-3" routerLinkActive="active" routerLink="/dashboard">
+      <span class="menu-title" translate="MENU.DASHBOARD"></span>
+    </a>
+  </div>
+
+  <div class="menu-item me-lg-1">
+    <a class="menu-link py-3" routerLinkActive="active" routerLink="/rastreo-de-ordenes">
+      <span class="menu-title">Tracking</span>
+    </a>
+  </div>
+
+  <div class="menu-item me-lg-1">
+    <a class="menu-link py-3" routerLinkActive="active" routerLink="/trazabilidad-de-partes">
+      <span class="menu-title">Trazabilidad</span>
+    </a>
+  </div>
+
+  <div class="menu-item menu-lg-down-accordion me-lg-1 menu-dropdown"
+    data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start">
+    <a routerLinkActive="active" routerLink="/administracion-de-catalogos">
+      <span class="menu-link py-3">
+        <span class="menu-title">Catálogos</span>
+        <span class="menu-arrow d-lg-none"></span>
+      </span>
+    </a>
+    <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px"
+      data-kt-menu-dismiss="true">
+
+      <div class="menu-item menu-lg-down-accordion me-lg-1" data-kt-menu-trigger="{default:'click', lg: 'hover'}"
+        data-kt-menu-placement="right-start">
+        <span class="menu-link py-3">
+          <span class="menu-icon"><i class="bi fs-3 bi-archive"></i></span>
+          <span class="menu-title">Clientes</span>
+          <span class="menu-arrow"></span>
+        </span>
+        <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px"
+          data-kt-menu-dismiss="true">
+          <div class="menu-item me-lg-1">
+            <a class="menu-link py-3" routerLinkActive="active" routerLink="/administracion-de-clientes/add">
+              <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+              <span class="menu-title">Nuevo Cliente</span>
+            </a>
+          </div>
+          <div class="menu-item me-lg-1">
+            <a class="menu-link py-3" routerLinkActive="active" routerLink="/administracion-de-clientes">
+              <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+              <span class="menu-title">Administración de Clientes</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item menu-lg-down-accordion me-lg-1" data-kt-menu-trigger="{default:'click', lg: 'hover'}"
+        data-kt-menu-placement="right-start">
+        <span class="menu-link py-3">
+          <span class="menu-icon"><i class="bi fs-3 bi-sticky"></i></span>
+          <span class="menu-title">Proveedores</span>
+          <span class="menu-arrow"></span>
+        </span>
+        <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px"
+          data-kt-menu-dismiss="true">
+          <div class="menu-item me-lg-1">
+            <a class="menu-link py-3" routerLinkActive="active" routerLink="/administracion-de-proveedores/add">
+              <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+              <span class="menu-title">Nuevo Proveedor</span>
+            </a>
+            <a class="menu-link py-3 d-none" routerLinkActive="active" routerLink="/administracion-de-catalogos">
+              <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+              <span class="menu-title">Administración de Cátalogos</span>
+            </a>
+          </div>
+          <div class="menu-item me-lg-1">
+            <a class="menu-link py-3" routerLinkActive="active" routerLink="/administracion-de-proveedores">
+              <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+              <span class="menu-title">Administración de Proveedores</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item menu-lg-down-accordion me-lg-1" data-kt-menu-trigger="{default:'click', lg: 'hover'}"
+        data-kt-menu-placement="right-start">
+        <span class="menu-link py-3">
+          <span class="menu-icon"><i class="bi fs-3 bi-person"></i></span>
+          <span class="menu-title">Empleados</span>
+          <span class="menu-arrow"></span>
+        </span>
+        <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px"
+          data-kt-menu-dismiss="true">
+          <div class="menu-item me-lg-1">
+            <a class="menu-link py-3" routerLinkActive="active" routerLink="/administracion-de-empleados/add">
+              <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+              <span class="menu-title">Nuevo Empleado</span>
+            </a>
+          </div>
+          <div class="menu-item me-lg-1">
+            <a class="menu-link py-3" routerLinkActive="active" routerLink="/administracion-de-empleados">
+              <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+              <span class="menu-title">Administración de Empleados</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item menu-lg-down-accordion me-lg-1" data-kt-menu-trigger="{default:'click', lg: 'hover'}"
+        data-kt-menu-placement="right-start">
+        <span class="menu-link py-3">
+          <span class="menu-icon"><i class="bi fs-3 bi-layers"></i></span>
+          <span class="menu-title">Partes</span>
+          <span class="menu-arrow"></span>
+        </span>
+        <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px"
+          data-kt-menu-dismiss="true">
+          <div class="menu-item me-lg-1">
+            <a class="menu-link py-3" routerLinkActive="active" routerLink="/administracion-de-partes/add">
+              <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+              <span class="menu-title">Nueva Parte</span>
+            </a>
+          </div>
+          <div class="menu-item me-lg-1">
+            <a class="menu-link py-3" routerLinkActive="active" routerLink="/administracion-de-partes">
+              <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+              <span class="menu-title">Administración de Partes</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item menu-lg-down-accordion me-lg-1 menu-dropdown"
+    data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start">
+    <a routerLinkActive="active" routerLink="/administracion-de-movimientos">
+      <span class="menu-link py-3">
+        <span class="menu-title">Movimientos</span>
+        <span class="menu-arrow d-lg-none"></span>
+      </span>
+    </a>
+    <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px"
+      data-kt-menu-dismiss="true">
+      <div class="menu-item me-lg-1">
+        <a class="menu-link py-3" routerLinkActive="active" routerLink="/movimiento-de-cotizacion">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+          <span class="menu-title">Administración de Cotizaciones</span>
+        </a>
+      </div>
+      <div class="menu-item me-lg-1">
+        <a class="menu-link py-3" routerLinkActive="active" routerLink="/movimiento-de-compra">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+          <span class="menu-title">Administración de Compras</span>
+        </a>
+      </div>
+      <div class="menu-item me-lg-1">
+        <a class="menu-link py-3" routerLinkActive="active" routerLink="/movimiento-de-remision">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+          <span class="menu-title">Administración de Remisiones</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item menu-lg-down-accordion me-lg-1 menu-dropdown"
+    data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start">
+    <a routerLinkActive="active" routerLink="/administracion-de-recibos">
+      <span class="menu-link py-3">
+        <span class="menu-title">Recibos</span>
+        <span class="menu-arrow d-lg-none"></span>
+      </span>
+    </a>
+    <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px"
+      data-kt-menu-dismiss="true">
+      <div class="menu-item me-lg-1">
+        <a class="menu-link py-3" routerLinkActive="active" routerLink="/movimiento-de-partes">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+          <span class="menu-title">Listado de No. Partes de P.O.</span>
+        </a>
+      </div>
+      <div class="menu-item me-lg-1">
+        <a class="menu-link py-3" routerLinkActive="active" routerLink="/recibos-bodega-usa">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+          <span class="menu-title">Recibos de Material en Bodega USA</span>
+        </a>
+      </div>
+      <div class="menu-item me-lg-1">
+        <a class="menu-link py-3" routerLinkActive="active" routerLink="/recibos-proceso-importacion">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+          <span class="menu-title">Recibos en Proceso Importación</span>
+        </a>
+      </div>
+      <div class="menu-item me-lg-1">
+        <a class="menu-link py-3" routerLinkActive="active" routerLink="/recibos-bodega-tijuana">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+          <span class="menu-title">Recibos de Material en Bodega Tijuana</span>
+        </a>
+      </div>
+      <div class="menu-item me-lg-1">
+        <a class="menu-link py-3" routerLinkActive="active" routerLink="/reporte-partes-recibos">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+          <span class="menu-title">Historial de No. de Partes por Recibo</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="menu-item menu-lg-down-accordion me-lg-1 menu-dropdown"
+    data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start">
+    <a class="menu-link py-3" routerLink="/administracion-de-reportes">
+      <span class="menu-title">Reportes</span>
+      <span class="menu-arrow d-lg-none"></span>
+    </a>
+
+    <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px"
+      data-kt-menu-dismiss="true">
+
+      <div class="menu-item menu-lg-down-accordion me-lg-1" data-kt-menu-trigger="{default:'click', lg: 'hover'}">
+        <span class="menu-link py-3">
+          <span class="menu-title">Reportes de Órdenes</span>
+          <span class="menu-arrow"></span>
+        </span>
+        <div class="menu-sub menu-sub-lg-dropdown py-lg-4 w-lg-225px">
+          <div class="menu-item me-lg-1">
+            <a class="menu-link py-3" routerLinkActive="active" routerLink="/reporte-de-cotizaciones">
+              <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+              <span class="menu-title">Reporte de Cotizaciones</span>
+            </a>
+          </div>
+          <div class="menu-item me-lg-1">
+            <a class="menu-link py-3" routerLinkActive="active" routerLink="/reporte-de-compras">
+              <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+              <span class="menu-title">Reporte de Compras</span>
+            </a>
+          </div>
+          <div class="menu-item me-lg-1">
+            <a class="menu-link py-3" routerLinkActive="active" routerLink="/reporte-de-remisiones">
+              <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+              <span class="menu-title">Reporte de Remisiones</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item menu-lg-down-accordion me-lg-1" data-kt-menu-trigger="{default:'click', lg: 'hover'}">
+        <span class="menu-link py-3">
+          <span class="menu-title">Reportes de Partes</span>
+          <span class="menu-arrow"></span>
+        </span>
+        <div class="menu-sub menu-sub-lg-dropdown py-lg-4 w-lg-225px">
+          <div class="menu-item me-lg-1">
+            <a class="menu-link py-3" routerLinkActive="active" routerLink="/reporte-de-partes-cotizadas">
+              <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+              <span class="menu-title">Reporte de Partes Cotizadas</span>
+            </a>
+          </div>
+          <div class="menu-item me-lg-1">
+            <a class="menu-link py-3" routerLinkActive="active" routerLink="/reporte-de-partes-compradas">
+              <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+              <span class="menu-title">Reporte de Partes Compradas</span>
+            </a>
+          </div>
+          <div class="menu-item me-lg-1">
+            <a class="menu-link py-3" routerLinkActive="active" routerLink="/reporte-de-partes-remitidas">
+              <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+              <span class="menu-title">Reporte de Partes Remitidas</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item menu-lg-down-accordion me-lg-1" data-kt-menu-trigger="{default:'click', lg: 'hover'}">
+        <span class="menu-link py-3">
+          <span class="menu-title">Reportes de Trazabilidad</span>
+          <span class="menu-arrow"></span>
+        </span>
+        <div class="menu-sub menu-sub-lg-dropdown py-lg-4 w-lg-225px">
+          <div class="menu-item me-lg-1">
+            <a class="menu-link py-3" routerLinkActive="active" routerLink="/reporte-historial-movimientos">
+              <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+              <span class="menu-title">Historial de Movimientos por No. de Partes</span>
+            </a>
+          </div>
+          <div class="menu-item me-lg-1">
+            <a class="menu-link py-3" routerLinkActive="active" routerLink="/reporte-trazabilidad-movimientos">
+              <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+              <span class="menu-title">Historial de Movimientos por Cliente o Proveedor</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="menu-item me-lg-1" *ngIf="castelAccess.includes(user.id.toString())">
+    <a class="menu-link py-3" routerLinkActive="active" routerLink="/administracion-de-castel">
+      <span class="menu-title">CASTEL</span>
+    </a>
+  </div>
+
+  <div class="menu-item menu-lg-down-accordion me-lg-1 menu-dropdown"
+    data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
+    *ngIf="user.type === 'admin'">
+    <span class="menu-link py-3" routerLink="/configuracion-de-sistema">
+      <span class="menu-title">Sistema</span>
+      <span class="menu-arrow d-lg-none"></span>
+    </span>
+    <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px"
+      data-kt-menu-dismiss="true">
+      <div class="menu-item me-lg-1">
+        <a class="menu-link py-3" routerLinkActive="active" routerLink="/configuracion-de-categorias">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+          <span class="menu-title">Categorías</span>
+        </a>
+      </div>
+      <div class="menu-item me-lg-1">
+        <a class="menu-link py-3" routerLinkActive="active" routerLink="/configuracion-de-monedas">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+          <span class="menu-title">Monedas</span>
+        </a>
+      </div>
+      <div class="menu-item me-lg-1">
+        <a class="menu-link py-3" routerLinkActive="active" routerLink="/configuracion-de-impuestos">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+          <span class="menu-title">Impuestos</span>
+        </a>
+      </div>
+      <div class="menu-item me-lg-1">
+        <a class="menu-link py-3" routerLinkActive="active" routerLink="/configuracion-de-precios">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+          <span class="menu-title">Niveles de Precio</span>
+        </a>
+      </div>
+      <div class="menu-item me-lg-1">
+        <a class="menu-link py-3" routerLinkActive="active" routerLink="/configuracion-de-usuarios">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+          <span class="menu-title">Usuarios</span>
+        </a>
+      </div>
+      <div class="menu-item me-lg-1">
+        <a class="menu-link py-3" routerLinkActive="active" routerLink="/configuracion-de-miempresa">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+          <span class="menu-title">Mi Empresa</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item me-lg-1">
+    <a class="menu-link py-3" routerLinkActive="active" routerLink="/mi-perfil">
+      <span class="menu-title">Mi Perfil</span>
+    </a>
+  </div>
+
+</div>
