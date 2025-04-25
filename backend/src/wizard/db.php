@@ -7,7 +7,7 @@ use Exception;
 class db
 {
 	public static $_instance;
-	private static $WDB_HOST = 'localhost';
+	private static $WDB_HOST = 'mysql';
 
 	private static $WDB_USER = 'root';
 

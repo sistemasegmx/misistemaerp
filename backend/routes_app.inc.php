@@ -68,6 +68,19 @@ $router->put('/ente', enteController::class . '::update');
 $router->patch('/ente', enteController::class . '::modify');
 $router->delete('/ente', enteController::class . '::hardDelete');
 
+use src\app\controllers\clienteController;
+
+$router->get('/cliente', clienteController::class . '::getAll');
+$router->get('/cliente/paginated', clienteController::class . '::getAllPaginated');
+$router->get('/cliente/filtered', clienteController::class . '::getAllFiltered');
+$router->get('/cliente/listByColumn', clienteController::class . '::getAllDataByColumn');
+$router->get('/cliente/getone', clienteController::class . '::getOneById');
+$router->get('/cliente/preByLike', clienteController::class . '::getPreDataByLike');
+$router->post('/cliente', clienteController::class . '::store');
+$router->put('/cliente', clienteController::class . '::update');
+$router->patch('/cliente', clienteController::class . '::modify');
+$router->delete('/cliente', clienteController::class . '::hardDelete');
+
 use src\app\controllers\entecontactsController;
 
 $router->get('/entecontacts', entecontactsController::class . '::getAll');
