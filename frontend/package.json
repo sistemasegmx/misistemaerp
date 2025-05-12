@@ -98,5 +98,10 @@
     "typescript": "~5.2.2",
     "webpack": "^5.88.2",
     "webpack-cli": "5.1.4"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.x.x.",
+  "main": "karma.conf.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

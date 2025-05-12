@@ -3,7 +3,7 @@ export const environment = {
   rToken: 'rTtoken',
   production: true,
   appVersion: 'v2.7',
-  baseUrl: 'http://misistemaerp',
+  baseUrl: 'http://backend:8080',
 
   modules: {
     basecurrency: [

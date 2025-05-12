@@ -242,3 +242,186 @@ $router->put('/user', userController::class . '::update');
 $router->patch('/user', userController::class . '::modify');
 $router->delete('/user', userController::class . '::hardDelete');
 $router->get('/user/bytoken', userController::class . '::userByToken');
+
+use src\app\controllers\providerController;
+
+$router->get('/provider', providerController::class . '::getAll');
+$router->get('/provider/paginated', providerController::class . '::getAllPaginated');
+$router->get('/provider/filtered', providerController::class . '::getAllFiltered');
+$router->get('/provider/listByColumn', providerController::class . '::getAllDataByColumn');
+$router->get('/provider/getone', providerController::class . '::getOneById');
+$router->get('/provider/preByLike', providerController::class . '::getPreDataByLike');
+$router->post('/provider', providerController::class . '::store');
+$router->put('/provider', providerController::class . '::update');
+$router->patch('/provider', providerController::class . '::modify');
+$router->delete('/provider', providerController::class . '::hardDelete');
+
+
+use src\app\controllers\prospectController;
+
+$router->get('/prospect', prospectController::class . '::getAll');
+$router->get('/prospect/paginated', prospectController::class . '::getAllPaginated');
+$router->get('/prospect/filtered', prospectController::class . '::getAllFiltered');
+$router->get('/prospect/listByColumn', prospectController::class . '::getAllDataByColumn');
+$router->get('/prospect/getone', prospectController::class . '::getOneById');
+$router->get('/prospect/preByLike', prospectController::class . '::getPreDataByLike');
+$router->post('/prospect', prospectController::class . '::store');
+$router->put('/prospect', prospectController::class . '::update');
+$router->patch('/prospect', prospectController::class . '::modify');
+$router->delete('/prospect', prospectController::class . '::hardDelete');
+
+use src\app\controllers\customerController;
+
+$router->get('/customer', customerController::class . '::getAll');
+$router->get('/customer/paginated', customerController::class . '::getAllPaginated');
+$router->get('/customer/filtered', customerController::class . '::getAllFiltered');
+$router->get('/customer/listByColumn', customerController::class . '::getAllDataByColumn');
+$router->get('/customer/getone', customerController::class . '::getOneById');
+$router->get('/customer/preByLike', customerController::class . '::getPreDataByLike');
+$router->post('/customer', customerController::class . '::store');
+$router->put('/customer', customerController::class . '::update');
+$router->patch('/customer', customerController::class . '::modify');
+$router->delete('/customer', customerController::class . '::hardDelete');
+
+use src\app\controllers\contactController;
+
+$router->get('/contact', contactController::class . '::getAll');
+$router->get('/contact/paginated', contactController::class . '::getAllPaginated');
+$router->get('/contact/filtered', contactController::class . '::getAllFiltered');
+$router->get('/contact/listByColumn', contactController::class . '::getAllDataByColumn');
+$router->get('/contact/getone', contactController::class . '::getOneById');
+$router->get('/contact/preByLike', contactController::class . '::getPreDataByLike');
+$router->post('/contact', contactController::class . '::store');
+$router->put('/contact', contactController::class . '::update');
+$router->patch('/contact', contactController::class . '::modify');
+$router->delete('/contact', contactController::class . '::hardDelete');
+
+use src\app\controllers\supplierController;
+
+$router->get('/supplier', supplierController::class . '::getAll');
+$router->get('/supplier/paginated', supplierController::class . '::getAllPaginated');
+$router->get('/supplier/filtered', supplierController::class . '::getAllFiltered');
+$router->get('/supplier/listByColumn', supplierController::class . '::getAllDataByColumn');
+$router->get('/supplier/getone', supplierController::class . '::getOneById');
+$router->get('/supplier/preByLike', supplierController::class . '::getPreDataByLike');
+$router->post('/supplier', supplierController::class . '::store');
+$router->put('/supplier', supplierController::class . '::update');
+$router->patch('/supplier', supplierController::class . '::modify');
+$router->delete('/supplier', supplierController::class . '::hardDelete');
+
+use src\app\controllers\employeeController;
+
+$router->get('/employee', employeeController::class . '::getAll');
+$router->get('/employee/paginated', employeeController::class . '::getAllPaginated');
+$router->get('/employee/filtered', employeeController::class . '::getAllFiltered');
+$router->get('/employee/listByColumn', employeeController::class . '::getAllDataByColumn');
+$router->get('/employee/getone', employeeController::class . '::getOneById');
+$router->get('/employee/preByLike', employeeController::class . '::getPreDataByLike');
+$router->post('/employee', employeeController::class . '::store');
+$router->put('/employee', employeeController::class . '::update');
+$router->patch('/employee', employeeController::class . '::modify');
+$router->delete('/employee', employeeController::class . '::hardDelete');
+
+use src\app\controllers\salespersonController;
+
+$router->get('/salesperson', salespersonController::class . '::getAll');
+$router->get('/salesperson/paginated', salespersonController::class . '::getAllPaginated');
+$router->get('/salesperson/filtered', salespersonController::class . '::getAllFiltered');
+$router->get('/salesperson/listByColumn', salespersonController::class . '::getAllDataByColumn');
+$router->get('/salesperson/getone', salespersonController::class . '::getOneById');
+$router->get('/salesperson/preByLike', salespersonController::class . '::getPreDataByLike');
+$router->post('/salesperson', salespersonController::class . '::store');
+$router->put('/salesperson', salespersonController::class . '::update');
+$router->patch('/salesperson', salespersonController::class . '::modify');
+$router->delete('/salesperson', salespersonController::class . '::hardDelete');
+
+use src\app\controllers\distributorController;
+
+$router->get('/distributor', distributorController::class . '::getAll');
+$router->get('/distributor/paginated', distributorController::class . '::getAllPaginated');
+$router->get('/distributor/filtered', distributorController::class . '::getAllFiltered');
+$router->get('/distributor/listByColumn', distributorController::class . '::getAllDataByColumn');
+$router->get('/distributor/getone', distributorController::class . '::getOneById');
+$router->get('/distributor/preByLike', distributorController::class . '::getPreDataByLike');
+$router->post('/distributor', distributorController::class . '::store');
+$router->put('/distributor', distributorController::class . '::update');
+$router->patch('/distributor', distributorController::class . '::modify');
+$router->delete('/distributor', distributorController::class . '::hardDelete');
+
+use src\app\controllers\carrierController;
+
+$router->get('/carrier', carrierController::class . '::getAll');
+$router->get('/carrier/paginated', carrierController::class . '::getAllPaginated');
+$router->get('/carrier/filtered', carrierController::class . '::getAllFiltered');
+$router->get('/carrier/listByColumn', carrierController::class . '::getAllDataByColumn');
+$router->get('/carrier/getone', carrierController::class . '::getOneById');
+$router->get('/carrier/preByLike', carrierController::class . '::getPreDataByLike');
+$router->post('/carrier', carrierController::class . '::store');
+$router->put('/carrier', carrierController::class . '::update');
+$router->patch('/carrier', carrierController::class . '::modify');
+$router->delete('/carrier', carrierController::class . '::hardDelete');
+
+use src\app\controllers\partnerController;
+
+$router->get('/partner', partnerController::class . '::getAll');
+$router->get('/partner/paginated', partnerController::class . '::getAllPaginated');
+$router->get('/partner/filtered', partnerController::class . '::getAllFiltered');
+$router->get('/partner/listByColumn', partnerController::class . '::getAllDataByColumn');
+$router->get('/partner/getone', partnerController::class . '::getOneById');
+$router->get('/partner/preByLike', partnerController::class . '::getPreDataByLike');
+$router->post('/partner', partnerController::class . '::store');
+$router->put('/partner', partnerController::class . '::update');
+$router->patch('/partner', partnerController::class . '::modify');
+$router->delete('/partner', partnerController::class . '::hardDelete');
+
+use src\app\controllers\affiliateController;
+
+$router->get('/affiliate', affiliateController::class . '::getAll');
+$router->get('/affiliate/paginated', affiliateController::class . '::getAllPaginated');
+$router->get('/affiliate/filtered', affiliateController::class . '::getAllFiltered');
+$router->get('/affiliate/listByColumn', affiliateController::class . '::getAllDataByColumn');
+$router->get('/affiliate/getone', affiliateController::class . '::getOneById');
+$router->get('/affiliate/preByLike', affiliateController::class . '::getPreDataByLike');
+$router->post('/affiliate', affiliateController::class . '::store');
+$router->put('/affiliate', affiliateController::class . '::update');
+$router->patch('/affiliate', affiliateController::class . '::modify');
+$router->delete('/affiliate', affiliateController::class . '::hardDelete');
+
+use src\app\controllers\manufacturerController;
+
+$router->get('/manufacturer', manufacturerController::class . '::getAll');
+$router->get('/manufacturer/paginated', manufacturerController::class . '::getAllPaginated');
+$router->get('/manufacturer/filtered', manufacturerController::class . '::getAllFiltered');
+$router->get('/manufacturer/listByColumn', manufacturerController::class . '::getAllDataByColumn');
+$router->get('/manufacturer/getone', manufacturerController::class . '::getOneById');
+$router->get('/manufacturer/preByLike', manufacturerController::class . '::getPreDataByLike');
+$router->post('/manufacturer', manufacturerController::class . '::store');
+$router->put('/manufacturer', manufacturerController::class . '::update');
+$router->patch('/manufacturer', manufacturerController::class . '::modify');
+$router->delete('/manufacturer', manufacturerController::class . '::hardDelete');
+
+use src\app\controllers\advisorController;
+
+$router->get('/advisor', advisorController::class . '::getAll');
+$router->get('/advisor/paginated', advisorController::class . '::getAllPaginated');
+$router->get('/advisor/filtered', advisorController::class . '::getAllFiltered');
+$router->get('/advisor/listByColumn', advisorController::class . '::getAllDataByColumn');
+$router->get('/advisor/getone', advisorController::class . '::getOneById');
+$router->get('/advisor/preByLike', advisorController::class . '::getPreDataByLike');
+$router->post('/advisor', advisorController::class . '::store');
+$router->put('/advisor', advisorController::class . '::update');
+$router->patch('/advisor', advisorController::class . '::modify');
+$router->delete('/advisor', advisorController::class . '::hardDelete');
+
+use src\app\controllers\institutionController;
+
+$router->get('/institution', institutionController::class . '::getAll');
+$router->get('/institution/paginated', institutionController::class . '::getAllPaginated');
+$router->get('/institution/filtered', institutionController::class . '::getAllFiltered');
+$router->get('/institution/listByColumn', institutionController::class . '::getAllDataByColumn');
+$router->get('/institution/getone', institutionController::class . '::getOneById');
+$router->get('/institution/preByLike', institutionController::class . '::getPreDataByLike');
+$router->post('/institution', institutionController::class . '::store');
+$router->put('/institution', institutionController::class . '::update');
+$router->patch('/institution', institutionController::class . '::modify');
+$router->delete('/institution', institutionController::class . '::hardDelete');
