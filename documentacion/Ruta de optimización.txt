@@ -1,0 +1,38 @@
+RUTA DE OPTIMIZACIÓN :: AI
+
+modelo
+controlador
+ruta
+tabla de BD (propiedades)
+
+colección de postman
+
+TEST
+	objeto json (json_code: 200)
+	dummy data
+	postman
+	cURL
+	swagger
+
+CRUD (grupo de ente)
+
+prospect: interested in purchasing products or services
+customer: actively purchases products or services
+contact: person related to a customer or supplier
+supplier: provides products, services, or inputs
+employee: member of the internal organization
+salesperson: manages commercial relationships with customers
+distributor: logistics intermediary between supplier and customer
+carrier: company or individual in charge of product delivery
+partner: strategic collaborator or investor
+affiliate: promotes products or services in exchange for commission
+manufacturer: produces the products you sell or distribute
+advisor: provides consulting or support services
+institution: such as banks, government entities, or academic organizations
+
+
+Cursor -> Windows
+Cloudzone
+Jetbrains
+	datagrid
+

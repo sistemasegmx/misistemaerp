@@ -1,0 +1,27 @@
+
+
+Arquitectura
+	BD Matriz (gestión)
+		Permisos, roles, accesos, configuraciones, cuentas (status), slug (unico)
+
+	BD modulos (recursos) $$
+
+	BD cada cliente:
+
+		inyección (plugin), videojuego dev gamer
+
+		BD_numerodecliente (AccountID_slug)
+			almacen AccountID_slug_idt
+			tienda AccountID_slug_idt
+			fabrica AccountID_slug_idt
+
+		Permisos: modulos, cruds, aplicación (edicion, ver, consutla, elimnar)
+
+Senior
+	tablas, crud, reglas de negocio
+
+BE, FE
+	Dev
+	CRUD
+	enpoint
+	test
