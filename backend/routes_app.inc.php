@@ -425,3 +425,22 @@ $router->post('/institution', institutionController::class . '::store');
 $router->put('/institution', institutionController::class . '::update');
 $router->patch('/institution', institutionController::class . '::modify');
 $router->delete('/institution', institutionController::class . '::hardDelete');
+
+/*
+|--------------------------------------------------------------------------
+| Roles & Permissions
+|--------------------------------------------------------------------------
+*/
+use src\controllers\RoleController;
+use src\middleware\PermissionMiddleware;
+
+$router->group('/roles', function($router) {
+    $router->get('/', RoleController::class . '::getAllRoles');
+    $router->get('/{id}', RoleController::class . '::getRole');
+    $router->post('/', RoleController::class . '::createRole');
+    $router->put('/{id}', RoleController::class . '::updateRole');
+    $router->delete('/{id}', RoleController::class . '::deleteRole');
+    $router->get('/{id}/permissions', RoleController::class . '::getRolePermissions');
+    $router->post('/{id}/permissions/{permissionId}', RoleController::class . '::assignPermission');
+    $router->delete('/{id}/permissions/{permissionId}', RoleController::class . '::removePermission');
+});
