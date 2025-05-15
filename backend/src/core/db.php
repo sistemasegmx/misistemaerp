@@ -7,7 +7,7 @@ use PDO;
 class db
 {
     public static $_instance;
-    private static $DB_HOST = 'localhost';
+    private static $DB_HOST = 'mysql';
     private static $DB_NAME = 'misistemaerp_sistemasegmx';
     private static $DB_USER = 'root';
     private static $DB_PASS = 'toor';
