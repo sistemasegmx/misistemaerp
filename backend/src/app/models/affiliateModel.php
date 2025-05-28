@@ -14,6 +14,8 @@ class affiliateModel extends baseModel
     public $commission_rate;
     public $payment_terms;
     public $status;
+    public $created_by;
+    public $modified_by;
     public $created_at;
     public $updated_at;
     public $address;

@@ -15,6 +15,8 @@ class distributorModel extends baseModel
     public $payment_terms;
     public $credit_limit;
     public $status;
+    public $created_by;
+    public $modified_by;
     public $created_at;
     public $updated_at;
     public $address;

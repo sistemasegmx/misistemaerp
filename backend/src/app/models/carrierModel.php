@@ -14,6 +14,8 @@ class carrierModel extends baseModel
     public $service_areas;
     public $payment_terms;
     public $status;
+    public $created_by;
+    public $modified_by;
     public $created_at;
     public $updated_at;
     public $address;

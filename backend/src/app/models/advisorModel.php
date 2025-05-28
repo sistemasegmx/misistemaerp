@@ -16,6 +16,8 @@ class advisorModel extends baseModel
     public $hourly_rate;
     public $payment_terms;
     public $status;
+    public $created_by;
+    public $modified_by;
     public $created_at;
     public $updated_at;
     public $address;

@@ -13,6 +13,8 @@ class institutionModel extends baseModel
     public $institution_type;
     public $registration_number;
     public $status;
+    public $created_by;
+    public $modified_by;
     public $created_at;
     public $updated_at;
     public $address;

@@ -265,253 +265,208 @@
 						{
 							"name": "prospect",
 							"item": [
-								{
-									"name": "prospect",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{localhost}}/prospect",
-											"host": [
-												"{{localhost}}"
-											],
-											"path": [
-												"prospect"
-											]
-										}
-									},
-									"response": []
+							  {
+								"name": "prospect",
+								"request": {
+								  "method": "GET",
+								  "header": [],
+								  "url": {
+									"raw": "{{localhost}}/prospect",
+									"host": ["{{localhost}}"],
+									"path": ["prospect"]
+								  }
 								},
-								{
-									"name": "prospect/paginated",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{localhost}}/prospect/paginated",
-											"host": [
-												"{{localhost}}"
-											],
-											"path": [
-												"prospect",
-												"paginated"
-											]
-										}
-									},
-									"response": []
+								"response": []
+							  },
+							  {
+								"name": "prospect/paginated",
+								"request": {
+								  "method": "GET",
+								  "header": [],
+								  "url": {
+									"raw": "{{localhost}}/prospect/paginated",
+									"host": ["{{localhost}}"],
+									"path": ["prospect", "paginated"]
+								  }
 								},
-								{
-									"name": "prospect/filtered",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{localhost}}/prospect/filtered",
-											"host": [
-												"{{localhost}}"
-											],
-											"path": [
-												"prospect",
-												"filtered"
-											]
-										}
-									},
-									"response": []
+								"response": []
+							  },
+							  {
+								"name": "prospect/filtered",
+								"request": {
+								  "method": "GET",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"company\": \"\",\n    \"assigned_to\": 1,\n    \"industry\": \"\"\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/prospect/filtered",
+									"host": ["{{localhost}}"],
+									"path": ["prospect", "filtered"]
+								  }
 								},
-								{
-									"name": "prospect/listByColumn",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"assigned_to\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{localhost}}/prospect/listByColumn",
-											"host": [
-												"{{localhost}}"
-											],
-											"path": [
-												"prospect",
-												"listByColumn"
-											]
-										}
-									},
-									"response": []
+								"response": []
+							  },
+							  {
+								"name": "prospect/listByColumn",
+								"request": {
+								  "method": "GET",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"assigned_to\": 1\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/prospect/listByColumn",
+									"host": ["{{localhost}}"],
+									"path": ["prospect", "listByColumn"]
+								  }
 								},
-								{
-									"name": "prospect/getone",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{localhost}}/prospect/getone",
-											"host": [
-												"{{localhost}}"
-											],
-											"path": [
-												"prospect",
-												"getone"
-											]
-										}
-									},
-									"response": []
+								"response": []
+							  },
+							  {
+								"name": "prospect/getone",
+								"request": {
+								  "method": "GET",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/prospect/getone",
+									"host": ["{{localhost}}"],
+									"path": ["prospect", "getone"]
+								  }
 								},
-								{
-									"name": "prospect/preByLike",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"Juan\",\n    \"limitqty\": 10\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{localhost}}/prospect/preByLike",
-											"host": [
-												"{{localhost}}"
-											],
-											"path": [
-												"prospect",
-												"preByLike"
-											]
-										}
-									},
-									"response": []
+								"response": []
+							  },
+							  {
+								"name": "prospect/preByLike",
+								"request": {
+								  "method": "GET",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Juan\",\n    \"limitqty\": 10\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/prospect/preByLike",
+									"host": ["{{localhost}}"],
+									"path": ["prospect", "preByLike"]
+								  }
 								},
-								{
-									"name": "prospect",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"Nuevo prospecto\",\n    \"email\": \"correo@ejemplo.com\",\n    \"phone\": \"1234567890\",\n    \"company\": \"Empresa SA\",\n    \"position\": \"Gerente\",\n    \"interest_level\": \"Alto\",\n    \"source\": \"Web\",\n    \"notes\": \"Cliente potencial\",\n    \"status\": \"activo\",\n    \"assigned_to\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{localhost}}/prospect",
-											"host": [
-												"{{localhost}}"
-											],
-											"path": [
-												"prospect"
-											]
-										}
-									},
-									"response": []
+								"response": []
+							  },
+							  {
+								"name": "prospect",
+								"request": {
+								  "method": "POST",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Juan Perez\",\n    \"email\": \"juan.perez@ejemplo.com\",\n    \"phone\": \"5512345678\",\n    \"company\": \"Empresa Demo\",\n    \"position\": \"Gerente de ventas\",\n    \"interest_level\": 3,\n    \"source\": \"Sitio web\",\n    \"notes\": \"Interesado en el producto X\",\n    \"status\": \"activo\",\n    \"created_at\": \"2024-05-28 12:00:00\",\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"last_contact_date\": \"2024-05-28 12:00:00\",\n    \"assigned_to\": 1,\n    \"potential_value\": 15000.00,\n    \"industry\": \"Tecnología\",\n    \"address\": \"Calle Falsa 123\",\n    \"city\": \"CDMX\",\n    \"state\": \"CDMX\",\n    \"country\": \"México\",\n    \"postal_code\": \"01234\",\n    \"website\": \"https://empresa-demo.com\",\n    \"social_media\": \"@empresa\",\n    \"preferred_contact_method\": \"email\",\n    \"tags\": \"nuevo, caliente\"\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/prospect",
+									"host": ["{{localhost}}"],
+									"path": ["prospect"]
+								  }
 								},
-								{
-									"name": "prospect",
-									"request": {
-										"method": "PUT",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"id\": 1,\n    \"name\": \"Prospecto actualizado\",\n    \"email\": \"nuevo@ejemplo.com\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{localhost}}/prospect",
-											"host": [
-												"{{localhost}}"
-											],
-											"path": [
-												"prospect"
-											]
-										}
-									},
-									"response": []
+								"response": []
+							  },
+							  {
+								"name": "prospect",
+								"request": {
+								  "method": "PUT",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1,\n    \"name\": \"Juan Perez Actualizado\",\n    \"email\": \"juan.perez@ejemplo.com\",\n    \"phone\": \"5512345678\",\n    \"company\": \"Empresa Demo\",\n    \"position\": \"Director\",\n    \"interest_level\": 2,\n    \"source\": \"LinkedIn\",\n    \"notes\": \"Actualización de datos\",\n    \"status\": \"inactivo\",\n    \"created_at\": \"2024-05-01 12:00:00\",\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"last_contact_date\": \"2024-05-28 13:00:00\",\n    \"assigned_to\": 2,\n    \"potential_value\": 10000.00,\n    \"industry\": \"Salud\",\n    \"address\": \"Calle Verdadera 456\",\n    \"city\": \"Guadalajara\",\n    \"state\": \"Jalisco\",\n    \"country\": \"México\",\n    \"postal_code\": \"56789\",\n    \"website\": \"https://empresa-demo.com\",\n    \"social_media\": \"@empresa_modificada\",\n    \"preferred_contact_method\": \"teléfono\",\n    \"tags\": \"actualizado, frio\"\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/prospect",
+									"host": ["{{localhost}}"],
+									"path": ["prospect"]
+								  }
 								},
-								{
-									"name": "prospect",
-									"request": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{localhost}}/prospect",
-											"host": [
-												"{{localhost}}"
-											],
-											"path": [
-												"prospect"
-											]
-										}
-									},
-									"response": []
+								"response": []
+							  },
+							  {
+								"name": "prospect",
+								"request": {
+								  "method": "PATCH",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\",\n    \"notes\": \"Llamar en 2 semanas\"\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/prospect",
+									"host": ["{{localhost}}"],
+									"path": ["prospect"]
+								  }
 								},
-								{
-									"name": "prospect",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{localhost}}/prospect",
-											"host": [
-												"{{localhost}}"
-											],
-											"path": [
-												"prospect"
-											]
-										}
-									},
-									"response": []
-								}
+								"response": []
+							  },
+							  {
+								"name": "prospect",
+								"request": {
+								  "method": "DELETE",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/prospect",
+									"host": ["{{localhost}}"],
+									"path": ["prospect"]
+								  }
+								},
+								"response": []
+							  }
 							]
 						},
 						{

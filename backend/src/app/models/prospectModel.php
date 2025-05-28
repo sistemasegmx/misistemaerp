@@ -15,6 +15,8 @@ class prospectModel extends baseModel
     public $source;
     public $notes;
     public $status;
+    public $created_by;
+    public $modified_by;
     public $created_at;
     public $updated_at;
     public $last_contact_date;

@@ -17,6 +17,8 @@ class contactModel extends baseModel
     public $related_entity_type;
     public $is_primary_contact;
     public $status;
+    public $created_by;
+    public $modified_by;
     public $created_at;
     public $updated_at;
     public $address;

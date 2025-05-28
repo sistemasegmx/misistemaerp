@@ -14,6 +14,8 @@ class partnerModel extends baseModel
     public $partnership_start_date;
     public $partnership_end_date;
     public $status;
+    public $created_by;
+    public $modified_by;
     public $created_at;
     public $updated_at;
     public $address;

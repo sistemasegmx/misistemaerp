@@ -15,6 +15,8 @@ class customerModel extends baseModel
     public $credit_limit;
     public $payment_terms;
     public $status;
+    public $created_by;
+    public $modified_by;
     public $created_at;
     public $updated_at;
     public $last_purchase_date;

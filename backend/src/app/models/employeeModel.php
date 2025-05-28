@@ -17,6 +17,8 @@ class employeeModel extends baseModel
     public $hire_date;
     public $termination_date;
     public $status;
+    public $created_by;
+    public $modified_by;
     public $created_at;
     public $updated_at;
     public $address;
