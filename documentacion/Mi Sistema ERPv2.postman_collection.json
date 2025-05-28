@@ -263,6 +263,258 @@
 					"name": "Catalogos",
 					"item": [
 						{
+							"name": "prospect",
+							"item": [
+								{
+									"name": "prospect",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/prospect",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"prospect"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "prospect/paginated",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/prospect/paginated",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"prospect",
+												"paginated"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "prospect/filtered",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/prospect/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"prospect",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "prospect/listByColumn",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assigned_to\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/prospect/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"prospect",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "prospect/getone",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/prospect/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"prospect",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "prospect/preByLike",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Juan\",\n    \"limitqty\": 10\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/prospect/preByLike",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"prospect",
+												"preByLike"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "prospect",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Nuevo prospecto\",\n    \"email\": \"correo@ejemplo.com\",\n    \"phone\": \"1234567890\",\n    \"company\": \"Empresa SA\",\n    \"position\": \"Gerente\",\n    \"interest_level\": \"Alto\",\n    \"source\": \"Web\",\n    \"notes\": \"Cliente potencial\",\n    \"status\": \"activo\",\n    \"assigned_to\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/prospect",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"prospect"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "prospect",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"name\": \"Prospecto actualizado\",\n    \"email\": \"nuevo@ejemplo.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/prospect",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"prospect"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "prospect",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/prospect",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"prospect"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "prospect",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/prospect",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"prospect"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
 							"name": "ente",
 							"item": [
 								{

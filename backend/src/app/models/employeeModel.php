@@ -4,6 +4,7 @@ namespace src\app\models;
 
 class employeeModel extends baseModel
 {
+    private static $table_name = 'employee';
     public $id;
     public $first_name;
     public $last_name;
@@ -37,4 +38,9 @@ class employeeModel extends baseModel
     public $work_schedule;
     public $access_level;
     public $profile_photo;
+
+    public static function getTableName()
+    {
+        return self::$table_name;
+    }
 } 

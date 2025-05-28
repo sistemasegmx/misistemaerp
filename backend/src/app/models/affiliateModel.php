@@ -4,6 +4,7 @@ namespace src\app\models;
 
 class affiliateModel extends baseModel
 {
+    private static $table_name = 'affiliate';
     public $id;
     public $name;
     public $email;
@@ -37,4 +38,9 @@ class affiliateModel extends baseModel
     public $social_media;
     public $promotion_areas;
     public $target_audience;
+
+    public static function getTableName()
+    {
+        return self::$table_name;
+    }
 } 

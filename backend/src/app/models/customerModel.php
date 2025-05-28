@@ -4,6 +4,7 @@ namespace src\app\models;
 
 class customerModel extends baseModel
 {
+    private static $table_name = 'customer';
     public $id;
     public $name;
     public $email;
@@ -32,4 +33,9 @@ class customerModel extends baseModel
     public $customer_since;
     public $loyalty_points;
     public $preferred_shipping_method;
+
+    public static function getTableName()
+    {
+        return self::$table_name;
+    }
 } 

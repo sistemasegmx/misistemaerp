@@ -4,6 +4,7 @@ namespace src\app\models;
 
 class manufacturerModel extends baseModel
 {
+    private static $table_name = 'manufacturer';
     public $id;
     public $name;
     public $email;
@@ -39,4 +40,9 @@ class manufacturerModel extends baseModel
     public $environmental_compliance;
     public $safety_records;
     public $product_categories;
+
+    public static function getTableName()
+    {
+        return self::$table_name;
+    }
 } 

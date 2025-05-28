@@ -4,6 +4,7 @@ namespace src\app\models;
 
 class carrierModel extends baseModel
 {
+    private static $table_name = 'carrier';
     public $id;
     public $name;
     public $email;
@@ -37,4 +38,9 @@ class carrierModel extends baseModel
     public $service_coverage;
     public $special_handling_capabilities;
     public $operating_hours;
+
+    public static function getTableName()
+    {
+        return self::$table_name;
+    }
 } 

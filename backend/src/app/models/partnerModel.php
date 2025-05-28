@@ -4,6 +4,7 @@ namespace src\app\models;
 
 class partnerModel extends baseModel
 {
+    private static $table_name = 'partner';
     public $id;
     public $name;
     public $email;
@@ -36,4 +37,9 @@ class partnerModel extends baseModel
     public $legal_documents;
     public $performance_metrics;
     public $social_media;
+
+    public static function getTableName()
+    {
+        return self::$table_name;
+    }
 } 

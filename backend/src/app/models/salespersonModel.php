@@ -4,6 +4,7 @@ namespace src\app\models;
 
 class salespersonModel extends baseModel
 {
+    private static $table_name = 'salesperson';
     public $id;
     public $first_name;
     public $last_name;
@@ -34,4 +35,9 @@ class salespersonModel extends baseModel
     public $sales_history;
     public $profile_photo;
     public $social_media;
+
+    public static function getTableName()
+    {
+        return self::$table_name;
+    }
 } 
