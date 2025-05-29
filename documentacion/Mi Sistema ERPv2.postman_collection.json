@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "fbe8c426-2ba3-4de5-bf46-634c08e56ab0",
+		"_postman_id": "17b7f310-c23b-4ac8-92ca-0a4c0f39977a",
 		"name": "Mi Sistema ERP",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "10716778"
@@ -305,15 +305,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"company\": \"\",\n    \"assigned_to\": 1,\n    \"industry\": \"\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/prospect/filtered",
 											"host": [
@@ -332,15 +323,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"assigned_to\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/prospect/listByColumn",
 											"host": [
@@ -359,15 +341,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/prospect/getone",
 											"host": [
@@ -386,15 +359,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"Juan\",\n    \"limitqty\": 10\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/prospect/preByLike",
 											"host": [
@@ -557,15 +521,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"company\": \"\",\n    \"assigned_salesperson\": 1,\n    \"industry\": \"\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/customer/filtered",
 											"host": [
@@ -584,15 +539,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"assigned_salesperson\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/customer/listByColumn",
 											"host": [
@@ -611,15 +557,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/customer/getone",
 											"host": [
@@ -638,15 +575,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"Empresa\",\n    \"limitqty\": 10\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/customer/preByLike",
 											"host": [
@@ -809,15 +737,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"related_entity_id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/contact/filtered",
 											"host": [
@@ -836,15 +755,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"related_entity_id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/contact/listByColumn",
 											"host": [
@@ -863,15 +773,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/contact/getone",
 											"host": [
@@ -890,15 +791,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"first_name\": \"Juan\",\n    \"limitqty\": 10\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/contact/preByLike",
 											"host": [
@@ -1061,15 +953,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"supplier_type\": \"\",\n    \"industry\": \"\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/supplier/filtered",
 											"host": [
@@ -1088,15 +971,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"primary_contact_id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/supplier/listByColumn",
 											"host": [
@@ -1115,15 +989,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/supplier/getone",
 											"host": [
@@ -1142,15 +1007,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"Proveedor\",\n    \"limitqty\": 10\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/supplier/preByLike",
 											"host": [
@@ -1313,15 +1169,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"department_id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/employee/filtered",
 											"host": [
@@ -1340,15 +1187,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"department_id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/employee/listByColumn",
 											"host": [
@@ -1367,15 +1205,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/employee/getone",
 											"host": [
@@ -1394,15 +1223,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"first_name\": \"Luis\",\n    \"limitqty\": 10\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/employee/preByLike",
 											"host": [
@@ -1565,15 +1385,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"territory\": \"\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/salesperson/filtered",
 											"host": [
@@ -1592,15 +1403,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"territory\": \"Norte\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/salesperson/listByColumn",
 											"host": [
@@ -1619,15 +1421,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/salesperson/getone",
 											"host": [
@@ -1646,15 +1439,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"first_name\": \"Carlos\",\n    \"limitqty\": 10\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/salesperson/preByLike",
 											"host": [
@@ -1817,15 +1601,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"distribution_area\": \"\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/distributor/filtered",
 											"host": [
@@ -1844,15 +1619,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"primary_contact_id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/distributor/listByColumn",
 											"host": [
@@ -1871,15 +1637,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/distributor/getone",
 											"host": [
@@ -1898,15 +1655,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"Distribuidor\",\n    \"limitqty\": 10\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/distributor/preByLike",
 											"host": [
@@ -2069,15 +1817,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"carrier_type\": \"\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/carrier/filtered",
 											"host": [
@@ -2096,15 +1835,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"primary_contact_id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/carrier/listByColumn",
 											"host": [
@@ -2123,15 +1853,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/carrier/getone",
 											"host": [
@@ -2150,15 +1871,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"Transportes\",\n    \"limitqty\": 10\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/carrier/preByLike",
 											"host": [
@@ -2321,15 +2033,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"partner_type\": \"\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/partner/filtered",
 											"host": [
@@ -2348,15 +2051,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"primary_contact_id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/partner/listByColumn",
 											"host": [
@@ -2375,15 +2069,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/partner/getone",
 											"host": [
@@ -2402,15 +2087,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"Partner SA\",\n    \"limitqty\": 10\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/partner/preByLike",
 											"host": [
@@ -2533,622 +2209,649 @@
 						{
 							"name": "manufacturer",
 							"item": [
-							  {
-								"name": "manufacturer",
-								"request": {
-								  "method": "GET",
-								  "header": [],
-								  "url": {
-									"raw": "{{localhost}}/manufacturer",
-									"host": ["{{localhost}}"],
-									"path": ["manufacturer"]
-								  }
+								{
+									"name": "manufacturer",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/manufacturer",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"manufacturer"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "manufacturer/paginated",
-								"request": {
-								  "method": "GET",
-								  "header": [],
-								  "url": {
-									"raw": "{{localhost}}/manufacturer/paginated",
-									"host": ["{{localhost}}"],
-									"path": ["manufacturer", "paginated"]
-								  }
+								{
+									"name": "manufacturer/paginated",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/manufacturer/paginated",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"manufacturer",
+												"paginated"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "manufacturer/filtered",
-								"request": {
-								  "method": "GET",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"manufacturer_type\": \"\"\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/manufacturer/filtered",
-									"host": ["{{localhost}}"],
-									"path": ["manufacturer", "filtered"]
-								  }
+								{
+									"name": "manufacturer/filtered",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/manufacturer/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"manufacturer",
+												"filtered"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "manufacturer/listByColumn",
-								"request": {
-								  "method": "GET",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"primary_contact_id\": 1\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/manufacturer/listByColumn",
-									"host": ["{{localhost}}"],
-									"path": ["manufacturer", "listByColumn"]
-								  }
+								{
+									"name": "manufacturer/listByColumn",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/manufacturer/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"manufacturer",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "manufacturer/getone",
-								"request": {
-								  "method": "GET",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"id\": 1\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/manufacturer/getone",
-									"host": ["{{localhost}}"],
-									"path": ["manufacturer", "getone"]
-								  }
+								{
+									"name": "manufacturer/getone",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/manufacturer/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"manufacturer",
+												"getone"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "manufacturer/preByLike",
-								"request": {
-								  "method": "GET",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"Fábrica Ejemplo\",\n    \"limitqty\": 10\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/manufacturer/preByLike",
-									"host": ["{{localhost}}"],
-									"path": ["manufacturer", "preByLike"]
-								  }
+								{
+									"name": "manufacturer/preByLike",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/manufacturer/preByLike",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"manufacturer",
+												"preByLike"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "manufacturer",
-								"request": {
-								  "method": "POST",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"Fábrica Ejemplo\",\n    \"email\": \"fabricante@ejemplo.com\",\n    \"phone\": \"5544332211\",\n    \"tax_id\": \"MANU123456\",\n    \"manufacturer_type\": \"Electrónica\",\n    \"payment_terms\": \"30 días\",\n    \"credit_limit\": 150000.00,\n    \"status\": \"activo\",\n    \"created_by\": 1,\n    \"created_at\": \"2024-05-28 12:00:00\",\n    \"modified_by\": 1,\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"address\": \"Av. Industria 45\",\n    \"city\": \"Puebla\",\n    \"state\": \"Puebla\",\n    \"country\": \"México\",\n    \"postal_code\": \"72000\",\n    \"website\": \"https://fabricante-ejemplo.com\",\n    \"facility_locations\": \"Planta 1, Planta 2\",\n    \"primary_contact_id\": 2,\n    \"preferred_payment_method\": \"Transferencia\",\n    \"notes\": \"Proveedor confiable\",\n    \"tags\": \"fabricante, electrónica\",\n    \"manufacturing_since\": \"2010-01-01\",\n    \"quality_rating\": 5,\n    \"delivery_rating\": 4,\n    \"price_rating\": 3,\n    \"certifications\": \"ISO 9001, ISO 14001\",\n    \"banking_info\": \"Cuenta: 987654321, Banco: Santander\",\n    \"production_capacity\": \"100000 unidades/mes\",\n    \"specialization\": \"Microchips\",\n    \"equipment_capabilities\": \"Robots, Prensas\",\n    \"quality_control_processes\": \"Inspección visual, pruebas funcionales\",\n    \"environmental_compliance\": \"Norma NOM-123\",\n    \"safety_records\": \"Sin incidentes 2023\",\n    \"product_categories\": \"Chips, PCB\"\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/manufacturer",
-									"host": ["{{localhost}}"],
-									"path": ["manufacturer"]
-								  }
+								{
+									"name": "manufacturer",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Fábrica Ejemplo\",\n    \"email\": \"fabricante@ejemplo.com\",\n    \"phone\": \"5544332211\",\n    \"tax_id\": \"MANU123456\",\n    \"manufacturer_type\": \"Electrónica\",\n    \"payment_terms\": \"30 días\",\n    \"credit_limit\": 150000.00,\n    \"status\": \"activo\",\n    \"created_by\": 1,\n    \"created_at\": \"2024-05-28 12:00:00\",\n    \"modified_by\": 1,\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"address\": \"Av. Industria 45\",\n    \"city\": \"Puebla\",\n    \"state\": \"Puebla\",\n    \"country\": \"México\",\n    \"postal_code\": \"72000\",\n    \"website\": \"https://fabricante-ejemplo.com\",\n    \"facility_locations\": \"Planta 1, Planta 2\",\n    \"primary_contact_id\": 2,\n    \"preferred_payment_method\": \"Transferencia\",\n    \"notes\": \"Proveedor confiable\",\n    \"tags\": \"fabricante, electrónica\",\n    \"manufacturing_since\": \"2010-01-01\",\n    \"quality_rating\": 5,\n    \"delivery_rating\": 4,\n    \"price_rating\": 3,\n    \"certifications\": \"ISO 9001, ISO 14001\",\n    \"banking_info\": \"Cuenta: 987654321, Banco: Santander\",\n    \"production_capacity\": \"100000 unidades/mes\",\n    \"specialization\": \"Microchips\",\n    \"equipment_capabilities\": \"Robots, Prensas\",\n    \"quality_control_processes\": \"Inspección visual, pruebas funcionales\",\n    \"environmental_compliance\": \"Norma NOM-123\",\n    \"safety_records\": \"Sin incidentes 2023\",\n    \"product_categories\": \"Chips, PCB\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/manufacturer",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"manufacturer"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "manufacturer",
-								"request": {
-								  "method": "PUT",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"id\": 1,\n    \"name\": \"Fábrica Actualizada\",\n    \"email\": \"nuevo@fabricante.com\",\n    \"phone\": \"5544332299\",\n    \"tax_id\": \"MANU654321\",\n    \"manufacturer_type\": \"Textil\",\n    \"payment_terms\": \"45 días\",\n    \"credit_limit\": 180000.00,\n    \"status\": \"inactivo\",\n    \"created_by\": 1,\n    \"created_at\": \"2022-01-01 08:00:00\",\n    \"modified_by\": 2,\n    \"updated_at\": \"2024-05-28 14:00:00\",\n    \"address\": \"Calle Nueva 98\",\n    \"city\": \"Guadalajara\",\n    \"state\": \"Jalisco\",\n    \"country\": \"México\",\n    \"postal_code\": \"44100\",\n    \"website\": \"https://fabricante-nuevo.com\",\n    \"facility_locations\": \"Planta 3\",\n    \"primary_contact_id\": 3,\n    \"preferred_payment_method\": \"Cheque\",\n    \"notes\": \"Actualizado para textiles\",\n    \"tags\": \"textil, nuevo\",\n    \"manufacturing_since\": \"2015-03-12\",\n    \"quality_rating\": 4,\n    \"delivery_rating\": 5,\n    \"price_rating\": 4,\n    \"certifications\": \"ISO 22000\",\n    \"banking_info\": \"Cuenta: 123456789, Banco: BBVA\",\n    \"production_capacity\": \"200000 prendas/mes\",\n    \"specialization\": \"Ropa deportiva\",\n    \"equipment_capabilities\": \"Máquinas de coser, cortadoras\",\n    \"quality_control_processes\": \"Pruebas de resistencia\",\n    \"environmental_compliance\": \"Norma NOM-456\",\n    \"safety_records\": \"Un incidente menor en 2022\",\n    \"product_categories\": \"Uniformes, Accesorios\"\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/manufacturer",
-									"host": ["{{localhost}}"],
-									"path": ["manufacturer"]
-								  }
+								{
+									"name": "manufacturer",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"name\": \"Fábrica Actualizada\",\n    \"email\": \"nuevo@fabricante.com\",\n    \"phone\": \"5544332299\",\n    \"tax_id\": \"MANU654321\",\n    \"manufacturer_type\": \"Textil\",\n    \"payment_terms\": \"45 días\",\n    \"credit_limit\": 180000.00,\n    \"status\": \"inactivo\",\n    \"created_by\": 1,\n    \"created_at\": \"2022-01-01 08:00:00\",\n    \"modified_by\": 2,\n    \"updated_at\": \"2024-05-28 14:00:00\",\n    \"address\": \"Calle Nueva 98\",\n    \"city\": \"Guadalajara\",\n    \"state\": \"Jalisco\",\n    \"country\": \"México\",\n    \"postal_code\": \"44100\",\n    \"website\": \"https://fabricante-nuevo.com\",\n    \"facility_locations\": \"Planta 3\",\n    \"primary_contact_id\": 3,\n    \"preferred_payment_method\": \"Cheque\",\n    \"notes\": \"Actualizado para textiles\",\n    \"tags\": \"textil, nuevo\",\n    \"manufacturing_since\": \"2015-03-12\",\n    \"quality_rating\": 4,\n    \"delivery_rating\": 5,\n    \"price_rating\": 4,\n    \"certifications\": \"ISO 22000\",\n    \"banking_info\": \"Cuenta: 123456789, Banco: BBVA\",\n    \"production_capacity\": \"200000 prendas/mes\",\n    \"specialization\": \"Ropa deportiva\",\n    \"equipment_capabilities\": \"Máquinas de coser, cortadoras\",\n    \"quality_control_processes\": \"Pruebas de resistencia\",\n    \"environmental_compliance\": \"Norma NOM-456\",\n    \"safety_records\": \"Un incidente menor en 2022\",\n    \"product_categories\": \"Uniformes, Accesorios\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/manufacturer",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"manufacturer"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "manufacturer",
-								"request": {
-								  "method": "PATCH",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\",\n    \"notes\": \"Temporalmente fuera de línea\"\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/manufacturer",
-									"host": ["{{localhost}}"],
-									"path": ["manufacturer"]
-								  }
+								{
+									"name": "manufacturer",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\",\n    \"notes\": \"Temporalmente fuera de línea\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/manufacturer",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"manufacturer"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "manufacturer",
-								"request": {
-								  "method": "DELETE",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"id\": 1\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/manufacturer",
-									"host": ["{{localhost}}"],
-									"path": ["manufacturer"]
-								  }
-								},
-								"response": []
-							  }
+								{
+									"name": "manufacturer",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/manufacturer",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"manufacturer"
+											]
+										}
+									},
+									"response": []
+								}
 							]
 						},
 						{
 							"name": "advisor",
 							"item": [
-							  {
-								"name": "advisor",
-								"request": {
-								  "method": "GET",
-								  "header": [],
-								  "url": {
-									"raw": "{{localhost}}/advisor",
-									"host": ["{{localhost}}"],
-									"path": ["advisor"]
-								  }
+								{
+									"name": "advisor",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/advisor",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"advisor"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "advisor/paginated",
-								"request": {
-								  "method": "GET",
-								  "header": [],
-								  "url": {
-									"raw": "{{localhost}}/advisor/paginated",
-									"host": ["{{localhost}}"],
-									"path": ["advisor", "paginated"]
-								  }
+								{
+									"name": "advisor/paginated",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/advisor/paginated",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"advisor",
+												"paginated"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "advisor/filtered",
-								"request": {
-								  "method": "GET",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"status\": \"activo\",\n    \"advisor_type\": \"\"\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/advisor/filtered",
-									"host": ["{{localhost}}"],
-									"path": ["advisor", "filtered"]
-								  }
+								{
+									"name": "advisor/filtered",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/advisor/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"advisor",
+												"filtered"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "advisor/listByColumn",
-								"request": {
-								  "method": "GET",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"specialization\": \"Fiscal\"\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/advisor/listByColumn",
-									"host": ["{{localhost}}"],
-									"path": ["advisor", "listByColumn"]
-								  }
+								{
+									"name": "advisor/listByColumn",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/advisor/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"advisor",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "advisor/getone",
-								"request": {
-								  "method": "GET",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"id\": 1\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/advisor/getone",
-									"host": ["{{localhost}}"],
-									"path": ["advisor", "getone"]
-								  }
+								{
+									"name": "advisor/getone",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/advisor/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"advisor",
+												"getone"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "advisor/preByLike",
-								"request": {
-								  "method": "GET",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"first_name\": \"Carlos\",\n    \"limitqty\": 10\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/advisor/preByLike",
-									"host": ["{{localhost}}"],
-									"path": ["advisor", "preByLike"]
-								  }
+								{
+									"name": "advisor/preByLike",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/advisor/preByLike",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"advisor",
+												"preByLike"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "advisor",
-								"request": {
-								  "method": "POST",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"first_name\": \"Carlos\",\n    \"last_name\": \"Hernández\",\n    \"email\": \"carlos@asesor.com\",\n    \"phone\": \"5588776644\",\n    \"mobile\": \"5512345678\",\n    \"advisor_type\": \"Fiscal\",\n    \"specialization\": \"Contabilidad\",\n    \"hourly_rate\": 1200.00,\n    \"payment_terms\": \"15 días\",\n    \"status\": \"activo\",\n    \"created_by\": 1,\n    \"created_at\": \"2024-05-28 12:00:00\",\n    \"modified_by\": 1,\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"address\": \"Calle del Asesor 25\",\n    \"city\": \"Querétaro\",\n    \"state\": \"Querétaro\",\n    \"country\": \"México\",\n    \"postal_code\": \"76000\",\n    \"website\": \"https://asesor-ejemplo.com\",\n    \"company\": \"Consultoría Fiscal MX\",\n    \"position\": \"Socio director\",\n    \"credentials\": \"Cédula profesional, Maestría\",\n    \"experience_years\": 18,\n    \"notes\": \"Especialista en fiscalización\",\n    \"tags\": \"fiscal, experto\",\n    \"availability\": \"L-V 9am-6pm\",\n    \"consulting_areas\": \"Auditoría, Impuestos\",\n    \"client_history\": \"Empresas AAA, BBVA\",\n    \"success_metrics\": \"Ahorro fiscal, cumplimiento\",\n    \"banking_info\": \"Cuenta: 987321456, Banco: HSBC\",\n    \"social_media\": \"@carlos_asesor\",\n    \"profile_photo\": \"https://asesor-ejemplo.com/foto.jpg\",\n    \"languages\": \"Español, Inglés\",\n    \"certifications\": \"IMCP, SAT\",\n    \"publications\": \"Revista Fiscal, Blog IMCP\"\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/advisor",
-									"host": ["{{localhost}}"],
-									"path": ["advisor"]
-								  }
+								{
+									"name": "advisor",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"first_name\": \"Carlos\",\n    \"last_name\": \"Hernández\",\n    \"email\": \"carlos@asesor.com\",\n    \"phone\": \"5588776644\",\n    \"mobile\": \"5512345678\",\n    \"advisor_type\": \"Fiscal\",\n    \"specialization\": \"Contabilidad\",\n    \"hourly_rate\": 1200.00,\n    \"payment_terms\": \"15 días\",\n    \"status\": \"activo\",\n    \"created_by\": 1,\n    \"created_at\": \"2024-05-28 12:00:00\",\n    \"modified_by\": 1,\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"address\": \"Calle del Asesor 25\",\n    \"city\": \"Querétaro\",\n    \"state\": \"Querétaro\",\n    \"country\": \"México\",\n    \"postal_code\": \"76000\",\n    \"website\": \"https://asesor-ejemplo.com\",\n    \"company\": \"Consultoría Fiscal MX\",\n    \"position\": \"Socio director\",\n    \"credentials\": \"Cédula profesional, Maestría\",\n    \"experience_years\": 18,\n    \"notes\": \"Especialista en fiscalización\",\n    \"tags\": \"fiscal, experto\",\n    \"availability\": \"L-V 9am-6pm\",\n    \"consulting_areas\": \"Auditoría, Impuestos\",\n    \"client_history\": \"Empresas AAA, BBVA\",\n    \"success_metrics\": \"Ahorro fiscal, cumplimiento\",\n    \"banking_info\": \"Cuenta: 987321456, Banco: HSBC\",\n    \"social_media\": \"@carlos_asesor\",\n    \"profile_photo\": \"https://asesor-ejemplo.com/foto.jpg\",\n    \"languages\": \"Español, Inglés\",\n    \"certifications\": \"IMCP, SAT\",\n    \"publications\": \"Revista Fiscal, Blog IMCP\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/advisor",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"advisor"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "advisor",
-								"request": {
-								  "method": "PUT",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"id\": 1,\n    \"first_name\": \"Lucía\",\n    \"last_name\": \"Ramírez\",\n    \"email\": \"lucia@asesoria.com\",\n    \"phone\": \"5577556699\",\n    \"mobile\": \"5512340099\",\n    \"advisor_type\": \"Legal\",\n    \"specialization\": \"Derecho corporativo\",\n    \"hourly_rate\": 1500.00,\n    \"payment_terms\": \"30 días\",\n    \"status\": \"inactivo\",\n    \"created_by\": 1,\n    \"created_at\": \"2023-06-15 08:00:00\",\n    \"modified_by\": 2,\n    \"updated_at\": \"2024-05-28 15:00:00\",\n    \"address\": \"Av. Legal 100\",\n    \"city\": \"CDMX\",\n    \"state\": \"CDMX\",\n    \"country\": \"México\",\n    \"postal_code\": \"01000\",\n    \"website\": \"https://lucia-asesora.com\",\n    \"company\": \"Legal Consultores\",\n    \"position\": \"Socia\",\n    \"credentials\": \"Cédula, Licenciatura\",\n    \"experience_years\": 10,\n    \"notes\": \"En pausa por proyectos\",\n    \"tags\": \"legal, corporativo\",\n    \"availability\": \"L-V 8am-4pm\",\n    \"consulting_areas\": \"Contratos, Fusiones\",\n    \"client_history\": \"Grupo Legal, Ford\",\n    \"success_metrics\": \"Casos ganados\",\n    \"banking_info\": \"Cuenta: 963258741, Banco: Banorte\",\n    \"social_media\": \"@lucia_asesora\",\n    \"profile_photo\": \"https://lucia-asesora.com/foto.jpg\",\n    \"languages\": \"Español, Francés\",\n    \"certifications\": \"Barra Mexicana\",\n    \"publications\": \"Foro Jurídico\"\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/advisor",
-									"host": ["{{localhost}}"],
-									"path": ["advisor"]
-								  }
+								{
+									"name": "advisor",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"first_name\": \"Lucía\",\n    \"last_name\": \"Ramírez\",\n    \"email\": \"lucia@asesoria.com\",\n    \"phone\": \"5577556699\",\n    \"mobile\": \"5512340099\",\n    \"advisor_type\": \"Legal\",\n    \"specialization\": \"Derecho corporativo\",\n    \"hourly_rate\": 1500.00,\n    \"payment_terms\": \"30 días\",\n    \"status\": \"inactivo\",\n    \"created_by\": 1,\n    \"created_at\": \"2023-06-15 08:00:00\",\n    \"modified_by\": 2,\n    \"updated_at\": \"2024-05-28 15:00:00\",\n    \"address\": \"Av. Legal 100\",\n    \"city\": \"CDMX\",\n    \"state\": \"CDMX\",\n    \"country\": \"México\",\n    \"postal_code\": \"01000\",\n    \"website\": \"https://lucia-asesora.com\",\n    \"company\": \"Legal Consultores\",\n    \"position\": \"Socia\",\n    \"credentials\": \"Cédula, Licenciatura\",\n    \"experience_years\": 10,\n    \"notes\": \"En pausa por proyectos\",\n    \"tags\": \"legal, corporativo\",\n    \"availability\": \"L-V 8am-4pm\",\n    \"consulting_areas\": \"Contratos, Fusiones\",\n    \"client_history\": \"Grupo Legal, Ford\",\n    \"success_metrics\": \"Casos ganados\",\n    \"banking_info\": \"Cuenta: 963258741, Banco: Banorte\",\n    \"social_media\": \"@lucia_asesora\",\n    \"profile_photo\": \"https://lucia-asesora.com/foto.jpg\",\n    \"languages\": \"Español, Francés\",\n    \"certifications\": \"Barra Mexicana\",\n    \"publications\": \"Foro Jurídico\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/advisor",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"advisor"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "advisor",
-								"request": {
-								  "method": "PATCH",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\",\n    \"notes\": \"En pausa por año sabático\"\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/advisor",
-									"host": ["{{localhost}}"],
-									"path": ["advisor"]
-								  }
+								{
+									"name": "advisor",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\",\n    \"notes\": \"En pausa por año sabático\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/advisor",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"advisor"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "advisor",
-								"request": {
-								  "method": "DELETE",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"id\": 1\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/advisor",
-									"host": ["{{localhost}}"],
-									"path": ["advisor"]
-								  }
-								},
-								"response": []
-							  }
+								{
+									"name": "advisor",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/advisor",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"advisor"
+											]
+										}
+									},
+									"response": []
+								}
 							]
 						},
 						{
 							"name": "institution",
 							"item": [
-							  {
-								"name": "institution",
-								"request": {
-								  "method": "GET",
-								  "header": [],
-								  "url": {
-									"raw": "{{localhost}}/institution",
-									"host": ["{{localhost}}"],
-									"path": ["institution"]
-								  }
+								{
+									"name": "institution",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/institution",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"institution"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "institution/paginated",
-								"request": {
-								  "method": "GET",
-								  "header": [],
-								  "url": {
-									"raw": "{{localhost}}/institution/paginated",
-									"host": ["{{localhost}}"],
-									"path": ["institution", "paginated"]
-								  }
+								{
+									"name": "institution/paginated",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/institution/paginated",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"institution",
+												"paginated"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "institution/filtered",
-								"request": {
-								  "method": "GET",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"institution_type\": \"\"\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/institution/filtered",
-									"host": ["{{localhost}}"],
-									"path": ["institution", "filtered"]
-								  }
+								{
+									"name": "institution/filtered",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/institution/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"institution",
+												"filtered"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "institution/listByColumn",
-								"request": {
-								  "method": "GET",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"primary_contact_id\": 1\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/institution/listByColumn",
-									"host": ["{{localhost}}"],
-									"path": ["institution", "listByColumn"]
-								  }
+								{
+									"name": "institution/listByColumn",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/institution/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"institution",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "institution/getone",
-								"request": {
-								  "method": "GET",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"id\": 1\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/institution/getone",
-									"host": ["{{localhost}}"],
-									"path": ["institution", "getone"]
-								  }
+								{
+									"name": "institution/getone",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/institution/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"institution",
+												"getone"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "institution/preByLike",
-								"request": {
-								  "method": "GET",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"Universidad Ejemplo\",\n    \"limitqty\": 10\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/institution/preByLike",
-									"host": ["{{localhost}}"],
-									"path": ["institution", "preByLike"]
-								  }
+								{
+									"name": "institution/preByLike",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/institution/preByLike",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"institution",
+												"preByLike"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "institution",
-								"request": {
-								  "method": "POST",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"Universidad Nacional\",\n    \"email\": \"info@universidad.mx\",\n    \"phone\": \"5588991122\",\n    \"tax_id\": \"UNI123456\",\n    \"institution_type\": \"Educativa\",\n    \"registration_number\": \"REG-UNAM-2024\",\n    \"status\": \"activo\",\n    \"created_by\": 1,\n    \"created_at\": \"2024-05-28 12:00:00\",\n    \"modified_by\": 1,\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"address\": \"Av. Universidad 3000\",\n    \"city\": \"CDMX\",\n    \"state\": \"CDMX\",\n    \"country\": \"México\",\n    \"postal_code\": \"04510\",\n    \"website\": \"https://universidad.mx\",\n    \"primary_contact_id\": 2,\n    \"notes\": \"Institución líder en educación\",\n    \"tags\": \"educativa, nacional\",\n    \"institution_since\": \"1910-09-22\",\n    \"accreditation\": \"SEP, ANUIES\",\n    \"licenses\": \"Licencia SEP 2023\",\n    \"regulatory_compliance\": \"Norma NOM-001\",\n    \"operating_hours\": \"L-V 7am-10pm\",\n    \"services_offered\": \"Licenciaturas, Maestrías\",\n    \"facilities\": \"Bibliotecas, Laboratorios\",\n    \"membership_programs\": \"Alumni, Clubes estudiantiles\",\n    \"partnership_agreements\": \"UNESCO, CONACYT\",\n    \"social_media\": \"@universidadmx\",\n    \"publications\": \"Revista UNAM, Boletines\",\n    \"events\": \"Congresos, Seminarios\",\n    \"funding_sources\": \"Gobierno, Donaciones\",\n    \"governing_body\": \"Rectoría General\",\n    \"mission_statement\": \"Formar profesionistas líderes\",\n    \"annual_reports\": \"Informe anual 2023\"\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/institution",
-									"host": ["{{localhost}}"],
-									"path": ["institution"]
-								  }
+								{
+									"name": "institution",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Universidad Nacional\",\n    \"email\": \"info@universidad.mx\",\n    \"phone\": \"5588991122\",\n    \"tax_id\": \"UNI123456\",\n    \"institution_type\": \"Educativa\",\n    \"registration_number\": \"REG-UNAM-2024\",\n    \"status\": \"activo\",\n    \"created_by\": 1,\n    \"created_at\": \"2024-05-28 12:00:00\",\n    \"modified_by\": 1,\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"address\": \"Av. Universidad 3000\",\n    \"city\": \"CDMX\",\n    \"state\": \"CDMX\",\n    \"country\": \"México\",\n    \"postal_code\": \"04510\",\n    \"website\": \"https://universidad.mx\",\n    \"primary_contact_id\": 2,\n    \"notes\": \"Institución líder en educación\",\n    \"tags\": \"educativa, nacional\",\n    \"institution_since\": \"1910-09-22\",\n    \"accreditation\": \"SEP, ANUIES\",\n    \"licenses\": \"Licencia SEP 2023\",\n    \"regulatory_compliance\": \"Norma NOM-001\",\n    \"operating_hours\": \"L-V 7am-10pm\",\n    \"services_offered\": \"Licenciaturas, Maestrías\",\n    \"facilities\": \"Bibliotecas, Laboratorios\",\n    \"membership_programs\": \"Alumni, Clubes estudiantiles\",\n    \"partnership_agreements\": \"UNESCO, CONACYT\",\n    \"social_media\": \"@universidadmx\",\n    \"publications\": \"Revista UNAM, Boletines\",\n    \"events\": \"Congresos, Seminarios\",\n    \"funding_sources\": \"Gobierno, Donaciones\",\n    \"governing_body\": \"Rectoría General\",\n    \"mission_statement\": \"Formar profesionistas líderes\",\n    \"annual_reports\": \"Informe anual 2023\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/institution",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"institution"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "institution",
-								"request": {
-								  "method": "PUT",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"id\": 1,\n    \"name\": \"Universidad Moderna\",\n    \"email\": \"moderna@uni.mx\",\n    \"phone\": \"5588991199\",\n    \"tax_id\": \"UNI654321\",\n    \"institution_type\": \"Tecnológica\",\n    \"registration_number\": \"REG-ITAM-2024\",\n    \"status\": \"inactivo\",\n    \"created_by\": 1,\n    \"created_at\": \"2000-09-22 08:00:00\",\n    \"modified_by\": 2,\n    \"updated_at\": \"2024-05-28 16:00:00\",\n    \"address\": \"Av. ITAM 45\",\n    \"city\": \"CDMX\",\n    \"state\": \"CDMX\",\n    \"country\": \"México\",\n    \"postal_code\": \"01000\",\n    \"website\": \"https://moderna.mx\",\n    \"primary_contact_id\": 3,\n    \"notes\": \"Nueva dirección y estatus\",\n    \"tags\": \"tecnológica, privada\",\n    \"institution_since\": \"2000-09-22\",\n    \"accreditation\": \"SEP, ANUIES\",\n    \"licenses\": \"Licencia SEP 2024\",\n    \"regulatory_compliance\": \"Norma NOM-099\",\n    \"operating_hours\": \"L-V 8am-8pm\",\n    \"services_offered\": \"Ingenierías, MBAs\",\n    \"facilities\": \"Aulas inteligentes, Gimnasio\",\n    \"membership_programs\": \"Red exalumnos\",\n    \"partnership_agreements\": \"Google, Microsoft\",\n    \"social_media\": \"@universidadmoderna\",\n    \"publications\": \"Revista Tech, Noticias\",\n    \"events\": \"Hackathon, Expo\",\n    \"funding_sources\": \"Patrocinios, Inscripciones\",\n    \"governing_body\": \"Consejo Directivo\",\n    \"mission_statement\": \"Innovar la educación superior\",\n    \"annual_reports\": \"Informe anual 2024\"\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/institution",
-									"host": ["{{localhost}}"],
-									"path": ["institution"]
-								  }
+								{
+									"name": "institution",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"name\": \"Universidad Moderna\",\n    \"email\": \"moderna@uni.mx\",\n    \"phone\": \"5588991199\",\n    \"tax_id\": \"UNI654321\",\n    \"institution_type\": \"Tecnológica\",\n    \"registration_number\": \"REG-ITAM-2024\",\n    \"status\": \"inactivo\",\n    \"created_by\": 1,\n    \"created_at\": \"2000-09-22 08:00:00\",\n    \"modified_by\": 2,\n    \"updated_at\": \"2024-05-28 16:00:00\",\n    \"address\": \"Av. ITAM 45\",\n    \"city\": \"CDMX\",\n    \"state\": \"CDMX\",\n    \"country\": \"México\",\n    \"postal_code\": \"01000\",\n    \"website\": \"https://moderna.mx\",\n    \"primary_contact_id\": 3,\n    \"notes\": \"Nueva dirección y estatus\",\n    \"tags\": \"tecnológica, privada\",\n    \"institution_since\": \"2000-09-22\",\n    \"accreditation\": \"SEP, ANUIES\",\n    \"licenses\": \"Licencia SEP 2024\",\n    \"regulatory_compliance\": \"Norma NOM-099\",\n    \"operating_hours\": \"L-V 8am-8pm\",\n    \"services_offered\": \"Ingenierías, MBAs\",\n    \"facilities\": \"Aulas inteligentes, Gimnasio\",\n    \"membership_programs\": \"Red exalumnos\",\n    \"partnership_agreements\": \"Google, Microsoft\",\n    \"social_media\": \"@universidadmoderna\",\n    \"publications\": \"Revista Tech, Noticias\",\n    \"events\": \"Hackathon, Expo\",\n    \"funding_sources\": \"Patrocinios, Inscripciones\",\n    \"governing_body\": \"Consejo Directivo\",\n    \"mission_statement\": \"Innovar la educación superior\",\n    \"annual_reports\": \"Informe anual 2024\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/institution",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"institution"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "institution",
-								"request": {
-								  "method": "PATCH",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\",\n    \"notes\": \"Reestructura en proceso\"\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/institution",
-									"host": ["{{localhost}}"],
-									"path": ["institution"]
-								  }
+								{
+									"name": "institution",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\",\n    \"notes\": \"Reestructura en proceso\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/institution",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"institution"
+											]
+										}
+									},
+									"response": []
 								},
-								"response": []
-							  },
-							  {
-								"name": "institution",
-								"request": {
-								  "method": "DELETE",
-								  "header": [],
-								  "body": {
-									"mode": "raw",
-									"raw": "{\n    \"id\": 1\n}",
-									"options": {
-									  "raw": {
-										"language": "json"
-									  }
-									}
-								  },
-								  "url": {
-									"raw": "{{localhost}}/institution",
-									"host": ["{{localhost}}"],
-									"path": ["institution"]
-								  }
-								},
-								"response": []
-							  }
+								{
+									"name": "institution",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/institution",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"institution"
+											]
+										}
+									},
+									"response": []
+								}
 							]
 						},
 						{
@@ -3194,15 +2897,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"affiliate_type\": \"\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/affiliate/filtered",
 											"host": [
@@ -3221,15 +2915,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"primary_contact_id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/affiliate/listByColumn",
 											"host": [
@@ -3248,15 +2933,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/affiliate/getone",
 											"host": [
@@ -3275,15 +2951,6 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"Afiliado Ejemplo\",\n    \"limitqty\": 10\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{localhost}}/affiliate/preByLike",
 											"host": [
@@ -8824,7 +8491,7 @@
 				"bearer": [
 					{
 						"key": "token",
-						"value": "{{token}}",
+						"value": "{{access_token}}",
 						"type": "string"
 					}
 				]
