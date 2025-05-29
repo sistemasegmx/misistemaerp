@@ -47,4 +47,4 @@ class institutionModel extends baseModel
     {
         return self::$table_name;
     }
-} 
+}

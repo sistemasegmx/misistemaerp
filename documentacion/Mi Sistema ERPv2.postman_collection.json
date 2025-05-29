@@ -265,40 +265,2308 @@
 						{
 							"name": "prospect",
 							"item": [
+								{
+									"name": "prospect",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/prospect",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"prospect"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "prospect/paginated",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/prospect/paginated",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"prospect",
+												"paginated"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "prospect/filtered",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"company\": \"\",\n    \"assigned_to\": 1,\n    \"industry\": \"\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/prospect/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"prospect",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "prospect/listByColumn",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assigned_to\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/prospect/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"prospect",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "prospect/getone",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/prospect/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"prospect",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "prospect/preByLike",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Juan\",\n    \"limitqty\": 10\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/prospect/preByLike",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"prospect",
+												"preByLike"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "prospect",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Juan Perez\",\n    \"email\": \"juan.perez@ejemplo.com\",\n    \"phone\": \"5512345678\",\n    \"company\": \"Empresa Demo\",\n    \"position\": \"Gerente de ventas\",\n    \"interest_level\": 3,\n    \"source\": \"Sitio web\",\n    \"notes\": \"Interesado en el producto X\",\n    \"status\": \"activo\",\n    \"created_at\": \"2024-05-28 12:00:00\",\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"last_contact_date\": \"2024-05-28 12:00:00\",\n    \"assigned_to\": 1,\n    \"potential_value\": 15000.00,\n    \"industry\": \"Tecnología\",\n    \"address\": \"Calle Falsa 123\",\n    \"city\": \"CDMX\",\n    \"state\": \"CDMX\",\n    \"country\": \"México\",\n    \"postal_code\": \"01234\",\n    \"website\": \"https://empresa-demo.com\",\n    \"social_media\": \"@empresa\",\n    \"preferred_contact_method\": \"email\",\n    \"tags\": \"nuevo, caliente\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/prospect",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"prospect"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "prospect",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"name\": \"Juan Perez Actualizado\",\n    \"email\": \"juan.perez@ejemplo.com\",\n    \"phone\": \"5512345678\",\n    \"company\": \"Empresa Demo\",\n    \"position\": \"Director\",\n    \"interest_level\": 2,\n    \"source\": \"LinkedIn\",\n    \"notes\": \"Actualización de datos\",\n    \"status\": \"inactivo\",\n    \"created_at\": \"2024-05-01 12:00:00\",\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"last_contact_date\": \"2024-05-28 13:00:00\",\n    \"assigned_to\": 2,\n    \"potential_value\": 10000.00,\n    \"industry\": \"Salud\",\n    \"address\": \"Calle Verdadera 456\",\n    \"city\": \"Guadalajara\",\n    \"state\": \"Jalisco\",\n    \"country\": \"México\",\n    \"postal_code\": \"56789\",\n    \"website\": \"https://empresa-demo.com\",\n    \"social_media\": \"@empresa_modificada\",\n    \"preferred_contact_method\": \"teléfono\",\n    \"tags\": \"actualizado, frio\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/prospect",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"prospect"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "prospect",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\",\n    \"notes\": \"Llamar en 2 semanas\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/prospect",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"prospect"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "prospect",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/prospect",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"prospect"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "customer",
+							"item": [
+								{
+									"name": "customer",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/customer",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"customer"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "customer/paginated",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/customer/paginated",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"customer",
+												"paginated"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "customer/filtered",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"company\": \"\",\n    \"assigned_salesperson\": 1,\n    \"industry\": \"\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/customer/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"customer",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "customer/listByColumn",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"assigned_salesperson\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/customer/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"customer",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "customer/getone",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/customer/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"customer",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "customer/preByLike",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Empresa\",\n    \"limitqty\": 10\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/customer/preByLike",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"customer",
+												"preByLike"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "customer",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Cliente Ejemplo\",\n    \"email\": \"cliente@ejemplo.com\",\n    \"phone\": \"5551234567\",\n    \"company\": \"Empresa Demo\",\n    \"tax_id\": \"RFC123456\",\n    \"customer_type\": \"Premium\",\n    \"credit_limit\": 10000.00,\n    \"payment_terms\": \"30 días\",\n    \"status\": \"activo\",\n    \"created_by\": 1,\n    \"created_at\": \"2024-05-28 12:00:00\",\n    \"modified_by\": 1,\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"last_purchase_date\": \"2024-05-20 14:00:00\",\n    \"total_purchases\": 150000.00,\n    \"address\": \"Calle Cliente 100\",\n    \"city\": \"CDMX\",\n    \"state\": \"CDMX\",\n    \"country\": \"México\",\n    \"postal_code\": \"01234\",\n    \"website\": \"https://cliente-demo.com\",\n    \"industry\": \"Retail\",\n    \"assigned_salesperson\": 3,\n    \"preferred_payment_method\": \"Transferencia\",\n    \"notes\": \"Cliente frecuente\",\n    \"tags\": \"premium, frecuente\",\n    \"customer_since\": \"2021-01-01\",\n    \"loyalty_points\": 500,\n    \"preferred_shipping_method\": \"DHL\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/customer",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"customer"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "customer",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"name\": \"Cliente Modificado\",\n    \"email\": \"modificado@ejemplo.com\",\n    \"phone\": \"5559876543\",\n    \"company\": \"Empresa Nueva\",\n    \"tax_id\": \"RFC654321\",\n    \"customer_type\": \"Regular\",\n    \"credit_limit\": 8000.00,\n    \"payment_terms\": \"15 días\",\n    \"status\": \"inactivo\",\n    \"created_by\": 1,\n    \"created_at\": \"2024-01-01 08:00:00\",\n    \"modified_by\": 2,\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"last_purchase_date\": \"2024-05-22 11:00:00\",\n    \"total_purchases\": 95000.00,\n    \"address\": \"Calle Nueva 200\",\n    \"city\": \"Guadalajara\",\n    \"state\": \"Jalisco\",\n    \"country\": \"México\",\n    \"postal_code\": \"56789\",\n    \"website\": \"https://cliente-mod.com\",\n    \"industry\": \"Tecnología\",\n    \"assigned_salesperson\": 4,\n    \"preferred_payment_method\": \"Tarjeta\",\n    \"notes\": \"Actualización de datos\",\n    \"tags\": \"regular, nuevo\",\n    \"customer_since\": \"2022-02-15\",\n    \"loyalty_points\": 300,\n    \"preferred_shipping_method\": \"FedEx\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/customer",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"customer"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "customer",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\",\n    \"notes\": \"Suspendido temporalmente\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/customer",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"customer"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "customer",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/customer",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"customer"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "contact",
+							"item": [
+								{
+									"name": "contact",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/contact",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"contact"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "contact/paginated",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/contact/paginated",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"contact",
+												"paginated"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "contact/filtered",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"related_entity_id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/contact/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"contact",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "contact/listByColumn",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"related_entity_id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/contact/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"contact",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "contact/getone",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/contact/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"contact",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "contact/preByLike",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"first_name\": \"Juan\",\n    \"limitqty\": 10\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/contact/preByLike",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"contact",
+												"preByLike"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "contact",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"first_name\": \"Juan\",\n    \"last_name\": \"Pérez\",\n    \"email\": \"juan.perez@ejemplo.com\",\n    \"phone\": \"5512345678\",\n    \"mobile\": \"5512345679\",\n    \"position\": \"Gerente\",\n    \"department\": \"Ventas\",\n    \"related_entity_id\": 1,\n    \"related_entity_type\": \"customer\",\n    \"is_primary_contact\": true,\n    \"status\": \"activo\",\n    \"created_by\": 2,\n    \"created_at\": \"2024-05-28 12:00:00\",\n    \"modified_by\": 2,\n    \"updated_at\": \"2024-05-28 13:00:00\",\n    \"address\": \"Calle Principal 100\",\n    \"city\": \"CDMX\",\n    \"state\": \"CDMX\",\n    \"country\": \"México\",\n    \"postal_code\": \"01234\",\n    \"notes\": \"Contacto importante\",\n    \"preferred_contact_method\": \"email\",\n    \"birth_date\": \"1990-01-01\",\n    \"anniversary_date\": \"2010-05-15\",\n    \"social_media\": \"@juanperez\",\n    \"tags\": \"vip, preferente\",\n    \"assigned_to\": 4\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/contact",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"contact"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "contact",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"first_name\": \"Juan Carlos\",\n    \"last_name\": \"Pérez\",\n    \"email\": \"juan.perez@ejemplo.com\",\n    \"phone\": \"5512345678\",\n    \"mobile\": \"5512345679\",\n    \"position\": \"Director\",\n    \"department\": \"Ventas\",\n    \"related_entity_id\": 1,\n    \"related_entity_type\": \"customer\",\n    \"is_primary_contact\": true,\n    \"status\": \"inactivo\",\n    \"created_by\": 2,\n    \"created_at\": \"2023-12-01 09:00:00\",\n    \"modified_by\": 3,\n    \"updated_at\": \"2024-05-28 13:30:00\",\n    \"address\": \"Nueva Calle 500\",\n    \"city\": \"Guadalajara\",\n    \"state\": \"Jalisco\",\n    \"country\": \"México\",\n    \"postal_code\": \"54321\",\n    \"notes\": \"Contacto transferido\",\n    \"preferred_contact_method\": \"whatsapp\",\n    \"birth_date\": \"1985-10-21\",\n    \"anniversary_date\": \"2009-07-22\",\n    \"social_media\": \"@jcarlos\",\n    \"tags\": \"nuevo, especial\",\n    \"assigned_to\": 5\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/contact",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"contact"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "contact",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\",\n    \"notes\": \"Ya no labora en la empresa\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/contact",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"contact"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "contact",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/contact",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"contact"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "supplier",
+							"item": [
+								{
+									"name": "supplier",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/supplier",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"supplier"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "supplier/paginated",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/supplier/paginated",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"supplier",
+												"paginated"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "supplier/filtered",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"supplier_type\": \"\",\n    \"industry\": \"\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/supplier/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"supplier",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "supplier/listByColumn",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"primary_contact_id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/supplier/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"supplier",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "supplier/getone",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/supplier/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"supplier",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "supplier/preByLike",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Proveedor\",\n    \"limitqty\": 10\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/supplier/preByLike",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"supplier",
+												"preByLike"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "supplier",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Proveedor Demo\",\n    \"email\": \"proveedor@ejemplo.com\",\n    \"phone\": \"5511223344\",\n    \"tax_id\": \"SUP123456\",\n    \"supplier_type\": \"Mayorista\",\n    \"payment_terms\": \"60 días\",\n    \"credit_limit\": 50000.00,\n    \"status\": \"activo\",\n    \"created_by\": 1,\n    \"created_at\": \"2024-05-28 12:00:00\",\n    \"modified_by\": 1,\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"last_order_date\": \"2024-05-20 14:00:00\",\n    \"address\": \"Calle Proveedor 101\",\n    \"city\": \"Monterrey\",\n    \"state\": \"Nuevo León\",\n    \"country\": \"México\",\n    \"postal_code\": \"64000\",\n    \"website\": \"https://proveedor-demo.com\",\n    \"industry\": \"Manufactura\",\n    \"primary_contact_id\": 2,\n    \"preferred_payment_method\": \"Transferencia\",\n    \"notes\": \"Proveedor confiable\",\n    \"tags\": \"preferente, confiable\",\n    \"supplier_since\": \"2020-05-01\",\n    \"quality_rating\": 5,\n    \"delivery_rating\": 4,\n    \"price_rating\": 4,\n    \"certifications\": \"ISO 9001\",\n    \"banking_info\": \"Cuenta: 1234567890, Banco: BBVA\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/supplier",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"supplier"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "supplier",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"name\": \"Proveedor Modificado\",\n    \"email\": \"nuevo@proveedor.com\",\n    \"phone\": \"5511443322\",\n    \"tax_id\": \"SUP654321\",\n    \"supplier_type\": \"Minorista\",\n    \"payment_terms\": \"30 días\",\n    \"credit_limit\": 30000.00,\n    \"status\": \"inactivo\",\n    \"created_by\": 1,\n    \"created_at\": \"2024-01-01 08:00:00\",\n    \"modified_by\": 2,\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"last_order_date\": \"2024-05-23 11:00:00\",\n    \"address\": \"Avenida Nueva 200\",\n    \"city\": \"Guadalajara\",\n    \"state\": \"Jalisco\",\n    \"country\": \"México\",\n    \"postal_code\": \"44100\",\n    \"website\": \"https://proveedor-nuevo.com\",\n    \"industry\": \"Logística\",\n    \"primary_contact_id\": 3,\n    \"preferred_payment_method\": \"Efectivo\",\n    \"notes\": \"Actualización de datos\",\n    \"tags\": \"nuevo, baja\",\n    \"supplier_since\": \"2022-06-15\",\n    \"quality_rating\": 4,\n    \"delivery_rating\": 3,\n    \"price_rating\": 5,\n    \"certifications\": \"ISO 14001\",\n    \"banking_info\": \"Cuenta: 9876543210, Banco: Santander\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/supplier",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"supplier"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "supplier",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\",\n    \"notes\": \"Sin actividad reciente\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/supplier",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"supplier"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "supplier",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/supplier",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"supplier"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "employee",
+							"item": [
+								{
+									"name": "employee",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/employee",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"employee"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "employee/paginated",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/employee/paginated",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"employee",
+												"paginated"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "employee/filtered",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"department_id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/employee/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"employee",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "employee/listByColumn",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"department_id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/employee/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"employee",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "employee/getone",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/employee/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"employee",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "employee/preByLike",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"first_name\": \"Luis\",\n    \"limitqty\": 10\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/employee/preByLike",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"employee",
+												"preByLike"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "employee",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"first_name\": \"Luis\",\n    \"last_name\": \"González\",\n    \"email\": \"luis.gonzalez@ejemplo.com\",\n    \"phone\": \"5522113344\",\n    \"mobile\": \"5522113345\",\n    \"employee_id\": \"EMP001\",\n    \"department_id\": 1,\n    \"position\": \"Desarrollador\",\n    \"hire_date\": \"2022-01-10\",\n    \"termination_date\": null,\n    \"status\": \"activo\",\n    \"created_by\": 1,\n    \"created_at\": \"2024-05-28 12:00:00\",\n    \"modified_by\": 1,\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"address\": \"Calle Empleado 22\",\n    \"city\": \"Puebla\",\n    \"state\": \"Puebla\",\n    \"country\": \"México\",\n    \"postal_code\": \"72000\",\n    \"emergency_contact\": \"Ana López, 5522334455\",\n    \"birth_date\": \"1995-03-20\",\n    \"tax_id\": \"EMP123456\",\n    \"banking_info\": \"Cuenta: 222333444, Banco: HSBC\",\n    \"salary\": 28000.00,\n    \"benefits\": \"Vales, Seguro Médico\",\n    \"skills\": \"PHP, Laravel, SQL\",\n    \"certifications\": \"Scrum Master\",\n    \"education\": \"Ingeniería en Sistemas\",\n    \"notes\": \"Empleado con alto desempeño\",\n    \"supervisor_id\": 2,\n    \"work_schedule\": \"L-V 9:00-18:00\",\n    \"access_level\": \"admin\",\n    \"profile_photo\": \"https://misistema.com/empleados/luis.jpg\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/employee",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"employee"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "employee",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"first_name\": \"Luis Miguel\",\n    \"last_name\": \"González\",\n    \"email\": \"luis.gonzalez@ejemplo.com\",\n    \"phone\": \"5522113344\",\n    \"mobile\": \"5522113345\",\n    \"employee_id\": \"EMP001\",\n    \"department_id\": 1,\n    \"position\": \"Líder Técnico\",\n    \"hire_date\": \"2022-01-10\",\n    \"termination_date\": null,\n    \"status\": \"activo\",\n    \"created_by\": 1,\n    \"created_at\": \"2022-01-10 09:00:00\",\n    \"modified_by\": 2,\n    \"updated_at\": \"2024-05-28 14:00:00\",\n    \"address\": \"Calle Empleado 22\",\n    \"city\": \"Puebla\",\n    \"state\": \"Puebla\",\n    \"country\": \"México\",\n    \"postal_code\": \"72000\",\n    \"emergency_contact\": \"Ana López, 5522334455\",\n    \"birth_date\": \"1995-03-20\",\n    \"tax_id\": \"EMP123456\",\n    \"banking_info\": \"Cuenta: 222333444, Banco: HSBC\",\n    \"salary\": 30000.00,\n    \"benefits\": \"Vales, Seguro Médico, Bonos\",\n    \"skills\": \"PHP, Laravel, SQL, Docker\",\n    \"certifications\": \"Scrum Master, AWS\",\n    \"education\": \"Maestría en TI\",\n    \"notes\": \"Ascendido recientemente\",\n    \"supervisor_id\": 2,\n    \"work_schedule\": \"L-V 9:00-18:00\",\n    \"access_level\": \"superadmin\",\n    \"profile_photo\": \"https://misistema.com/empleados/luis.jpg\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/employee",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"employee"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "employee",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\",\n    \"notes\": \"De baja por licencia\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/employee",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"employee"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "employee",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/employee",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"employee"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "salesperson",
+							"item": [
+								{
+									"name": "salesperson",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/salesperson",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salesperson"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salesperson/paginated",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/salesperson/paginated",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salesperson",
+												"paginated"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salesperson/filtered",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"territory\": \"\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/salesperson/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salesperson",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salesperson/listByColumn",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"territory\": \"Norte\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/salesperson/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salesperson",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salesperson/getone",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/salesperson/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salesperson",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salesperson/preByLike",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"first_name\": \"Carlos\",\n    \"limitqty\": 10\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/salesperson/preByLike",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salesperson",
+												"preByLike"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salesperson",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"first_name\": \"Carlos\",\n    \"last_name\": \"López\",\n    \"email\": \"carlos.lopez@ejemplo.com\",\n    \"phone\": \"5551010101\",\n    \"mobile\": \"5551010102\",\n    \"employee_id\": 1,\n    \"territory\": \"Norte\",\n    \"commission_rate\": 5.00,\n    \"sales_target\": 100000.00,\n    \"status\": \"activo\",\n    \"created_by\": 1,\n    \"created_at\": \"2024-05-28 12:00:00\",\n    \"modified_by\": 1,\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"address\": \"Av. Ventas 10\",\n    \"city\": \"Monterrey\",\n    \"state\": \"Nuevo León\",\n    \"country\": \"México\",\n    \"postal_code\": \"64000\",\n    \"specialization\": \"Empresarial\",\n    \"total_sales\": 500000.00,\n    \"current_month_sales\": 80000.00,\n    \"last_sale_date\": \"2024-05-20 14:00:00\",\n    \"performance_rating\": 4,\n    \"notes\": \"Top vendedor\",\n    \"supervisor_id\": 2,\n    \"assigned_customers\": \"[1,2,3]\",\n    \"assigned_prospects\": \"[4,5,6]\",\n    \"sales_history\": \"{\\\"2024-05\\\": 80000, \\\"2024-04\\\": 70000}\",\n    \"profile_photo\": \"https://misistema.com/salesperson/carlos.jpg\",\n    \"social_media\": \"@carlos.ventas\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/salesperson",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salesperson"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salesperson",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"first_name\": \"Carlos Alberto\",\n    \"last_name\": \"López\",\n    \"email\": \"carlos.lopez@ejemplo.com\",\n    \"phone\": \"5551010101\",\n    \"mobile\": \"5551010102\",\n    \"employee_id\": 1,\n    \"territory\": \"Norte\",\n    \"commission_rate\": 6.50,\n    \"sales_target\": 120000.00,\n    \"status\": \"inactivo\",\n    \"created_by\": 1,\n    \"created_at\": \"2024-01-15 09:00:00\",\n    \"modified_by\": 2,\n    \"updated_at\": \"2024-05-28 13:30:00\",\n    \"address\": \"Av. Ventas 10\",\n    \"city\": \"Monterrey\",\n    \"state\": \"Nuevo León\",\n    \"country\": \"México\",\n    \"postal_code\": \"64000\",\n    \"specialization\": \"Empresarial\",\n    \"total_sales\": 600000.00,\n    \"current_month_sales\": 90000.00,\n    \"last_sale_date\": \"2024-05-27 11:00:00\",\n    \"performance_rating\": 5,\n    \"notes\": \"Ascendido a supervisor\",\n    \"supervisor_id\": 2,\n    \"assigned_customers\": \"[1,2,3,7]\",\n    \"assigned_prospects\": \"[4,5,6,8]\",\n    \"sales_history\": \"{\\\"2024-05\\\": 90000, \\\"2024-04\\\": 80000}\",\n    \"profile_photo\": \"https://misistema.com/salesperson/carlos.jpg\",\n    \"social_media\": \"@carlos.ventas\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/salesperson",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salesperson"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salesperson",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\",\n    \"notes\": \"De licencia\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/salesperson",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salesperson"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "salesperson",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/salesperson",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"salesperson"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "distributor",
+							"item": [
+								{
+									"name": "distributor",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/distributor",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"distributor"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "distributor/paginated",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/distributor/paginated",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"distributor",
+												"paginated"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "distributor/filtered",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"distribution_area\": \"\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/distributor/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"distributor",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "distributor/listByColumn",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"primary_contact_id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/distributor/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"distributor",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "distributor/getone",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/distributor/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"distributor",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "distributor/preByLike",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Distribuidor\",\n    \"limitqty\": 10\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/distributor/preByLike",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"distributor",
+												"preByLike"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "distributor",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Distribuidor Ejemplo\",\n    \"email\": \"distribuidor@ejemplo.com\",\n    \"phone\": \"5558882222\",\n    \"tax_id\": \"DIST123456\",\n    \"distribution_area\": \"Centro\",\n    \"distribution_type\": \"Regional\",\n    \"payment_terms\": \"45 días\",\n    \"credit_limit\": 20000.00,\n    \"status\": \"activo\",\n    \"created_by\": 1,\n    \"created_at\": \"2024-05-28 12:00:00\",\n    \"modified_by\": 1,\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"address\": \"Calle Distribuidor 11\",\n    \"city\": \"Querétaro\",\n    \"state\": \"Querétaro\",\n    \"country\": \"México\",\n    \"postal_code\": \"76000\",\n    \"website\": \"https://distribuidor-ejemplo.com\",\n    \"warehouse_locations\": \"Bodega A, Bodega B\",\n    \"primary_contact_id\": 2,\n    \"preferred_payment_method\": \"Efectivo\",\n    \"notes\": \"Especialista en zona centro\",\n    \"tags\": \"distribuidor, regional\",\n    \"distribution_since\": \"2020-09-01\",\n    \"service_rating\": 5,\n    \"delivery_rating\": 4,\n    \"price_rating\": 4,\n    \"certifications\": \"ISO 9001\",\n    \"banking_info\": \"Cuenta: 111222333, Banco: Banorte\",\n    \"inventory_capacity\": \"50000 unidades\",\n    \"transportation_fleet\": \"Camiones, Vans\",\n    \"service_coverage\": \"Querétaro, San Luis Potosí\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/distributor",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"distributor"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "distributor",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"name\": \"Distribuidor Modificado\",\n    \"email\": \"nuevo@distribuidor.com\",\n    \"phone\": \"5559993333\",\n    \"tax_id\": \"DIST654321\",\n    \"distribution_area\": \"Noroeste\",\n    \"distribution_type\": \"Nacional\",\n    \"payment_terms\": \"60 días\",\n    \"credit_limit\": 35000.00,\n    \"status\": \"inactivo\",\n    \"created_by\": 1,\n    \"created_at\": \"2022-01-15 09:00:00\",\n    \"modified_by\": 2,\n    \"updated_at\": \"2024-05-28 14:00:00\",\n    \"address\": \"Avenida Nueva 20\",\n    \"city\": \"Hermosillo\",\n    \"state\": \"Sonora\",\n    \"country\": \"México\",\n    \"postal_code\": \"83000\",\n    \"website\": \"https://distribuidor-nuevo.com\",\n    \"warehouse_locations\": \"Bodega C\",\n    \"primary_contact_id\": 3,\n    \"preferred_payment_method\": \"Transferencia\",\n    \"notes\": \"Actualizado a nivel nacional\",\n    \"tags\": \"actualizado, nacional\",\n    \"distribution_since\": \"2023-03-10\",\n    \"service_rating\": 4,\n    \"delivery_rating\": 5,\n    \"price_rating\": 5,\n    \"certifications\": \"ISO 14001\",\n    \"banking_info\": \"Cuenta: 222333444, Banco: HSBC\",\n    \"inventory_capacity\": \"80000 unidades\",\n    \"transportation_fleet\": \"Trailers\",\n    \"service_coverage\": \"Sonora, Sinaloa\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/distributor",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"distributor"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "distributor",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\",\n    \"notes\": \"Temporalmente fuera de servicio\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/distributor",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"distributor"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "distributor",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/distributor",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"distributor"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "carrier",
+							"item": [
+								{
+									"name": "carrier",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/carrier",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"carrier"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "carrier/paginated",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/carrier/paginated",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"carrier",
+												"paginated"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "carrier/filtered",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"carrier_type\": \"\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/carrier/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"carrier",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "carrier/listByColumn",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"primary_contact_id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/carrier/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"carrier",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "carrier/getone",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/carrier/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"carrier",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "carrier/preByLike",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Transportes\",\n    \"limitqty\": 10\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/carrier/preByLike",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"carrier",
+												"preByLike"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "carrier",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Transportes Rápidos\",\n    \"email\": \"contacto@transportes.com\",\n    \"phone\": \"5566778899\",\n    \"tax_id\": \"CAR123456\",\n    \"carrier_type\": \"Paquetería\",\n    \"service_areas\": \"CDMX, Monterrey, Guadalajara\",\n    \"payment_terms\": \"30 días\",\n    \"status\": \"activo\",\n    \"created_by\": 1,\n    \"created_at\": \"2024-05-28 12:00:00\",\n    \"modified_by\": 1,\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"address\": \"Av. Principal 900\",\n    \"city\": \"CDMX\",\n    \"state\": \"CDMX\",\n    \"country\": \"México\",\n    \"postal_code\": \"01234\",\n    \"website\": \"https://transportes.com\",\n    \"fleet_size\": 20,\n    \"fleet_type\": \"Camiones\",\n    \"primary_contact_id\": 2,\n    \"preferred_payment_method\": \"Transferencia\",\n    \"notes\": \"Socio logístico premium\",\n    \"tags\": \"logística, premium\",\n    \"service_since\": \"2019-03-15\",\n    \"delivery_rating\": 5,\n    \"price_rating\": 4,\n    \"certifications\": \"ISO 39001\",\n    \"banking_info\": \"Cuenta: 333444555, Banco: Banamex\",\n    \"insurance_info\": \"Poliza AXA 123456\",\n    \"tracking_system\": \"GPS Satelital\",\n    \"service_coverage\": \"Nacional\",\n    \"special_handling_capabilities\": \"Carga frágil, perecederos\",\n    \"operating_hours\": \"24/7\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/carrier",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"carrier"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "carrier",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"name\": \"Transportes del Norte\",\n    \"email\": \"norte@transportes.com\",\n    \"phone\": \"5566558899\",\n    \"tax_id\": \"CAR654321\",\n    \"carrier_type\": \"Carga pesada\",\n    \"service_areas\": \"Noreste, Noroeste\",\n    \"payment_terms\": \"60 días\",\n    \"status\": \"inactivo\",\n    \"created_by\": 1,\n    \"created_at\": \"2023-04-01 09:00:00\",\n    \"modified_by\": 2,\n    \"updated_at\": \"2024-05-28 14:00:00\",\n    \"address\": \"Carretera 123\",\n    \"city\": \"Monterrey\",\n    \"state\": \"Nuevo León\",\n    \"country\": \"México\",\n    \"postal_code\": \"64100\",\n    \"website\": \"https://transportesnorte.com\",\n    \"fleet_size\": 40,\n    \"fleet_type\": \"Tractocamiones\",\n    \"primary_contact_id\": 3,\n    \"preferred_payment_method\": \"Cheque\",\n    \"notes\": \"Especialista en carga pesada\",\n    \"tags\": \"norte, pesada\",\n    \"service_since\": \"2015-01-20\",\n    \"delivery_rating\": 4,\n    \"price_rating\": 3,\n    \"certifications\": \"ISO 9001\",\n    \"banking_info\": \"Cuenta: 123123123, Banco: Inbursa\",\n    \"insurance_info\": \"Poliza GNP 789012\",\n    \"tracking_system\": \"RFID\",\n    \"service_coverage\": \"Región Norte\",\n    \"special_handling_capabilities\": \"Refrigerados, químicos\",\n    \"operating_hours\": \"L-V 6:00-22:00\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/carrier",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"carrier"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "carrier",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\",\n    \"notes\": \"Suspendido temporalmente\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/carrier",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"carrier"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "carrier",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/carrier",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"carrier"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "partner",
+							"item": [
+								{
+									"name": "partner",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/partner",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"partner"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "partner/paginated",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/partner/paginated",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"partner",
+												"paginated"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "partner/filtered",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"partner_type\": \"\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/partner/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"partner",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "partner/listByColumn",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"primary_contact_id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/partner/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"partner",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "partner/getone",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/partner/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"partner",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "partner/preByLike",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Partner SA\",\n    \"limitqty\": 10\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/partner/preByLike",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"partner",
+												"preByLike"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "partner",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Partner Ejemplo\",\n    \"email\": \"partner@ejemplo.com\",\n    \"phone\": \"5544332211\",\n    \"tax_id\": \"PART123456\",\n    \"partner_type\": \"Tecnológico\",\n    \"partnership_start_date\": \"2023-01-01\",\n    \"partnership_end_date\": \"2026-01-01\",\n    \"status\": \"activo\",\n    \"created_by\": 1,\n    \"created_at\": \"2024-05-28 12:00:00\",\n    \"modified_by\": 1,\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"address\": \"Calle Socio 13\",\n    \"city\": \"León\",\n    \"state\": \"Guanajuato\",\n    \"country\": \"México\",\n    \"postal_code\": \"37000\",\n    \"website\": \"https://partner-ejemplo.com\",\n    \"industry\": \"Tecnología\",\n    \"primary_contact_id\": 2,\n    \"partnership_terms\": \"Colaboración exclusiva\",\n    \"investment_amount\": 150000.00,\n    \"ownership_percentage\": 20.50,\n    \"notes\": \"Partner estratégico\",\n    \"tags\": \"estratégico, tecnología\",\n    \"strategic_goals\": \"Expandir mercado\",\n    \"contribution_areas\": \"Desarrollo, Soporte\",\n    \"meeting_schedule\": \"Mensual\",\n    \"reporting_requirements\": \"Reporte trimestral\",\n    \"banking_info\": \"Cuenta: 789456123, Banco: HSBC\",\n    \"legal_documents\": \"Contrato, NDA\",\n    \"performance_metrics\": \"Ventas, retención\",\n    \"social_media\": \"@partner_ejemplo\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/partner",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"partner"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "partner",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"name\": \"Partner Modificado\",\n    \"email\": \"nuevo@partner.com\",\n    \"phone\": \"5555667788\",\n    \"tax_id\": \"PART654321\",\n    \"partner_type\": \"Financiero\",\n    \"partnership_start_date\": \"2024-01-01\",\n    \"partnership_end_date\": \"2028-01-01\",\n    \"status\": \"inactivo\",\n    \"created_by\": 1,\n    \"created_at\": \"2023-01-01 08:00:00\",\n    \"modified_by\": 2,\n    \"updated_at\": \"2024-05-28 14:00:00\",\n    \"address\": \"Av. Socio 100\",\n    \"city\": \"Aguascalientes\",\n    \"state\": \"Aguascalientes\",\n    \"country\": \"México\",\n    \"postal_code\": \"20000\",\n    \"website\": \"https://partner-nuevo.com\",\n    \"industry\": \"Finanzas\",\n    \"primary_contact_id\": 3,\n    \"partnership_terms\": \"Contrato abierto\",\n    \"investment_amount\": 250000.00,\n    \"ownership_percentage\": 30.00,\n    \"notes\": \"Ampliación de participación\",\n    \"tags\": \"financiero, nuevo\",\n    \"strategic_goals\": \"Crecimiento nacional\",\n    \"contribution_areas\": \"Inversión, Consultoría\",\n    \"meeting_schedule\": \"Trimestral\",\n    \"reporting_requirements\": \"Reporte anual\",\n    \"banking_info\": \"Cuenta: 456123789, Banco: Banamex\",\n    \"legal_documents\": \"Contrato, Addendum\",\n    \"performance_metrics\": \"Ingresos, satisfacción\",\n    \"social_media\": \"@partner_nuevo\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/partner",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"partner"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "partner",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\",\n    \"notes\": \"En pausa por reestructuración\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/partner",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"partner"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "partner",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/partner",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"partner"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "manufacturer",
+							"item": [
 							  {
-								"name": "prospect",
+								"name": "manufacturer",
 								"request": {
 								  "method": "GET",
 								  "header": [],
 								  "url": {
-									"raw": "{{localhost}}/prospect",
+									"raw": "{{localhost}}/manufacturer",
 									"host": ["{{localhost}}"],
-									"path": ["prospect"]
+									"path": ["manufacturer"]
 								  }
 								},
 								"response": []
 							  },
 							  {
-								"name": "prospect/paginated",
+								"name": "manufacturer/paginated",
 								"request": {
 								  "method": "GET",
 								  "header": [],
 								  "url": {
-									"raw": "{{localhost}}/prospect/paginated",
+									"raw": "{{localhost}}/manufacturer/paginated",
 									"host": ["{{localhost}}"],
-									"path": ["prospect", "paginated"]
+									"path": ["manufacturer", "paginated"]
 								  }
 								},
 								"response": []
 							  },
 							  {
-								"name": "prospect/filtered",
+								"name": "manufacturer/filtered",
 								"request": {
 								  "method": "GET",
 								  "header": [],
 								  "body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"company\": \"\",\n    \"assigned_to\": 1,\n    \"industry\": \"\"\n}",
+									"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"manufacturer_type\": \"\"\n}",
 									"options": {
 									  "raw": {
 										"language": "json"
@@ -306,21 +2574,21 @@
 									}
 								  },
 								  "url": {
-									"raw": "{{localhost}}/prospect/filtered",
+									"raw": "{{localhost}}/manufacturer/filtered",
 									"host": ["{{localhost}}"],
-									"path": ["prospect", "filtered"]
+									"path": ["manufacturer", "filtered"]
 								  }
 								},
 								"response": []
 							  },
 							  {
-								"name": "prospect/listByColumn",
+								"name": "manufacturer/listByColumn",
 								"request": {
 								  "method": "GET",
 								  "header": [],
 								  "body": {
 									"mode": "raw",
-									"raw": "{\n    \"assigned_to\": 1\n}",
+									"raw": "{\n    \"primary_contact_id\": 1\n}",
 									"options": {
 									  "raw": {
 										"language": "json"
@@ -328,15 +2596,15 @@
 									}
 								  },
 								  "url": {
-									"raw": "{{localhost}}/prospect/listByColumn",
+									"raw": "{{localhost}}/manufacturer/listByColumn",
 									"host": ["{{localhost}}"],
-									"path": ["prospect", "listByColumn"]
+									"path": ["manufacturer", "listByColumn"]
 								  }
 								},
 								"response": []
 							  },
 							  {
-								"name": "prospect/getone",
+								"name": "manufacturer/getone",
 								"request": {
 								  "method": "GET",
 								  "header": [],
@@ -350,21 +2618,21 @@
 									}
 								  },
 								  "url": {
-									"raw": "{{localhost}}/prospect/getone",
+									"raw": "{{localhost}}/manufacturer/getone",
 									"host": ["{{localhost}}"],
-									"path": ["prospect", "getone"]
+									"path": ["manufacturer", "getone"]
 								  }
 								},
 								"response": []
 							  },
 							  {
-								"name": "prospect/preByLike",
+								"name": "manufacturer/preByLike",
 								"request": {
 								  "method": "GET",
 								  "header": [],
 								  "body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Juan\",\n    \"limitqty\": 10\n}",
+									"raw": "{\n    \"name\": \"Fábrica Ejemplo\",\n    \"limitqty\": 10\n}",
 									"options": {
 									  "raw": {
 										"language": "json"
@@ -372,21 +2640,21 @@
 									}
 								  },
 								  "url": {
-									"raw": "{{localhost}}/prospect/preByLike",
+									"raw": "{{localhost}}/manufacturer/preByLike",
 									"host": ["{{localhost}}"],
-									"path": ["prospect", "preByLike"]
+									"path": ["manufacturer", "preByLike"]
 								  }
 								},
 								"response": []
 							  },
 							  {
-								"name": "prospect",
+								"name": "manufacturer",
 								"request": {
 								  "method": "POST",
 								  "header": [],
 								  "body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Juan Perez\",\n    \"email\": \"juan.perez@ejemplo.com\",\n    \"phone\": \"5512345678\",\n    \"company\": \"Empresa Demo\",\n    \"position\": \"Gerente de ventas\",\n    \"interest_level\": 3,\n    \"source\": \"Sitio web\",\n    \"notes\": \"Interesado en el producto X\",\n    \"status\": \"activo\",\n    \"created_at\": \"2024-05-28 12:00:00\",\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"last_contact_date\": \"2024-05-28 12:00:00\",\n    \"assigned_to\": 1,\n    \"potential_value\": 15000.00,\n    \"industry\": \"Tecnología\",\n    \"address\": \"Calle Falsa 123\",\n    \"city\": \"CDMX\",\n    \"state\": \"CDMX\",\n    \"country\": \"México\",\n    \"postal_code\": \"01234\",\n    \"website\": \"https://empresa-demo.com\",\n    \"social_media\": \"@empresa\",\n    \"preferred_contact_method\": \"email\",\n    \"tags\": \"nuevo, caliente\"\n}",
+									"raw": "{\n    \"name\": \"Fábrica Ejemplo\",\n    \"email\": \"fabricante@ejemplo.com\",\n    \"phone\": \"5544332211\",\n    \"tax_id\": \"MANU123456\",\n    \"manufacturer_type\": \"Electrónica\",\n    \"payment_terms\": \"30 días\",\n    \"credit_limit\": 150000.00,\n    \"status\": \"activo\",\n    \"created_by\": 1,\n    \"created_at\": \"2024-05-28 12:00:00\",\n    \"modified_by\": 1,\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"address\": \"Av. Industria 45\",\n    \"city\": \"Puebla\",\n    \"state\": \"Puebla\",\n    \"country\": \"México\",\n    \"postal_code\": \"72000\",\n    \"website\": \"https://fabricante-ejemplo.com\",\n    \"facility_locations\": \"Planta 1, Planta 2\",\n    \"primary_contact_id\": 2,\n    \"preferred_payment_method\": \"Transferencia\",\n    \"notes\": \"Proveedor confiable\",\n    \"tags\": \"fabricante, electrónica\",\n    \"manufacturing_since\": \"2010-01-01\",\n    \"quality_rating\": 5,\n    \"delivery_rating\": 4,\n    \"price_rating\": 3,\n    \"certifications\": \"ISO 9001, ISO 14001\",\n    \"banking_info\": \"Cuenta: 987654321, Banco: Santander\",\n    \"production_capacity\": \"100000 unidades/mes\",\n    \"specialization\": \"Microchips\",\n    \"equipment_capabilities\": \"Robots, Prensas\",\n    \"quality_control_processes\": \"Inspección visual, pruebas funcionales\",\n    \"environmental_compliance\": \"Norma NOM-123\",\n    \"safety_records\": \"Sin incidentes 2023\",\n    \"product_categories\": \"Chips, PCB\"\n}",
 									"options": {
 									  "raw": {
 										"language": "json"
@@ -394,21 +2662,21 @@
 									}
 								  },
 								  "url": {
-									"raw": "{{localhost}}/prospect",
+									"raw": "{{localhost}}/manufacturer",
 									"host": ["{{localhost}}"],
-									"path": ["prospect"]
+									"path": ["manufacturer"]
 								  }
 								},
 								"response": []
 							  },
 							  {
-								"name": "prospect",
+								"name": "manufacturer",
 								"request": {
 								  "method": "PUT",
 								  "header": [],
 								  "body": {
 									"mode": "raw",
-									"raw": "{\n    \"id\": 1,\n    \"name\": \"Juan Perez Actualizado\",\n    \"email\": \"juan.perez@ejemplo.com\",\n    \"phone\": \"5512345678\",\n    \"company\": \"Empresa Demo\",\n    \"position\": \"Director\",\n    \"interest_level\": 2,\n    \"source\": \"LinkedIn\",\n    \"notes\": \"Actualización de datos\",\n    \"status\": \"inactivo\",\n    \"created_at\": \"2024-05-01 12:00:00\",\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"last_contact_date\": \"2024-05-28 13:00:00\",\n    \"assigned_to\": 2,\n    \"potential_value\": 10000.00,\n    \"industry\": \"Salud\",\n    \"address\": \"Calle Verdadera 456\",\n    \"city\": \"Guadalajara\",\n    \"state\": \"Jalisco\",\n    \"country\": \"México\",\n    \"postal_code\": \"56789\",\n    \"website\": \"https://empresa-demo.com\",\n    \"social_media\": \"@empresa_modificada\",\n    \"preferred_contact_method\": \"teléfono\",\n    \"tags\": \"actualizado, frio\"\n}",
+									"raw": "{\n    \"id\": 1,\n    \"name\": \"Fábrica Actualizada\",\n    \"email\": \"nuevo@fabricante.com\",\n    \"phone\": \"5544332299\",\n    \"tax_id\": \"MANU654321\",\n    \"manufacturer_type\": \"Textil\",\n    \"payment_terms\": \"45 días\",\n    \"credit_limit\": 180000.00,\n    \"status\": \"inactivo\",\n    \"created_by\": 1,\n    \"created_at\": \"2022-01-01 08:00:00\",\n    \"modified_by\": 2,\n    \"updated_at\": \"2024-05-28 14:00:00\",\n    \"address\": \"Calle Nueva 98\",\n    \"city\": \"Guadalajara\",\n    \"state\": \"Jalisco\",\n    \"country\": \"México\",\n    \"postal_code\": \"44100\",\n    \"website\": \"https://fabricante-nuevo.com\",\n    \"facility_locations\": \"Planta 3\",\n    \"primary_contact_id\": 3,\n    \"preferred_payment_method\": \"Cheque\",\n    \"notes\": \"Actualizado para textiles\",\n    \"tags\": \"textil, nuevo\",\n    \"manufacturing_since\": \"2015-03-12\",\n    \"quality_rating\": 4,\n    \"delivery_rating\": 5,\n    \"price_rating\": 4,\n    \"certifications\": \"ISO 22000\",\n    \"banking_info\": \"Cuenta: 123456789, Banco: BBVA\",\n    \"production_capacity\": \"200000 prendas/mes\",\n    \"specialization\": \"Ropa deportiva\",\n    \"equipment_capabilities\": \"Máquinas de coser, cortadoras\",\n    \"quality_control_processes\": \"Pruebas de resistencia\",\n    \"environmental_compliance\": \"Norma NOM-456\",\n    \"safety_records\": \"Un incidente menor en 2022\",\n    \"product_categories\": \"Uniformes, Accesorios\"\n}",
 									"options": {
 									  "raw": {
 										"language": "json"
@@ -416,21 +2684,21 @@
 									}
 								  },
 								  "url": {
-									"raw": "{{localhost}}/prospect",
+									"raw": "{{localhost}}/manufacturer",
 									"host": ["{{localhost}}"],
-									"path": ["prospect"]
+									"path": ["manufacturer"]
 								  }
 								},
 								"response": []
 							  },
 							  {
-								"name": "prospect",
+								"name": "manufacturer",
 								"request": {
 								  "method": "PATCH",
 								  "header": [],
 								  "body": {
 									"mode": "raw",
-									"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\",\n    \"notes\": \"Llamar en 2 semanas\"\n}",
+									"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\",\n    \"notes\": \"Temporalmente fuera de línea\"\n}",
 									"options": {
 									  "raw": {
 										"language": "json"
@@ -438,15 +2706,15 @@
 									}
 								  },
 								  "url": {
-									"raw": "{{localhost}}/prospect",
+									"raw": "{{localhost}}/manufacturer",
 									"host": ["{{localhost}}"],
-									"path": ["prospect"]
+									"path": ["manufacturer"]
 								  }
 								},
 								"response": []
 							  },
 							  {
-								"name": "prospect",
+								"name": "manufacturer",
 								"request": {
 								  "method": "DELETE",
 								  "header": [],
@@ -460,13 +2728,679 @@
 									}
 								  },
 								  "url": {
-									"raw": "{{localhost}}/prospect",
+									"raw": "{{localhost}}/manufacturer",
 									"host": ["{{localhost}}"],
-									"path": ["prospect"]
+									"path": ["manufacturer"]
 								  }
 								},
 								"response": []
 							  }
+							]
+						},
+						{
+							"name": "advisor",
+							"item": [
+							  {
+								"name": "advisor",
+								"request": {
+								  "method": "GET",
+								  "header": [],
+								  "url": {
+									"raw": "{{localhost}}/advisor",
+									"host": ["{{localhost}}"],
+									"path": ["advisor"]
+								  }
+								},
+								"response": []
+							  },
+							  {
+								"name": "advisor/paginated",
+								"request": {
+								  "method": "GET",
+								  "header": [],
+								  "url": {
+									"raw": "{{localhost}}/advisor/paginated",
+									"host": ["{{localhost}}"],
+									"path": ["advisor", "paginated"]
+								  }
+								},
+								"response": []
+							  },
+							  {
+								"name": "advisor/filtered",
+								"request": {
+								  "method": "GET",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"status\": \"activo\",\n    \"advisor_type\": \"\"\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/advisor/filtered",
+									"host": ["{{localhost}}"],
+									"path": ["advisor", "filtered"]
+								  }
+								},
+								"response": []
+							  },
+							  {
+								"name": "advisor/listByColumn",
+								"request": {
+								  "method": "GET",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"specialization\": \"Fiscal\"\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/advisor/listByColumn",
+									"host": ["{{localhost}}"],
+									"path": ["advisor", "listByColumn"]
+								  }
+								},
+								"response": []
+							  },
+							  {
+								"name": "advisor/getone",
+								"request": {
+								  "method": "GET",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/advisor/getone",
+									"host": ["{{localhost}}"],
+									"path": ["advisor", "getone"]
+								  }
+								},
+								"response": []
+							  },
+							  {
+								"name": "advisor/preByLike",
+								"request": {
+								  "method": "GET",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"first_name\": \"Carlos\",\n    \"limitqty\": 10\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/advisor/preByLike",
+									"host": ["{{localhost}}"],
+									"path": ["advisor", "preByLike"]
+								  }
+								},
+								"response": []
+							  },
+							  {
+								"name": "advisor",
+								"request": {
+								  "method": "POST",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"first_name\": \"Carlos\",\n    \"last_name\": \"Hernández\",\n    \"email\": \"carlos@asesor.com\",\n    \"phone\": \"5588776644\",\n    \"mobile\": \"5512345678\",\n    \"advisor_type\": \"Fiscal\",\n    \"specialization\": \"Contabilidad\",\n    \"hourly_rate\": 1200.00,\n    \"payment_terms\": \"15 días\",\n    \"status\": \"activo\",\n    \"created_by\": 1,\n    \"created_at\": \"2024-05-28 12:00:00\",\n    \"modified_by\": 1,\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"address\": \"Calle del Asesor 25\",\n    \"city\": \"Querétaro\",\n    \"state\": \"Querétaro\",\n    \"country\": \"México\",\n    \"postal_code\": \"76000\",\n    \"website\": \"https://asesor-ejemplo.com\",\n    \"company\": \"Consultoría Fiscal MX\",\n    \"position\": \"Socio director\",\n    \"credentials\": \"Cédula profesional, Maestría\",\n    \"experience_years\": 18,\n    \"notes\": \"Especialista en fiscalización\",\n    \"tags\": \"fiscal, experto\",\n    \"availability\": \"L-V 9am-6pm\",\n    \"consulting_areas\": \"Auditoría, Impuestos\",\n    \"client_history\": \"Empresas AAA, BBVA\",\n    \"success_metrics\": \"Ahorro fiscal, cumplimiento\",\n    \"banking_info\": \"Cuenta: 987321456, Banco: HSBC\",\n    \"social_media\": \"@carlos_asesor\",\n    \"profile_photo\": \"https://asesor-ejemplo.com/foto.jpg\",\n    \"languages\": \"Español, Inglés\",\n    \"certifications\": \"IMCP, SAT\",\n    \"publications\": \"Revista Fiscal, Blog IMCP\"\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/advisor",
+									"host": ["{{localhost}}"],
+									"path": ["advisor"]
+								  }
+								},
+								"response": []
+							  },
+							  {
+								"name": "advisor",
+								"request": {
+								  "method": "PUT",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1,\n    \"first_name\": \"Lucía\",\n    \"last_name\": \"Ramírez\",\n    \"email\": \"lucia@asesoria.com\",\n    \"phone\": \"5577556699\",\n    \"mobile\": \"5512340099\",\n    \"advisor_type\": \"Legal\",\n    \"specialization\": \"Derecho corporativo\",\n    \"hourly_rate\": 1500.00,\n    \"payment_terms\": \"30 días\",\n    \"status\": \"inactivo\",\n    \"created_by\": 1,\n    \"created_at\": \"2023-06-15 08:00:00\",\n    \"modified_by\": 2,\n    \"updated_at\": \"2024-05-28 15:00:00\",\n    \"address\": \"Av. Legal 100\",\n    \"city\": \"CDMX\",\n    \"state\": \"CDMX\",\n    \"country\": \"México\",\n    \"postal_code\": \"01000\",\n    \"website\": \"https://lucia-asesora.com\",\n    \"company\": \"Legal Consultores\",\n    \"position\": \"Socia\",\n    \"credentials\": \"Cédula, Licenciatura\",\n    \"experience_years\": 10,\n    \"notes\": \"En pausa por proyectos\",\n    \"tags\": \"legal, corporativo\",\n    \"availability\": \"L-V 8am-4pm\",\n    \"consulting_areas\": \"Contratos, Fusiones\",\n    \"client_history\": \"Grupo Legal, Ford\",\n    \"success_metrics\": \"Casos ganados\",\n    \"banking_info\": \"Cuenta: 963258741, Banco: Banorte\",\n    \"social_media\": \"@lucia_asesora\",\n    \"profile_photo\": \"https://lucia-asesora.com/foto.jpg\",\n    \"languages\": \"Español, Francés\",\n    \"certifications\": \"Barra Mexicana\",\n    \"publications\": \"Foro Jurídico\"\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/advisor",
+									"host": ["{{localhost}}"],
+									"path": ["advisor"]
+								  }
+								},
+								"response": []
+							  },
+							  {
+								"name": "advisor",
+								"request": {
+								  "method": "PATCH",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\",\n    \"notes\": \"En pausa por año sabático\"\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/advisor",
+									"host": ["{{localhost}}"],
+									"path": ["advisor"]
+								  }
+								},
+								"response": []
+							  },
+							  {
+								"name": "advisor",
+								"request": {
+								  "method": "DELETE",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/advisor",
+									"host": ["{{localhost}}"],
+									"path": ["advisor"]
+								  }
+								},
+								"response": []
+							  }
+							]
+						},
+						{
+							"name": "institution",
+							"item": [
+							  {
+								"name": "institution",
+								"request": {
+								  "method": "GET",
+								  "header": [],
+								  "url": {
+									"raw": "{{localhost}}/institution",
+									"host": ["{{localhost}}"],
+									"path": ["institution"]
+								  }
+								},
+								"response": []
+							  },
+							  {
+								"name": "institution/paginated",
+								"request": {
+								  "method": "GET",
+								  "header": [],
+								  "url": {
+									"raw": "{{localhost}}/institution/paginated",
+									"host": ["{{localhost}}"],
+									"path": ["institution", "paginated"]
+								  }
+								},
+								"response": []
+							  },
+							  {
+								"name": "institution/filtered",
+								"request": {
+								  "method": "GET",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"institution_type\": \"\"\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/institution/filtered",
+									"host": ["{{localhost}}"],
+									"path": ["institution", "filtered"]
+								  }
+								},
+								"response": []
+							  },
+							  {
+								"name": "institution/listByColumn",
+								"request": {
+								  "method": "GET",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"primary_contact_id\": 1\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/institution/listByColumn",
+									"host": ["{{localhost}}"],
+									"path": ["institution", "listByColumn"]
+								  }
+								},
+								"response": []
+							  },
+							  {
+								"name": "institution/getone",
+								"request": {
+								  "method": "GET",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/institution/getone",
+									"host": ["{{localhost}}"],
+									"path": ["institution", "getone"]
+								  }
+								},
+								"response": []
+							  },
+							  {
+								"name": "institution/preByLike",
+								"request": {
+								  "method": "GET",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Universidad Ejemplo\",\n    \"limitqty\": 10\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/institution/preByLike",
+									"host": ["{{localhost}}"],
+									"path": ["institution", "preByLike"]
+								  }
+								},
+								"response": []
+							  },
+							  {
+								"name": "institution",
+								"request": {
+								  "method": "POST",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Universidad Nacional\",\n    \"email\": \"info@universidad.mx\",\n    \"phone\": \"5588991122\",\n    \"tax_id\": \"UNI123456\",\n    \"institution_type\": \"Educativa\",\n    \"registration_number\": \"REG-UNAM-2024\",\n    \"status\": \"activo\",\n    \"created_by\": 1,\n    \"created_at\": \"2024-05-28 12:00:00\",\n    \"modified_by\": 1,\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"address\": \"Av. Universidad 3000\",\n    \"city\": \"CDMX\",\n    \"state\": \"CDMX\",\n    \"country\": \"México\",\n    \"postal_code\": \"04510\",\n    \"website\": \"https://universidad.mx\",\n    \"primary_contact_id\": 2,\n    \"notes\": \"Institución líder en educación\",\n    \"tags\": \"educativa, nacional\",\n    \"institution_since\": \"1910-09-22\",\n    \"accreditation\": \"SEP, ANUIES\",\n    \"licenses\": \"Licencia SEP 2023\",\n    \"regulatory_compliance\": \"Norma NOM-001\",\n    \"operating_hours\": \"L-V 7am-10pm\",\n    \"services_offered\": \"Licenciaturas, Maestrías\",\n    \"facilities\": \"Bibliotecas, Laboratorios\",\n    \"membership_programs\": \"Alumni, Clubes estudiantiles\",\n    \"partnership_agreements\": \"UNESCO, CONACYT\",\n    \"social_media\": \"@universidadmx\",\n    \"publications\": \"Revista UNAM, Boletines\",\n    \"events\": \"Congresos, Seminarios\",\n    \"funding_sources\": \"Gobierno, Donaciones\",\n    \"governing_body\": \"Rectoría General\",\n    \"mission_statement\": \"Formar profesionistas líderes\",\n    \"annual_reports\": \"Informe anual 2023\"\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/institution",
+									"host": ["{{localhost}}"],
+									"path": ["institution"]
+								  }
+								},
+								"response": []
+							  },
+							  {
+								"name": "institution",
+								"request": {
+								  "method": "PUT",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1,\n    \"name\": \"Universidad Moderna\",\n    \"email\": \"moderna@uni.mx\",\n    \"phone\": \"5588991199\",\n    \"tax_id\": \"UNI654321\",\n    \"institution_type\": \"Tecnológica\",\n    \"registration_number\": \"REG-ITAM-2024\",\n    \"status\": \"inactivo\",\n    \"created_by\": 1,\n    \"created_at\": \"2000-09-22 08:00:00\",\n    \"modified_by\": 2,\n    \"updated_at\": \"2024-05-28 16:00:00\",\n    \"address\": \"Av. ITAM 45\",\n    \"city\": \"CDMX\",\n    \"state\": \"CDMX\",\n    \"country\": \"México\",\n    \"postal_code\": \"01000\",\n    \"website\": \"https://moderna.mx\",\n    \"primary_contact_id\": 3,\n    \"notes\": \"Nueva dirección y estatus\",\n    \"tags\": \"tecnológica, privada\",\n    \"institution_since\": \"2000-09-22\",\n    \"accreditation\": \"SEP, ANUIES\",\n    \"licenses\": \"Licencia SEP 2024\",\n    \"regulatory_compliance\": \"Norma NOM-099\",\n    \"operating_hours\": \"L-V 8am-8pm\",\n    \"services_offered\": \"Ingenierías, MBAs\",\n    \"facilities\": \"Aulas inteligentes, Gimnasio\",\n    \"membership_programs\": \"Red exalumnos\",\n    \"partnership_agreements\": \"Google, Microsoft\",\n    \"social_media\": \"@universidadmoderna\",\n    \"publications\": \"Revista Tech, Noticias\",\n    \"events\": \"Hackathon, Expo\",\n    \"funding_sources\": \"Patrocinios, Inscripciones\",\n    \"governing_body\": \"Consejo Directivo\",\n    \"mission_statement\": \"Innovar la educación superior\",\n    \"annual_reports\": \"Informe anual 2024\"\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/institution",
+									"host": ["{{localhost}}"],
+									"path": ["institution"]
+								  }
+								},
+								"response": []
+							  },
+							  {
+								"name": "institution",
+								"request": {
+								  "method": "PATCH",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\",\n    \"notes\": \"Reestructura en proceso\"\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/institution",
+									"host": ["{{localhost}}"],
+									"path": ["institution"]
+								  }
+								},
+								"response": []
+							  },
+							  {
+								"name": "institution",
+								"request": {
+								  "method": "DELETE",
+								  "header": [],
+								  "body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1\n}",
+									"options": {
+									  "raw": {
+										"language": "json"
+									  }
+									}
+								  },
+								  "url": {
+									"raw": "{{localhost}}/institution",
+									"host": ["{{localhost}}"],
+									"path": ["institution"]
+								  }
+								},
+								"response": []
+							  }
+							]
+						},
+						{
+							"name": "affiliate",
+							"item": [
+								{
+									"name": "affiliate",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/affiliate",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"affiliate"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "affiliate/paginated",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{localhost}}/affiliate/paginated",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"affiliate",
+												"paginated"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "affiliate/filtered",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"\",\n    \"status\": \"activo\",\n    \"email\": \"\",\n    \"affiliate_type\": \"\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/affiliate/filtered",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"affiliate",
+												"filtered"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "affiliate/listByColumn",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"primary_contact_id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/affiliate/listByColumn",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"affiliate",
+												"listByColumn"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "affiliate/getone",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/affiliate/getone",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"affiliate",
+												"getone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "affiliate/preByLike",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Afiliado Ejemplo\",\n    \"limitqty\": 10\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/affiliate/preByLike",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"affiliate",
+												"preByLike"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "affiliate",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Afiliado Ejemplo\",\n    \"email\": \"afiliado@ejemplo.com\",\n    \"phone\": \"5511223344\",\n    \"tax_id\": \"AFI123456\",\n    \"affiliate_type\": \"Comercial\",\n    \"commission_rate\": 7.50,\n    \"payment_terms\": \"30 días\",\n    \"status\": \"activo\",\n    \"created_by\": 1,\n    \"created_at\": \"2024-05-28 12:00:00\",\n    \"modified_by\": 1,\n    \"updated_at\": \"2024-05-28 12:00:00\",\n    \"address\": \"Av. Afiliado 21\",\n    \"city\": \"Toluca\",\n    \"state\": \"Estado de México\",\n    \"country\": \"México\",\n    \"postal_code\": \"50000\",\n    \"website\": \"https://afiliado-ejemplo.com\",\n    \"promotion_channels\": \"Web, Email, Social\",\n    \"primary_contact_id\": 2,\n    \"preferred_payment_method\": \"Transferencia\",\n    \"notes\": \"Afiliado destacado\",\n    \"tags\": \"comercial, top\",\n    \"affiliate_since\": \"2022-08-01\",\n    \"total_referrals\": 150,\n    \"total_earnings\": 50000.00,\n    \"current_month_earnings\": 3000.00,\n    \"banking_info\": \"Cuenta: 333666999, Banco: BBVA\",\n    \"promotion_materials\": \"PDFs, Videos\",\n    \"tracking_code\": \"TRACK2024\",\n    \"performance_metrics\": \"Ventas, conversiones\",\n    \"social_media\": \"@afiliado_ejemplo\",\n    \"promotion_areas\": \"Centro, Sur\",\n    \"target_audience\": \"PYMES, Startups\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/affiliate",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"affiliate"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "affiliate",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"name\": \"Afiliado Actualizado\",\n    \"email\": \"nuevo@afiliado.com\",\n    \"phone\": \"5511223355\",\n    \"tax_id\": \"AFI654321\",\n    \"affiliate_type\": \"Publicidad\",\n    \"commission_rate\": 8.00,\n    \"payment_terms\": \"60 días\",\n    \"status\": \"inactivo\",\n    \"created_by\": 1,\n    \"created_at\": \"2022-08-01 09:00:00\",\n    \"modified_by\": 2,\n    \"updated_at\": \"2024-05-28 14:00:00\",\n    \"address\": \"Calle Actualizada 30\",\n    \"city\": \"Guadalajara\",\n    \"state\": \"Jalisco\",\n    \"country\": \"México\",\n    \"postal_code\": \"44100\",\n    \"website\": \"https://afiliado-nuevo.com\",\n    \"promotion_channels\": \"TV, Radio\",\n    \"primary_contact_id\": 3,\n    \"preferred_payment_method\": \"Cheque\",\n    \"notes\": \"Ahora es publicidad\",\n    \"tags\": \"publicidad, nuevo\",\n    \"affiliate_since\": \"2021-03-10\",\n    \"total_referrals\": 300,\n    \"total_earnings\": 95000.00,\n    \"current_month_earnings\": 7000.00,\n    \"banking_info\": \"Cuenta: 222555888, Banco: Santander\",\n    \"promotion_materials\": \"Banners, Flyers\",\n    \"tracking_code\": \"TRACK2025\",\n    \"performance_metrics\": \"Leads, ventas\",\n    \"social_media\": \"@afiliado_nuevo\",\n    \"promotion_areas\": \"Norte, Este\",\n    \"target_audience\": \"Empresas grandes\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/affiliate",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"affiliate"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "affiliate",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1,\n    \"status\": \"inactivo\",\n    \"notes\": \"Periodo de baja\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/affiliate",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"affiliate"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "affiliate",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{localhost}}/affiliate",
+											"host": [
+												"{{localhost}}"
+											],
+											"path": [
+												"affiliate"
+											]
+										}
+									},
+									"response": []
+								}
 							]
 						},
 						{
