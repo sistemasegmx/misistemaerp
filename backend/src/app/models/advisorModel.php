@@ -4,6 +4,7 @@ namespace src\app\models;
 
 class advisorModel extends baseModel
 {
+    private static $table_name = 'advisor';
     public $id;
     public $first_name;
     public $last_name;
@@ -15,6 +16,8 @@ class advisorModel extends baseModel
     public $hourly_rate;
     public $payment_terms;
     public $status;
+    public $created_by;
+    public $modified_by;
     public $created_at;
     public $updated_at;
     public $address;
@@ -39,4 +42,9 @@ class advisorModel extends baseModel
     public $languages;
     public $certifications;
     public $publications;
+
+    public static function getTableName()
+    {
+        return self::$table_name;
+    }
 } 

@@ -4,6 +4,7 @@ namespace src\app\models;
 
 class distributorModel extends baseModel
 {
+    private static $table_name = 'distributor';
     public $id;
     public $name;
     public $email;
@@ -14,6 +15,8 @@ class distributorModel extends baseModel
     public $payment_terms;
     public $credit_limit;
     public $status;
+    public $created_by;
+    public $modified_by;
     public $created_at;
     public $updated_at;
     public $address;
@@ -36,4 +39,9 @@ class distributorModel extends baseModel
     public $inventory_capacity;
     public $transportation_fleet;
     public $service_coverage;
+
+    public static function getTableName()
+    {
+        return self::$table_name;
+    }
 } 

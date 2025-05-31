@@ -4,6 +4,7 @@ namespace src\app\models;
 
 class institutionModel extends baseModel
 {
+    private static $table_name = 'institution';
     public $id;
     public $name;
     public $email;
@@ -12,6 +13,8 @@ class institutionModel extends baseModel
     public $institution_type;
     public $registration_number;
     public $status;
+    public $created_by;
+    public $modified_by;
     public $created_at;
     public $updated_at;
     public $address;
@@ -39,4 +42,9 @@ class institutionModel extends baseModel
     public $governing_body;
     public $mission_statement;
     public $annual_reports;
-} 
+
+    public static function getTableName()
+    {
+        return self::$table_name;
+    }
+}

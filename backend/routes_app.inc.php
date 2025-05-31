@@ -431,16 +431,13 @@ $router->delete('/institution', institutionController::class . '::hardDelete');
 | Roles & Permissions
 |--------------------------------------------------------------------------
 */
-use src\controllers\RoleController;
-use src\middleware\PermissionMiddleware;
+/* use src\controllers\RoleController;
 
-$router->group('/roles', function($router) {
-    $router->get('/', RoleController::class . '::getAllRoles');
-    $router->get('/{id}', RoleController::class . '::getRole');
-    $router->post('/', RoleController::class . '::createRole');
-    $router->put('/{id}', RoleController::class . '::updateRole');
-    $router->delete('/{id}', RoleController::class . '::deleteRole');
-    $router->get('/{id}/permissions', RoleController::class . '::getRolePermissions');
-    $router->post('/{id}/permissions/{permissionId}', RoleController::class . '::assignPermission');
-    $router->delete('/{id}/permissions/{permissionId}', RoleController::class . '::removePermission');
-});
+$router->get('/roles/', RoleController::class . '::getAllRoles');
+$router->get('/roles/{id}', RoleController::class . '::getRole');
+$router->post('/roles/', RoleController::class . '::createRole');
+$router->put('/roles/{id}', RoleController::class . '::updateRole');
+$router->delete('/roles/{id}', RoleController::class . '::deleteRole');
+$router->get('/roles/{id}/permissions', RoleController::class . '::getRolePermissions');
+$router->post('/roles/{id}/permissions/{permissionId}', RoleController::class . '::assignPermission');
+$router->delete('/roles/{id}/permissions/{permissionId}', RoleController::class . '::removePermission'); */

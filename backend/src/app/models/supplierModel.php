@@ -4,6 +4,7 @@ namespace src\app\models;
 
 class supplierModel extends baseModel
 {
+    private static $table_name = 'supplier';
     public $id;
     public $name;
     public $email;
@@ -13,6 +14,8 @@ class supplierModel extends baseModel
     public $payment_terms;
     public $credit_limit;
     public $status;
+    public $created_by;
+    public $modified_by;
     public $created_at;
     public $updated_at;
     public $last_order_date;
@@ -33,4 +36,9 @@ class supplierModel extends baseModel
     public $price_rating;
     public $certifications;
     public $banking_info;
+
+    public static function getTableName()
+    {
+        return self::$table_name;
+    }
 } 

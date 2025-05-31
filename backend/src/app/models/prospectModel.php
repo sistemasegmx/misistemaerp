@@ -4,6 +4,7 @@ namespace src\app\models;
 
 class prospectModel extends baseModel
 {
+    private static $table_name = 'prospect';
     public $id;
     public $name;
     public $email;
@@ -14,6 +15,8 @@ class prospectModel extends baseModel
     public $source;
     public $notes;
     public $status;
+    public $created_by;
+    public $modified_by;
     public $created_at;
     public $updated_at;
     public $last_contact_date;
@@ -29,4 +32,9 @@ class prospectModel extends baseModel
     public $social_media;
     public $preferred_contact_method;
     public $tags;
+
+    public static function getTableName()
+    {
+        return self::$table_name;
+    }
 } 
